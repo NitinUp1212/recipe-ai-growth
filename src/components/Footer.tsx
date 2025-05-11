@@ -10,6 +10,10 @@ const Footer = () => {
           <div>
             <h3 className="text-2xl font-bold mb-6">FlavorDish<span className="text-neon">.</span></h3>
             <p className="mb-6 text-gray-300">We cook up delicious growth strategies with AI + Performance to help your business thrive.</p>
+            <div className="bg-primary/10 text-neon p-3 rounded-md border border-neon/30 mb-6 animate-pulse">
+              <p className="font-medium">📢 We are a 100% virtual company!</p>
+              <p className="text-sm text-gray-300 mt-1">Serving clients globally with our remote team of experts.</p>
+            </div>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-300 hover:text-neon">
                 <Facebook size={20} />
