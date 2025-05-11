@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -52,6 +53,10 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				neon: {
+					DEFAULT: '#ACFF33',
+					muted: '#DAFF8B'
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -84,11 +89,30 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-10px)' },
+				},
+				'fade-in': {
+					from: { opacity: '0', transform: 'translateY(20px)' },
+					to: { opacity: '1', transform: 'translateY(0)' }
+				},
+				'pulse-neon': {
+					'0%, 100%': { boxShadow: '0 0 5px #ACFF33' },
+					'50%': { boxShadow: '0 0 20px #ACFF33' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'float': 'float 6s ease-in-out infinite',
+				'fade-in': 'fade-in 0.7s ease-out forwards',
+				'pulse-neon': 'pulse-neon 2s infinite'
+			},
+			fontFamily: {
+				sans: ['Inter', 'sans-serif'],
+				display: ['Montserrat', 'sans-serif']
 			}
 		}
 	},
