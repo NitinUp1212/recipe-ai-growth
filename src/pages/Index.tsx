@@ -1,10 +1,10 @@
-
 import { NavLink } from "react-router-dom";
 import { ArrowDown, BarChart3, Search, Globe, MessageSquare, Bot, LineChart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import RecipeCard from "@/components/RecipeCard";
 import TestimonialCard from "@/components/TestimonialCard";
 import CallToAction from "@/components/CallToAction";
+import StartupPackage from "@/components/StartupPackage";
 
 const Index = () => {
   const services = [
@@ -171,6 +171,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+      
+      {/* Startup Package Section */}
+      <StartupPackage />
       
       {/* How It Works Section */}
       <section className="py-20 md:py-28">

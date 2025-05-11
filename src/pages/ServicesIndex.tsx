@@ -1,7 +1,7 @@
-
 import { BarChart3, Search, Globe, MessageSquare, Bot, LineChart } from "lucide-react";
 import RecipeCard from "@/components/RecipeCard";
 import CallToAction from "@/components/CallToAction";
+import StartupPackage from "@/components/StartupPackage";
 
 const ServicesIndex = () => {
   const services = [
@@ -80,6 +80,9 @@ const ServicesIndex = () => {
           </div>
         </div>
       </section>
+      
+      {/* Startup Package Section */}
+      <StartupPackage />
       
       {/* Process Section */}
       <section className="py-20 bg-gray-50">
