@@ -4,231 +4,661 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Performance Marketing Pie - FlavorDish</title>
-    <link rel="stylesheet" href="../styles.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide-icons@latest/dist/umd/lucide.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+    <title>Performance Marketing Pie - FlavorDish Agency</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/services.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .service-detail-hero {
+            padding-top: 150px;
+            padding-bottom: 80px;
+            background: linear-gradient(135deg, rgba(0, 123, 255, 0.05), rgba(172, 255, 51, 0.05));
+        }
+        
+        .service-detail-hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .service-detail-hero p {
+            font-size: 18px;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 20px;
+        }
+        
+        .ingredients-section,
+        .steps-section,
+        .serving-section,
+        .garnish-section,
+        .variations-section {
+            padding: 80px 0;
+        }
+        
+        .ingredients-section {
+            background-color: var(--white);
+        }
+        
+        .steps-section {
+            background-color: var(--gray-light);
+        }
+        
+        .serving-section {
+            background-color: var(--white);
+        }
+        
+        .garnish-section {
+            background-color: var(--gray-light);
+        }
+        
+        .variations-section {
+            background-color: var(--white);
+        }
+        
+        .ingredients-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .ingredient-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 30px;
+            transition: var(--transition);
+            text-align: center;
+        }
+        
+        .ingredient-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .ingredient-icon {
+            font-size: 40px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .ingredient-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .steps-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .step-item {
+            display: flex;
+            margin-bottom: 40px;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            margin-right: 30px;
+            flex-shrink: 0;
+        }
+        
+        .step-content h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+        
+        .business-types {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        
+        .business-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 30px;
+            transition: var(--transition);
+        }
+        
+        .business-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .business-icon {
+            font-size: 40px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .ai-integration {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .ai-content {
+            flex: 1;
+        }
+        
+        .ai-image {
+            flex: 1;
+            position: relative;
+        }
+        
+        .ai-image img {
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .case-studies {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        
+        .case-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        
+        .case-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .case-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .case-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .case-card:hover .case-image img {
+            transform: scale(1.1);
+        }
+        
+        .case-content {
+            padding: 30px;
+        }
+        
+        .case-content h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+        
+        .case-metrics {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .metric {
+            background-color: var(--gray-light);
+            padding: 15px;
+            border-radius: var(--border-radius-sm);
+            text-align: center;
+        }
+        
+        .metric-value {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .metric-label {
+            font-size: 14px;
+            color: var(--gray);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .ingredients-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .ai-integration {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .case-studies {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .service-detail-hero h1 {
+                font-size: 36px;
+            }
+            
+            .ingredients-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .business-types {
+                grid-template-columns: 1fr;
+            }
+            
+            .step-item {
+                flex-direction: column;
+            }
+            
+            .step-number {
+                margin-bottom: 20px;
+                margin-right: 0;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Navbar -->
+    <!-- Anime-inspired Background Elements -->
+    <div class="anime-background">
+        <div class="titan-element" data-aos="fade-in"></div>
+        <div class="naruto-element" data-aos="fade-in" data-aos-delay="300"></div>
+        <div class="chakra-circle"></div>
+    </div>
+
+    <!-- Header/Navbar -->
     <header class="navbar">
-        <div class="container-custom">
+        <div class="container">
             <div class="navbar-content">
-                <a href="../index.html" class="navbar-logo">
-                    FlavorDish<span class="text-neon">.</span>
+                <a href="../index.html" class="logo">
+                    <span class="gradient-text">FlavorDish</span>
                 </a>
-
-                <!-- Desktop Navigation -->
-                <nav class="navbar-desktop">
-                    <a href="../index.html" class="nav-link">Home</a>
-                    <a href="../services.html" class="nav-link active">Recipe Book</a>
-                    <a href="../ai-agent.html" class="nav-link">AI Agent</a>
-                    <a href="../case-studies.html" class="nav-link">Taste Test</a>
-                    <a href="../about.html" class="nav-link">Meet the Chef</a>
-                    <a href="../contact.html" class="nav-link">Contact</a>
+                <nav class="nav-links">
+                    <a href="../index.html">Home</a>
+                    <a href="../services.html" class="active">Recipe Book</a>
+                    <a href="../ai-agent.html">AI Agents</a>
+                    <a href="../case-studies.html">Taste Tests</a>
+                    <a href="../about.html">Meet the Chef</a>
+                    <a href="../contact.html" class="cta-link">Contact</a>
                 </nav>
-
-                <div class="navbar-cta-desktop">
-                    <a href="../contact.html" class="btn btn-primary">Get Your Free Audit</a>
-                </div>
-
-                <!-- Mobile Menu Button -->
-                <button class="navbar-mobile-toggle" aria-label="Toggle menu">
-                    <i data-lucide="menu" class="mobile-menu-icon"></i>
-                    <i data-lucide="x" class="mobile-close-icon hidden"></i>
+                <button class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </button>
             </div>
         </div>
-
-        <!-- Mobile Navigation -->
-        <div class="navbar-mobile hidden">
-            <nav class="navbar-mobile-nav">
-                <a href="../index.html" class="nav-link">Home</a>
-                <a href="../services.html" class="nav-link active">Recipe Book</a>
-                <a href="../ai-agent.html" class="nav-link">AI Agent</a>
-                <a href="../case-studies.html" class="nav-link">Taste Test</a>
-                <a href="../about.html" class="nav-link">Meet the Chef</a>
-                <a href="../contact.html" class="nav-link">Contact</a>
-                <a href="../contact.html" class="btn btn-primary mobile-btn">Get Your Free Audit</a>
-            </nav>
-        </div>
     </header>
 
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav">
+        <div class="mobile-nav-container">
+            <a href="../index.html">Home</a>
+            <a href="../services.html">Recipe Book</a>
+            <a href="../ai-agent.html">AI Agents</a>
+            <a href="../case-studies.html">Taste Tests</a>
+            <a href="../about.html">Meet the Chef</a>
+            <a href="../contact.html">Contact</a>
+        </div>
+    </div>
+
     <!-- Hero Section -->
-    <section class="service-hero">
-        <div class="container-custom">
-            <div class="text-center max-w-3xl mx-auto">
-                <h1 class="service-hero-title" data-aos="fade-up">Performance Marketing Pie</h1>
-                <p class="service-hero-description" data-aos="fade-up" data-aos-delay="200">
-                    A delicious mix of paid ads across platforms to drive high-quality leads and sales.
-                </p>
-            </div>
+    <section class="service-detail-hero">
+        <div class="container text-center">
+            <h1 data-aos="fade-up">Performance Marketing Pie</h1>
+            <p data-aos="fade-up" data-aos-delay="200">A delicious mix of paid ads across platforms to drive high-quality leads and sales.</p>
+            <a href="../contact.html" class="btn btn-primary" data-aos="fade-up" data-aos-delay="300">Get My Strategy</a>
         </div>
     </section>
-
-    <!-- Features Section -->
-    <section class="service-features">
-        <div class="container-custom">
-            <div class="service-features-grid">
-                <!-- Features List -->
-                <div data-aos="fade-up">
-                    <h2 class="service-section-title">Key Features</h2>
-                    <ul class="feature-list">
-                        <li class="feature-item" data-aos="fade-left" data-aos-delay="100">
-                            <i data-lucide="check" class="feature-icon"></i>
-                            <span>AI-powered campaign optimization</span>
-                        </li>
-                        <li class="feature-item" data-aos="fade-left" data-aos-delay="200">
-                            <i data-lucide="check" class="feature-icon"></i>
-                            <span>Real-time performance tracking</span>
-                        </li>
-                        <li class="feature-item" data-aos="fade-left" data-aos-delay="300">
-                            <i data-lucide="check" class="feature-icon"></i>
-                            <span>Custom audience segmentation</span>
-                        </li>
-                        <li class="feature-item" data-aos="fade-left" data-aos-delay="400">
-                            <i data-lucide="check" class="feature-icon"></i>
-                            <span>Multi-channel ad management</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Benefits List -->
-                <div data-aos="fade-up" data-aos-delay="200">
-                    <h2 class="service-section-title">Key Benefits</h2>
-                    <ul class="feature-list">
-                        <li class="feature-item" data-aos="fade-left" data-aos-delay="100">
-                            <i data-lucide="check" class="feature-icon"></i>
-                            <span>Increased lead generation</span>
-                        </li>
-                        <li class="feature-item" data-aos="fade-left" data-aos-delay="200">
-                            <i data-lucide="check" class="feature-icon"></i>
-                            <span>Improved conversion rates</span>
-                        </li>
-                        <li class="feature-item" data-aos="fade-left" data-aos-delay="300">
-                            <i data-lucide="check" class="feature-icon"></i>
-                            <span>Higher ROI on ad spend</span>
-                        </li>
-                        <li class="feature-item" data-aos="fade-left" data-aos-delay="400">
-                            <i data-lucide="check" class="feature-icon"></i>
-                            <span>Data-driven decision making</span>
-                        </li>
-                    </ul>
-                </div>
+    
+    <!-- Ingredients Section -->
+    <section class="ingredients-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Ingredients</h2>
+                <p>The tools and platforms we use to create your Performance Marketing Pie</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Why Choose Us Section -->
-    <section class="service-why-us">
-        <div class="container-custom">
-            <div class="text-center max-w-3xl mx-auto">
-                <h2 class="service-section-title" data-aos="fade-up">Why Choose FlavorDish for Performance Marketing Pie?</h2>
-                <p class="service-section-description" data-aos="fade-up" data-aos-delay="200">
-                    We combine cutting-edge AI technology with proven marketing strategies to deliver exceptional results.
-                </p>
-                <a href="../contact.html" class="btn btn-primary btn-lg" data-aos="fade-up" data-aos-delay="400">
-                    Get Started Now
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Call to Action -->
-    <section class="cta-section">
-        <div class="container-custom">
-            <div class="cta-container" data-aos="fade-up">
-                <div class="cta-content">
-                    <h2 class="cta-title">Ready to Cook Your Growth Strategy?</h2>
-                    <p class="cta-subtitle">Get a free audit and recipe recommendation for your business</p>
-                    <a href="../contact.html" class="btn btn-primary btn-lg">Get My Strategy Now</a>
+            
+            <div class="ingredients-list" data-aos="fade-up" data-aos-delay="200">
+                <div class="ingredient-card">
+                    <div class="ingredient-icon">
+                        <i class="fab fa-facebook"></i>
+                    </div>
+                    <h3>Meta Ads Platform</h3>
+                    <p>Facebook and Instagram ads targeting your ideal customers with precision.</p>
                 </div>
                 
-                <!-- Decorative elements -->
-                <div class="cta-shape cta-shape-1"></div>
-                <div class="cta-shape cta-shape-2"></div>
+                <div class="ingredient-card">
+                    <div class="ingredient-icon">
+                        <i class="fab fa-google"></i>
+                    </div>
+                    <h3>Google Ads</h3>
+                    <p>Search, Display, and YouTube ads that capture high-intent traffic.</p>
+                </div>
+                
+                <div class="ingredient-card">
+                    <div class="ingredient-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI Bidding Tools</h3>
+                    <p>Advanced algorithms that optimize your ad spend in real-time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Steps Section -->
+    <section class="steps-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Step-by-Step Process</h2>
+                <p>How we prepare your Performance Marketing Pie for maximum results</p>
+            </div>
+            
+            <div class="steps-list" data-aos="fade-up" data-aos-delay="200">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Audience Research & Segmentation</h3>
+                        <p>We identify your ideal customer profiles and create targeted audience segments based on demographics, interests, behaviors, and buying intent.</p>
+                    </div>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Campaign Structure & Setup</h3>
+                        <p>We design a comprehensive campaign structure across multiple platforms, with proper tracking and conversion goals in place.</p>
+                    </div>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Creative Development</h3>
+                        <p>Our team develops compelling ad creative, including images, videos, and copy that resonate with your target audience.</p>
+                    </div>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Launch & Initial Optimization</h3>
+                        <p>We launch campaigns and closely monitor performance during the first 7-14 days, making rapid adjustments to improve results.</p>
+                    </div>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Scaling & Long-term Optimization</h3>
+                        <p>We scale successful campaigns, refine audience targeting, and continuously optimize for better ROAS over time.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Serving Suggestion Section -->
+    <section class="serving-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Serving Suggestion</h2>
+                <p>This recipe works best for these types of businesses</p>
+            </div>
+            
+            <div class="business-types" data-aos="fade-up" data-aos-delay="200">
+                <div class="business-card">
+                    <div class="business-icon">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <h3>E-commerce & Retail</h3>
+                    <p>Perfect for online stores and retail businesses looking to increase sales, improve ROAS, and reduce customer acquisition costs.</p>
+                    <ul class="mt-4">
+                        <li>Product-focused creative</li>
+                        <li>Shopping campaigns</li>
+                        <li>Retargeting flows</li>
+                    </ul>
+                </div>
+                
+                <div class="business-card">
+                    <div class="business-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3>SaaS & B2B Services</h3>
+                    <p>Ideal for software companies and B2B service providers looking to generate qualified leads and demos.</p>
+                    <ul class="mt-4">
+                        <li>Lead generation focus</li>
+                        <li>Webinar & demo promotion</li>
+                        <li>Content marketing amplification</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Garnish Section (AI Role) -->
+    <section class="garnish-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>AI Garnish</h2>
+                <p>How AI enhances your Performance Marketing strategy</p>
+            </div>
+            
+            <div class="ai-integration" data-aos="fade-up" data-aos-delay="200">
+                <div class="ai-content">
+                    <h3>AI-Powered Bid Management</h3>
+                    <p>Our AI algorithms analyze thousands of data points to optimize your bids in real-time, ensuring you get the best results for your budget.</p>
+                    
+                    <h3 class="mt-5">Automated Creative Testing</h3>
+                    <p>AI helps us test multiple creative variations simultaneously and identify winners faster than traditional methods.</p>
+                    
+                    <h3 class="mt-5">Predictive Analytics</h3>
+                    <p>Advanced AI models help predict which audience segments and channels will deliver the highest ROI before you spend your budget.</p>
+                </div>
+                
+                <div class="ai-image">
+                    <img src="../assets/ai-marketing.jpg" alt="AI Marketing Visualization">
+                    
+                    <!-- Anime Effect for AI -->
+                    <div class="anime-titan-power"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Variations (Case Studies) Section -->
+    <section class="variations-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Variations & Case Studies</h2>
+                <p>Real results from our Performance Marketing Pie</p>
+            </div>
+            
+            <div class="case-studies" data-aos="fade-up" data-aos-delay="200">
+                <div class="case-card">
+                    <div class="case-image">
+                        <img src="../assets/case-study-1.jpg" alt="E-commerce Case Study">
+                    </div>
+                    <div class="case-content">
+                        <h3>Fashion E-commerce Brand</h3>
+                        <p>A direct-to-consumer fashion brand needed to scale its customer acquisition while maintaining profitability.</p>
+                        
+                        <div class="case-metrics">
+                            <div class="metric">
+                                <div class="metric-value">3.2x</div>
+                                <div class="metric-label">ROAS</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">47%</div>
+                                <div class="metric-label">CPA Reduction</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">2.8x</div>
+                                <div class="metric-label">Revenue Growth</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">₹12L</div>
+                                <div class="metric-label">Monthly Ad Spend</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="case-card">
+                    <div class="case-image">
+                        <img src="../assets/case-study-2.jpg" alt="SaaS Case Study">
+                    </div>
+                    <div class="case-content">
+                        <h3>B2B SaaS Platform</h3>
+                        <p>A growing SaaS company needed to generate more qualified demo requests from decision-makers.</p>
+                        
+                        <div class="case-metrics">
+                            <div class="metric">
+                                <div class="metric-value">187%</div>
+                                <div class="metric-label">Lead Increase</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">42%</div>
+                                <div class="metric-label">Cost Per Lead Reduction</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">24%</div>
+                                <div class="metric-label">Demo-to-Sale Conversion</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">₹8L</div>
+                                <div class="metric-label">Monthly Ad Spend</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-container" data-aos="fade-up">
+                <!-- Anime-inspired background effects -->
+                <div class="cta-anime-bg">
+                    <div class="anime-circle-1"></div>
+                    <div class="anime-circle-2"></div>
+                </div>
+                
+                <h2>Ready to Cook Your Performance Marketing Pie?</h2>
+                <p>Get a free audit and strategy recommendation for your business</p>
+                <a href="../contact.html" class="btn btn-neon-large">Get My Strategy Now</a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container-custom">
-            <div class="footer-grid">
-                <div class="footer-info">
-                    <h3 class="footer-logo">FlavorDish<span class="text-neon">.</span></h3>
-                    <p class="footer-description">We cook up delicious growth strategies with AI + Performance to help your business thrive.</p>
-                    <div class="virtual-notice">
-                        <p class="virtual-badge">📢 We are a 100% virtual company!</p>
-                        <p class="virtual-text">Serving clients globally with our remote team of experts.</p>
-                    </div>
-                    <div class="footer-social">
-                        <a href="#" class="social-link">
-                            <i data-lucide="facebook" class="icon-sm"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i data-lucide="instagram" class="icon-sm"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i data-lucide="linkedin" class="icon-sm"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i data-lucide="twitter" class="icon-sm"></i>
-                        </a>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="../index.html" class="footer-logo">
+                        <span class="gradient-text">FlavorDish</span>
+                    </a>
+                    <p>Digital marketing recipes that deliver measurable results through the perfect blend of AI innovation and proven strategies.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
                 
                 <div class="footer-links">
-                    <h4 class="footer-heading">Recipe Book</h4>
-                    <ul class="footer-link-list">
-                        <li><a href="performance-marketing.html">Performance Marketing Pie</a></li>
-                        <li><a href="seo.html">SEO Spice Mix</a></li>
-                        <li><a href="social-media.html">Social Media Sizzler</a></li>
-                        <li><a href="messaging.html">WhatsApp & Email Masala</a></li>
-                        <li><a href="ai-agent.html">AI Agent Sauce</a></li>
-                        <li><a href="website-funnel.html">Website Funnel Delight</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-links">
-                    <h4 class="footer-heading">Quick Links</h4>
-                    <ul class="footer-link-list">
-                        <li><a href="../index.html">Home</a></li>
-                        <li><a href="../about.html">Meet the Chef</a></li>
-                        <li><a href="../case-studies.html">Taste Test</a></li>
-                        <li><a href="../ai-agent.html">AI Agent</a></li>
-                        <li><a href="../contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-contact">
-                    <h4 class="footer-heading">Contact Us</h4>
-                    <ul class="contact-list">
-                        <li class="contact-item">
-                            <i data-lucide="map-pin" class="icon-sm"></i>
-                            <span>123 Marketing Street, Digital City, 10001</span>
-                        </li>
-                        <li class="contact-item">
-                            <i data-lucide="phone" class="icon-sm"></i>
-                            <span>+91 98765 43210</span>
-                        </li>
-                        <li class="contact-item">
-                            <i data-lucide="mail" class="icon-sm"></i>
-                            <span>hello@flavordish.com</span>
-                        </li>
-                    </ul>
+                    <div class="footer-link-group">
+                        <h4>Recipes</h4>
+                        <a href="../services/performance-marketing.html">Performance Marketing</a>
+                        <a href="../services/seo.html">SEO Services</a>
+                        <a href="../services/social-media.html">Social Media</a>
+                        <a href="../services/ai-agent.html">AI Agents</a>
+                    </div>
+                    
+                    <div class="footer-link-group">
+                        <h4>Company</h4>
+                        <a href="../about.html">About Us</a>
+                        <a href="../case-studies.html">Case Studies</a>
+                        <a href="../contact.html">Contact</a>
+                        <a href="../privacy.html">Privacy Policy</a>
+                    </div>
+                    
+                    <div class="footer-link-group">
+                        <h4>Contact</h4>
+                        <p><i class="fas fa-envelope"></i> hello@flavordish.com</p>
+                        <p><i class="fas fa-phone"></i> +91 9876543210</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Virtual Office Worldwide</p>
+                    </div>
                 </div>
             </div>
             
-            <div class="footer-copyright">
-                <p>&copy; <span id="currentYear"></span> FlavorDish. All rights reserved.</p>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear">2025</span> FlavorDish Agency. All rights reserved.</p>
+                <p>Virtual Company: Our team works remotely across the globe.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Chatbot -->
+    <div class="chatbot">
+        <div class="chatbot-toggle">
+            <i class="fas fa-comment"></i>
+            <i class="fas fa-times"></i>
+        </div>
+        
+        <div class="chatbot-container">
+            <div class="chatbot-header">
+                <h3>FlavorDish Assistant</h3>
+                <p>We'll help you find the perfect recipe</p>
+            </div>
+            
+            <div class="chatbot-messages">
+                <div class="message bot-message">
+                    Aapko kis recipe mein interest hai?
+                </div>
+            </div>
+            
+            <div class="chatbot-options" id="chatbotOptions">
+                <button class="chatbot-option">Ads</button>
+                <button class="chatbot-option">SEO</button>
+                <button class="chatbot-option">Website</button>
+                <button class="chatbot-option">WhatsApp Marketing</button>
+            </div>
+            
+            <div class="chatbot-input">
+                <input type="text" placeholder="Type a message..." id="chatbotUserInput">
+                <button id="chatbotSend"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
     <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    <script src="../scripts.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../js/main.js"></script>
 </body>
 </html>

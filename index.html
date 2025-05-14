@@ -4,646 +4,593 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FlavorDish - Digital Marketing Recipes</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide-icons@latest/dist/umd/lucide.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+    <title>FlavorDish Agency - Digital Marketing Recipes</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Navbar -->
+    <!-- Anime-inspired Background Elements -->
+    <div class="anime-background">
+        <div class="titan-element" data-aos="fade-in"></div>
+        <div class="naruto-element" data-aos="fade-in" data-aos-delay="300"></div>
+        <div class="chakra-circle"></div>
+    </div>
+
+    <!-- Header/Navbar -->
     <header class="navbar">
-        <div class="container-custom">
+        <div class="container">
             <div class="navbar-content">
-                <a href="index.html" class="navbar-logo">
-                    FlavorDish<span class="text-neon">.</span>
+                <a href="index.html" class="logo">
+                    <span class="gradient-text">FlavorDish</span>
                 </a>
-
-                <!-- Desktop Navigation -->
-                <nav class="navbar-desktop">
-                    <a href="index.html" class="nav-link active">Home</a>
-                    <a href="services.html" class="nav-link">Recipe Book</a>
-                    <a href="ai-agent.html" class="nav-link">AI Agent</a>
-                    <a href="case-studies.html" class="nav-link">Taste Test</a>
-                    <a href="about.html" class="nav-link">Meet the Chef</a>
-                    <a href="contact.html" class="nav-link">Contact</a>
+                <nav class="nav-links">
+                    <a href="index.html" class="active">Home</a>
+                    <a href="services.html">Recipe Book</a>
+                    <a href="ai-agent.html">AI Agents</a>
+                    <a href="case-studies.html">Taste Tests</a>
+                    <a href="about.html">Meet the Chef</a>
+                    <a href="contact.html" class="cta-link">Contact</a>
                 </nav>
-
-                <div class="navbar-cta-desktop">
-                    <a href="contact.html" class="btn btn-primary">Get Your Free Audit</a>
-                </div>
-
-                <!-- Mobile Menu Button -->
-                <button class="navbar-mobile-toggle" aria-label="Toggle menu">
-                    <i data-lucide="menu" class="mobile-menu-icon"></i>
-                    <i data-lucide="x" class="mobile-close-icon hidden"></i>
+                <button class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </button>
             </div>
         </div>
-
-        <!-- Mobile Navigation -->
-        <div class="navbar-mobile hidden">
-            <nav class="navbar-mobile-nav">
-                <a href="index.html" class="nav-link active">Home</a>
-                <a href="services.html" class="nav-link">Recipe Book</a>
-                <a href="ai-agent.html" class="nav-link">AI Agent</a>
-                <a href="case-studies.html" class="nav-link">Taste Test</a>
-                <a href="about.html" class="nav-link">Meet the Chef</a>
-                <a href="contact.html" class="nav-link">Contact</a>
-                <a href="contact.html" class="btn btn-primary mobile-btn">Get Your Free Audit</a>
-            </nav>
-        </div>
     </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav">
+        <div class="mobile-nav-container">
+            <a href="index.html">Home</a>
+            <a href="services.html">Recipe Book</a>
+            <a href="ai-agent.html">AI Agents</a>
+            <a href="case-studies.html">Taste Tests</a>
+            <a href="about.html">Meet the Chef</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero-section">
-        <div class="container-custom">
-            <div class="hero-grid">
-                <div class="hero-content">
-                    <h1 class="hero-title">
-                        Cook your growth strategy with <span class="gradient-text">AI + Performance</span>
-                    </h1>
-                    <p class="hero-subtitle">
-                        Digital marketing recipes that deliver measurable results through the perfect blend of AI innovation and proven strategies.
-                    </p>
-                    <div class="hero-cta">
-                        <a href="contact.html" class="btn btn-primary">Get Your Free Audit</a>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text" data-aos="fade-up">
+                    <h1>Cook your growth strategy with <span class="gradient-text">AI + Performance</span></h1>
+                    <p>Digital marketing recipes that deliver measurable results through the perfect blend of AI innovation and proven strategies.</p>
+                    <div class="hero-buttons">
+                        <a href="contact.html" class="btn btn-primary pulse-animation">Get Your Free Audit</a>
                         <a href="services.html" class="btn btn-outline">Explore Our Recipes</a>
                     </div>
                 </div>
                 
-                <div class="hero-image-container">
-                    <div class="hero-image-wrapper">
-                        <img 
-                            src="https://images.unsplash.com/photo-1499750310107-5fef28a66643" 
-                            alt="Digital Marketing Recipe Book" 
-                            class="hero-image"
-                        />
-                        <div class="badge-ai">AI-Powered</div>
+                <div class="hero-image" data-aos="fade-left" data-aos-delay="200">
+                    <div class="recipe-book-container">
+                        <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643" alt="Digital Marketing Recipe Book">
+                        <div class="badge">AI-Powered</div>
                     </div>
                     
-                    <!-- Floating elements -->
-                    <div class="floating-stat floating-stat-1">
-                        <div class="stat-content">
-                            <div class="stat-dot green"></div>
-                            <span class="stat-value">+127%</span>
-                            <span class="stat-label">ROI</span>
-                        </div>
+                    <!-- Floating stats -->
+                    <div class="floating-stat stat-1 animate-float">
+                        <div class="dot green"></div>
+                        <span class="stat-value">+127%</span>
+                        <span class="stat-label">ROI</span>
                     </div>
                     
-                    <div class="floating-stat floating-stat-2">
-                        <div class="stat-content">
-                            <div class="stat-dot blue"></div>
-                            <span class="stat-value">-42%</span>
-                            <span class="stat-label">Cost per Lead</span>
-                        </div>
+                    <div class="floating-stat stat-2 animate-float-delayed">
+                        <div class="dot blue"></div>
+                        <span class="stat-value">-42%</span>
+                        <span class="stat-label">Cost per Lead</span>
                     </div>
                 </div>
             </div>
             
-            <div class="scroll-prompt">
-                <button class="scroll-btn">
-                    <span>Scroll to see our recipes</span>
-                    <i data-lucide="arrow-down" class="icon-sm"></i>
-                </button>
+            <!-- Company Notice Banner -->
+            <div class="company-notice" data-aos="fade-up" data-aos-delay="400">
+                <div class="notice-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <div class="notice-text">
+                    <h3>Virtual Company Notice</h3>
+                    <p>We are a fully remote digital marketing agency powered by AI and global talent. Our virtual office enables us to deliver exceptional results without geographical limitations.</p>
+                </div>
+            </div>
+            
+            <!-- Video Intro Section -->
+            <div class="video-intro" data-aos="fade-up" data-aos-delay="600">
+                <h2>See How We Cook Digital Success</h2>
+                <div class="video-container">
+                    <video controls poster="assets/video-thumbnail.jpg">
+                        <source src="assets/company-intro.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-play-button">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="scroll-indicator">
+                <span>Scroll to see our recipes</span>
+                <i class="fas fa-arrow-down bounce"></i>
             </div>
         </div>
     </section>
-    
-    <!-- Services Section -->
+
+    <!-- Services/Recipes Section -->
     <section class="services-section">
-        <div class="container-custom">
-            <div class="section-header">
-                <h2 class="section-title">Our Recipe Collection</h2>
-                <p class="section-subtitle">
-                    Carefully crafted marketing strategies for each stage of your business growth
-                </p>
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Our Recipe Collection</h2>
+                <p>Carefully crafted marketing strategies for each stage of your business growth</p>
             </div>
             
             <div class="recipes-grid">
                 <!-- Recipe Card 1 -->
                 <div class="recipe-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="recipe-icon">
-                        <i data-lucide="bar-chart-3" class="icon-lg"></i>
+                        <i class="fas fa-chart-line"></i>
                     </div>
-                    
-                    <h3 class="recipe-title">Performance Marketing Pie</h3>
-                    <p class="recipe-description">A delicious mix of paid ads across platforms to drive high-quality leads and sales.</p>
-                    
-                    <div class="recipe-tags">
-                        <span class="recipe-tag">Meta Ads</span>
-                        <span class="recipe-tag">Google Ads</span>
-                        <span class="recipe-tag">AI Bidding</span>
+                    <h3>Performance Marketing Pie</h3>
+                    <p>A delicious mix of paid ads across platforms to drive high-quality leads and sales.</p>
+                    <div class="ingredients">
+                        <span>Meta Ads</span>
+                        <span>Google Ads</span>
+                        <span>AI Bidding</span>
                     </div>
-                    
                     <a href="services/performance-marketing.html" class="recipe-link">
-                        <span>See Recipe</span>
-                        <i data-lucide="chevron-right" class="icon-sm"></i>
+                        See Recipe
+                        <i class="fas fa-arrow-right"></i>
                     </a>
+                    
+                    <!-- Anime Effect Element -->
+                    <div class="anime-effect chakra"></div>
                 </div>
                 
                 <!-- Recipe Card 2 -->
                 <div class="recipe-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="recipe-icon">
-                        <i data-lucide="search" class="icon-lg"></i>
+                        <i class="fas fa-search"></i>
                     </div>
-                    
-                    <h3 class="recipe-title">SEO Spice Mix</h3>
-                    <p class="recipe-description">Organic ranking booster with a perfect blend of on-page and off-page techniques.</p>
-                    
-                    <div class="recipe-tags">
-                        <span class="recipe-tag">Content SEO</span>
-                        <span class="recipe-tag">Technical SEO</span>
-                        <span class="recipe-tag">AI Content</span>
+                    <h3>SEO Spice Mix</h3>
+                    <p>Organic ranking booster with a perfect blend of on-page and off-page techniques.</p>
+                    <div class="ingredients">
+                        <span>Content SEO</span>
+                        <span>Technical SEO</span>
+                        <span>AI Content</span>
                     </div>
-                    
                     <a href="services/seo.html" class="recipe-link">
-                        <span>See Recipe</span>
-                        <i data-lucide="chevron-right" class="icon-sm"></i>
+                        See Recipe
+                        <i class="fas fa-arrow-right"></i>
                     </a>
+                    
+                    <!-- Anime Effect Element -->
+                    <div class="anime-effect fire-chakra"></div>
                 </div>
                 
                 <!-- Recipe Card 3 -->
                 <div class="recipe-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="recipe-icon">
-                        <i data-lucide="globe" class="icon-lg"></i>
+                        <i class="fas fa-globe"></i>
                     </div>
-                    
-                    <h3 class="recipe-title">Social Media Sizzler</h3>
-                    <p class="recipe-description">Engaging content strategy that keeps your audience craving for more.</p>
-                    
-                    <div class="recipe-tags">
-                        <span class="recipe-tag">Content Strategy</span>
-                        <span class="recipe-tag">Community</span>
-                        <span class="recipe-tag">Analytics</span>
+                    <h3>Social Media Sizzler</h3>
+                    <p>Engaging content strategy that keeps your audience craving for more.</p>
+                    <div class="ingredients">
+                        <span>Content Strategy</span>
+                        <span>Community</span>
+                        <span>Analytics</span>
                     </div>
-                    
                     <a href="services/social-media.html" class="recipe-link">
-                        <span>See Recipe</span>
-                        <i data-lucide="chevron-right" class="icon-sm"></i>
+                        See Recipe
+                        <i class="fas fa-arrow-right"></i>
                     </a>
+                    
+                    <!-- Anime Effect Element -->
+                    <div class="anime-effect water-chakra"></div>
                 </div>
                 
                 <!-- Recipe Card 4 -->
                 <div class="recipe-card" data-aos="fade-up" data-aos-delay="400">
                     <div class="recipe-icon">
-                        <i data-lucide="message-square" class="icon-lg"></i>
+                        <i class="fas fa-comment"></i>
                     </div>
-                    
-                    <h3 class="recipe-title">WhatsApp & Email Masala</h3>
-                    <p class="recipe-description">Perfectly timed messaging that nurtures leads and builds lasting relationships.</p>
-                    
-                    <div class="recipe-tags">
-                        <span class="recipe-tag">WhatsApp API</span>
-                        <span class="recipe-tag">Email</span>
-                        <span class="recipe-tag">Automations</span>
+                    <h3>WhatsApp & Email Masala</h3>
+                    <p>Perfectly timed messaging that nurtures leads and builds lasting relationships.</p>
+                    <div class="ingredients">
+                        <span>WhatsApp API</span>
+                        <span>Email</span>
+                        <span>Automations</span>
                     </div>
-                    
                     <a href="services/messaging.html" class="recipe-link">
-                        <span>See Recipe</span>
-                        <i data-lucide="chevron-right" class="icon-sm"></i>
+                        See Recipe
+                        <i class="fas fa-arrow-right"></i>
                     </a>
+                    
+                    <!-- Anime Effect Element -->
+                    <div class="anime-effect wind-chakra"></div>
                 </div>
                 
                 <!-- Recipe Card 5 -->
                 <div class="recipe-card" data-aos="fade-up" data-aos-delay="500">
                     <div class="recipe-icon">
-                        <i data-lucide="bot" class="icon-lg"></i>
+                        <i class="fas fa-robot"></i>
                     </div>
-                    
-                    <h3 class="recipe-title">AI Agent Sauce</h3>
-                    <p class="recipe-description">Intelligent conversation flows that qualify leads and provide 24/7 support.</p>
-                    
-                    <div class="recipe-tags">
-                        <span class="recipe-tag">Lead Qualification</span>
-                        <span class="recipe-tag">CRM Integration</span>
-                        <span class="recipe-tag">Voice AI</span>
+                    <h3>AI Agent Sauce</h3>
+                    <p>Intelligent conversation flows that qualify leads and provide 24/7 support.</p>
+                    <div class="ingredients">
+                        <span>Lead Qualification</span>
+                        <span>CRM Integration</span>
+                        <span>Voice AI</span>
                     </div>
-                    
                     <a href="services/ai-agent.html" class="recipe-link">
-                        <span>See Recipe</span>
-                        <i data-lucide="chevron-right" class="icon-sm"></i>
+                        See Recipe
+                        <i class="fas fa-arrow-right"></i>
                     </a>
+                    
+                    <!-- Anime Effect Element -->
+                    <div class="anime-effect lightning-chakra"></div>
                 </div>
                 
                 <!-- Recipe Card 6 -->
                 <div class="recipe-card" data-aos="fade-up" data-aos-delay="600">
                     <div class="recipe-icon">
-                        <i data-lucide="line-chart" class="icon-lg"></i>
+                        <i class="fas fa-chart-bar"></i>
                     </div>
-                    
-                    <h3 class="recipe-title">Website Funnel Delight</h3>
-                    <p class="recipe-description">Conversion-optimized web experiences that turn visitors into customers.</p>
-                    
-                    <div class="recipe-tags">
-                        <span class="recipe-tag">Conversion Design</span>
-                        <span class="recipe-tag">Analytics</span>
-                        <span class="recipe-tag">A/B Testing</span>
+                    <h3>Website Funnel Delight</h3>
+                    <p>Conversion-optimized web experiences that turn visitors into customers.</p>
+                    <div class="ingredients">
+                        <span>Conversion Design</span>
+                        <span>Analytics</span>
+                        <span>A/B Testing</span>
                     </div>
-                    
                     <a href="services/website-funnel.html" class="recipe-link">
-                        <span>See Recipe</span>
-                        <i data-lucide="chevron-right" class="icon-sm"></i>
+                        See Recipe
+                        <i class="fas fa-arrow-right"></i>
                     </a>
+                    
+                    <!-- Anime Effect Element -->
+                    <div class="anime-effect earth-chakra"></div>
                 </div>
             </div>
             
-            <div class="section-footer">
-                <a href="services.html" class="btn btn-outline">View All Recipes</a>
+            <div class="text-center" data-aos="fade-up">
+                <a href="services.html" class="btn btn-outline-large">View All Recipes</a>
             </div>
         </div>
     </section>
-    
+
     <!-- Startup Package Section -->
     <section class="startup-package-section">
-        <div class="container-custom">
-            <div class="section-header">
-                <h2 class="section-title">The Startup Growth Recipe</h2>
-                <p class="section-subtitle">
-                    A comprehensive package designed exclusively for startups and new businesses
-                </p>
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Startup Growth Recipe</h2>
+                <p>A complete package designed specifically for new businesses and startups</p>
             </div>
-
-            <div class="startup-package-grid">
-                <div class="startup-package-content" data-aos="fade-up">
-                    <div class="package-badge">
-                        <i data-lucide="rocket" class="icon-sm"></i>
-                        <span>New Business Accelerator</span>
-                    </div>
-                    
-                    <h3 class="package-title">Achieve 4x Sales Growth in 4 Months</h3>
-                    
-                    <p class="package-description">
-                        Our comprehensive marketing recipe designed specifically for startups and new businesses. We'll take you from scratch to advanced marketing, with a focus on rapid, sustainable growth.
-                    </p>
-                    
-                    <div class="guarantee-box">
-                        <div class="guarantee-header">
-                            <i data-lucide="award" class="icon-sm"></i>
+            
+            <div class="package-container" data-aos="fade-up" data-aos-delay="200">
+                <div class="package-content">
+                    <div class="package-header">
+                        <h3>4X Growth in 4 Months</h3>
+                        <div class="guarantee-badge">
+                            <i class="fas fa-award"></i>
                             <span>Money-Back Guarantee</span>
                         </div>
-                        <p class="guarantee-text">
-                            If we don't achieve the promised growth targets within the timeframe, you get your money back. We're that confident in our recipe.
-                        </p>
                     </div>
                     
-                    <div class="stats-container">
-                        <div class="stat-item">
-                            <div class="stat-value">4x</div>
-                            <div class="stat-label">Sales Growth</div>
+                    <div class="package-description">
+                        <p>We'll take your business from scratch to advanced with our comprehensive marketing recipe designed specifically for startups. If we don't deliver 4X sales growth in 4 months, you get your money back.</p>
+                    </div>
+                    
+                    <div class="package-features">
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Complete funnel setup (Landing pages + Ad campaigns)</span>
                         </div>
-                        
-                        <div class="stat-divider"></div>
-                        
-                        <div class="stat-item">
-                            <div class="stat-value">4</div>
-                            <div class="stat-label">Months</div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>AI chatbot for 24/7 lead qualification</span>
                         </div>
-                        
-                        <div class="stat-divider"></div>
-                        
-                        <div class="stat-item">
-                            <div class="stat-value">100%</div>
-                            <div class="stat-label">Guaranteed</div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>WhatsApp + Email automated sequences</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Data-driven optimization & weekly reports</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Dedicated performance marketing specialist</span>
                         </div>
                     </div>
                     
                     <div class="package-cta">
-                        <a href="contact.html" class="btn btn-primary">Get Started Today</a>
-                        <a href="services.html" class="btn btn-outline">
-                            Learn More 
-                            <i data-lucide="chevron-right" class="icon-sm"></i>
-                        </a>
+                        <a href="contact.html" class="btn btn-neon">Get Started Today</a>
                     </div>
                 </div>
                 
-                <div class="startup-package-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="package-card-header">
-                        <h3 class="package-card-title">
-                            <i data-lucide="trending-up" class="icon-sm"></i>
-                            Growth Recipe Package
-                        </h3>
-                        <p class="package-card-subtitle">
-                            Everything you need to grow your startup from scratch
-                        </p>
-                    </div>
-                    
-                    <div class="package-card-content">
-                        <div class="package-price">
-                            From ₹75,000<span class="price-period">/month</span>
-                        </div>
-                        <p class="package-terms">
-                            4-month minimum commitment with performance guarantee
-                        </p>
-                        
-                        <div class="package-includes">
-                            <h4 class="includes-title">Package Includes:</h4>
-                            <ul class="includes-list">
-                                <li class="includes-item" data-aos="fade-left" data-aos-delay="100">
-                                    <i data-lucide="check-circle" class="icon-sm"></i>
-                                    <span>Performance Marketing Setup (Meta + Google)</span>
-                                </li>
-                                <li class="includes-item" data-aos="fade-left" data-aos-delay="200">
-                                    <i data-lucide="check-circle" class="icon-sm"></i>
-                                    <span>AI-Powered Lead Generation</span>
-                                </li>
-                                <li class="includes-item" data-aos="fade-left" data-aos-delay="300">
-                                    <i data-lucide="check-circle" class="icon-sm"></i>
-                                    <span>Brand Positioning & Messaging</span>
-                                </li>
-                                <li class="includes-item" data-aos="fade-left" data-aos-delay="400">
-                                    <i data-lucide="check-circle" class="icon-sm"></i>
-                                    <span>Website Conversion Optimization</span>
-                                </li>
-                                <li class="includes-item" data-aos="fade-left" data-aos-delay="500">
-                                    <i data-lucide="check-circle" class="icon-sm"></i>
-                                    <span>WhatsApp Business API Integration</span>
-                                </li>
-                                <li class="includes-item" data-aos="fade-left" data-aos-delay="600">
-                                    <i data-lucide="check-circle" class="icon-sm"></i>
-                                    <span>Weekly Performance Reports</span>
-                                </li>
-                                <li class="includes-item" data-aos="fade-left" data-aos-delay="700">
-                                    <i data-lucide="check-circle" class="icon-sm"></i>
-                                    <span>Dedicated Growth Manager</span>
-                                </li>
-                                <li class="includes-item" data-aos="fade-left" data-aos-delay="800">
-                                    <i data-lucide="check-circle" class="icon-sm"></i>
-                                    <span>A/B Testing & Optimization</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="package-card-footer">
-                        <a href="contact.html" class="btn btn-primary btn-lg btn-full">
-                            Book a Free Strategy Call
-                        </a>
-                        <p class="spots-remaining">Only 5 spots available this month!</p>
-                    </div>
+                <div class="package-image" data-aos="fade-left" data-aos-delay="400">
+                    <img src="assets/startup-growth.jpg" alt="Startup Growth Package">
+                    <!-- Anime Element Overlay -->
+                    <div class="anime-titan-power"></div>
                 </div>
             </div>
         </div>
     </section>
-    
+
     <!-- How It Works Section -->
     <section class="how-it-works-section">
-        <div class="container-custom">
-            <div class="section-header">
-                <h2 class="section-title">How We Cook Digital Success</h2>
-                <p class="section-subtitle">
-                    Our step-by-step process to create the perfect marketing recipe for your business
-                </p>
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>How We Cook Digital Success</h2>
+                <p>Our step-by-step process to create the perfect marketing recipe for your business</p>
             </div>
             
-            <div class="process-steps">
-                <div class="process-step" data-aos="fade-up">
+            <div class="steps-container" data-aos="fade-up" data-aos-delay="200">
+                <div class="step">
                     <div class="step-number">1</div>
-                    <h3 class="step-title">Audit & Analysis</h3>
-                    <p class="step-description">We analyze your current ingredients and identify what's missing.</p>
+                    <h3>Audit & Analysis</h3>
+                    <p>We analyze your current ingredients and identify what's missing.</p>
+                    <!-- Anime Element -->
+                    <div class="anime-sharingan"></div>
                 </div>
                 
-                <div class="process-step" data-aos="fade-up" data-aos-delay="150">
+                <div class="step">
                     <div class="step-number">2</div>
-                    <h3 class="step-title">Recipe Creation</h3>
-                    <p class="step-description">We craft a custom marketing strategy with the right ingredients.</p>
+                    <h3>Recipe Creation</h3>
+                    <p>We craft a custom marketing strategy with the right ingredients.</p>
+                    <!-- Anime Element -->
+                    <div class="anime-chakra-build"></div>
                 </div>
                 
-                <div class="process-step" data-aos="fade-up" data-aos-delay="300">
+                <div class="step">
                     <div class="step-number">3</div>
-                    <h3 class="step-title">AI Enhancement</h3>
-                    <p class="step-description">We add our secret AI sauce to amplify results and automation.</p>
+                    <h3>AI Enhancement</h3>
+                    <p>We add our secret AI sauce to amplify results and automation.</p>
+                    <!-- Anime Element -->
+                    <div class="anime-titan-transform"></div>
                 </div>
                 
-                <div class="process-step" data-aos="fade-up" data-aos-delay="450">
+                <div class="step">
                     <div class="step-number">4</div>
-                    <h3 class="step-title">Measure & Refine</h3>
-                    <p class="step-description">We continuously taste-test and refine for optimal results.</p>
+                    <h3>Measure & Refine</h3>
+                    <p>We continuously taste-test and refine for optimal results.</p>
+                    <!-- Anime Element -->
+                    <div class="anime-power-up"></div>
                 </div>
             </div>
         </div>
     </section>
-    
+
     <!-- Results Section -->
     <section class="results-section">
-        <div class="container-custom">
-            <div class="section-header light">
-                <h2 class="section-title">Results That Matter</h2>
-                <p class="section-subtitle">
-                    Our recipes deliver real business impact that you can measure
-                </p>
+        <div class="container">
+            <div class="section-header light" data-aos="fade-up">
+                <h2>Results That Matter</h2>
+                <p>Our recipes deliver real business impact that you can measure</p>
             </div>
             
-            <div class="results-grid">
-                <div class="result-item" data-aos="fade-up">
+            <div class="results-grid" data-aos="fade-up" data-aos-delay="200">
+                <div class="result-card">
                     <div class="result-value">42%</div>
-                    <p class="result-label">Average increase in lead quality</p>
+                    <p>Average increase in lead quality</p>
+                    <!-- Anime Element -->
+                    <div class="anime-power-meter"></div>
                 </div>
                 
-                <div class="result-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="result-card">
                     <div class="result-value">3.8x</div>
-                    <p class="result-label">Average return on ad spend</p>
+                    <p>Average return on ad spend</p>
+                    <!-- Anime Element -->
+                    <div class="anime-power-meter"></div>
                 </div>
                 
-                <div class="result-item" data-aos="fade-up" data-aos-delay="400">
+                <div class="result-card">
                     <div class="result-value">65%</div>
-                    <p class="result-label">Reduction in customer acquisition cost</p>
+                    <p>Reduction in customer acquisition cost</p>
+                    <!-- Anime Element -->
+                    <div class="anime-power-meter"></div>
                 </div>
             </div>
         </div>
     </section>
-    
+
     <!-- Testimonials Section -->
     <section class="testimonials-section">
-        <div class="container-custom">
-            <div class="section-header">
-                <h2 class="section-title">What Our Customers Say</h2>
-                <p class="section-subtitle">
-                    Don't just take our word for it - hear from businesses who've tasted success
-                </p>
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>What Our Customers Say</h2>
+                <p>Don't just take our word for it - hear from businesses who've tasted success</p>
             </div>
             
-            <div class="testimonials-grid">
-                <!-- Testimonial 1 -->
-                <div class="testimonial-card" data-aos="fade-up">
-                    <div class="testimonial-rating">
-                        <i data-lucide="star" class="star-icon filled"></i>
-                        <i data-lucide="star" class="star-icon filled"></i>
-                        <i data-lucide="star" class="star-icon filled"></i>
-                        <i data-lucide="star" class="star-icon filled"></i>
-                        <i data-lucide="star" class="star-icon filled"></i>
+            <div class="testimonials-grid" data-aos="fade-up" data-aos-delay="200">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
                     </div>
                     <p class="testimonial-text">"FlavorDish transformed our approach to digital marketing. Their AI-powered campaigns increased our lead quality by 40% while reducing costs."</p>
                     <div class="testimonial-author">
-                        <h4 class="author-name">Priya Sharma</h4>
-                        <p class="author-title">CMO, TechSolutions Inc.</p>
+                        <h4>Priya Sharma</h4>
+                        <p>CMO, TechSolutions Inc.</p>
                     </div>
                 </div>
                 
-                <!-- Testimonial 2 -->
-                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="testimonial-rating">
-                        <i data-lucide="star" class="star-icon filled"></i>
-                        <i data-lucide="star" class="star-icon filled"></i>
-                        <i data-lucide="star" class="star-icon filled"></i>
-                        <i data-lucide="star" class="star-icon filled"></i>
-                        <i data-lucide="star" class="star-icon filled"></i>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
                     </div>
                     <p class="testimonial-text">"The recipe approach makes complex marketing strategies easy to understand. We've seen our ROI double since implementing their WhatsApp Marketing recipe."</p>
                     <div class="testimonial-author">
-                        <h4 class="author-name">Rahul Mehta</h4>
-                        <p class="author-title">Founder, StyleHub</p>
+                        <h4>Rahul Mehta</h4>
+                        <p>Founder, StyleHub</p>
                     </div>
                 </div>
                 
-                <!-- Testimonial 3 -->
-                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="testimonial-rating">
-                        <i data-lucide="star" class="star-icon filled"></i>
-                        <i data-lucide="star" class="star-icon filled"></i>
-                        <i data-lucide="star" class="star-icon filled"></i>
-                        <i data-lucide="star" class="star-icon filled"></i>
-                        <i data-lucide="star" class="star-icon filled"></i>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
                     </div>
                     <p class="testimonial-text">"Their AI agents have completely transformed our lead qualification process. We now close deals 30% faster with better qualified leads."</p>
                     <div class="testimonial-author">
-                        <h4 class="author-name">Neha Kapoor</h4>
-                        <p class="author-title">Sales Director, Global Finance Ltd</p>
+                        <h4>Neha Kapoor</h4>
+                        <p>Sales Director, Global Finance Ltd</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    
+
+    <!-- Team/Office Gallery Section -->
+    <section class="team-gallery-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Our Virtual Office</h2>
+                <p>See how our global team works together to deliver exceptional results</p>
+            </div>
+            
+            <div class="gallery-grid" data-aos="fade-up" data-aos-delay="200">
+                <div class="gallery-item">
+                    <img src="assets/team-1.jpg" alt="Team Member Working">
+                    <div class="gallery-caption">Marketing Strategy Session</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/team-2.jpg" alt="Virtual Team Meeting">
+                    <div class="gallery-caption">Weekly Team Sync</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/team-3.jpg" alt="Content Creation">
+                    <div class="gallery-caption">Content Creation Process</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/team-4.jpg" alt="AI Development">
+                    <div class="gallery-caption">AI Development Lab</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Call to Action -->
     <section class="cta-section">
-        <div class="container-custom">
+        <div class="container">
             <div class="cta-container" data-aos="fade-up">
-                <div class="cta-content">
-                    <h2 class="cta-title">Ready to Cook Your Growth Strategy?</h2>
-                    <p class="cta-subtitle">Get a free audit and recipe recommendation for your business</p>
-                    <a href="contact.html" class="btn btn-primary btn-lg">Get My Strategy Now</a>
+                <!-- Anime-inspired background effects -->
+                <div class="cta-anime-bg">
+                    <div class="anime-circle-1"></div>
+                    <div class="anime-circle-2"></div>
                 </div>
                 
-                <!-- Decorative elements -->
-                <div class="cta-shape cta-shape-1"></div>
-                <div class="cta-shape cta-shape-2"></div>
+                <h2>Ready to Cook Your Growth Strategy?</h2>
+                <p>Get a free audit and recipe recommendation for your business</p>
+                <a href="contact.html" class="btn btn-neon-large">Get My Strategy Now</a>
             </div>
         </div>
     </section>
-    
-    <!-- Chatbot -->
-    <div class="chatbot-container" id="chatbot">
-        <button class="chatbot-toggle" id="chatbotToggle">
-            <i data-lucide="message-square" class="icon-md chatbot-open-icon"></i>
-            <i data-lucide="x" class="icon-md chatbot-close-icon hidden"></i>
-        </button>
-        
-        <div class="chatbot-window hidden" id="chatbotWindow">
-            <div class="chatbot-header">
-                <h3 class="chatbot-title">FlavorDish Assistant</h3>
-                <p class="chatbot-subtitle">We'll help you find the perfect recipe</p>
-            </div>
-            
-            <div class="chatbot-messages" id="chatbotMessages">
-                <div class="message bot-message">
-                    Aapko kis recipe mein interest hai?
-                </div>
-                
-                <div class="chatbot-options" id="chatbotOptions">
-                    <button class="chatbot-option" data-option="1">Ads</button>
-                    <button class="chatbot-option" data-option="2">SEO</button>
-                    <button class="chatbot-option" data-option="3">Website</button>
-                    <button class="chatbot-option" data-option="4">WhatsApp Marketing</button>
-                </div>
-            </div>
-            
-            <div class="chatbot-input">
-                <input type="text" id="chatbotUserInput" placeholder="Type a message..." class="chatbot-input-field">
-                <button class="chatbot-send" id="chatbotSend">
-                    <i data-lucide="send" class="icon-sm"></i>
-                </button>
-            </div>
-        </div>
-    </div>
-    
+
     <!-- Footer -->
     <footer class="footer">
-        <div class="container-custom">
-            <div class="footer-grid">
-                <div class="footer-info">
-                    <h3 class="footer-logo">FlavorDish<span class="text-neon">.</span></h3>
-                    <p class="footer-description">We cook up delicious growth strategies with AI + Performance to help your business thrive.</p>
-                    <div class="virtual-notice">
-                        <p class="virtual-badge">📢 We are a 100% virtual company!</p>
-                        <p class="virtual-text">Serving clients globally with our remote team of experts.</p>
-                    </div>
-                    <div class="footer-social">
-                        <a href="#" class="social-link">
-                            <i data-lucide="facebook" class="icon-sm"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i data-lucide="instagram" class="icon-sm"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i data-lucide="linkedin" class="icon-sm"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i data-lucide="twitter" class="icon-sm"></i>
-                        </a>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo">
+                        <span class="gradient-text">FlavorDish</span>
+                    </a>
+                    <p>Digital marketing recipes that deliver measurable results through the perfect blend of AI innovation and proven strategies.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
                 
                 <div class="footer-links">
-                    <h4 class="footer-heading">Recipe Book</h4>
-                    <ul class="footer-link-list">
-                        <li><a href="services/performance-marketing.html">Performance Marketing Pie</a></li>
-                        <li><a href="services/seo.html">SEO Spice Mix</a></li>
-                        <li><a href="services/social-media.html">Social Media Sizzler</a></li>
-                        <li><a href="services/messaging.html">WhatsApp & Email Masala</a></li>
-                        <li><a href="services/ai-agent.html">AI Agent Sauce</a></li>
-                        <li><a href="services/website-funnel.html">Website Funnel Delight</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-links">
-                    <h4 class="footer-heading">Quick Links</h4>
-                    <ul class="footer-link-list">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">Meet the Chef</a></li>
-                        <li><a href="case-studies.html">Taste Test</a></li>
-                        <li><a href="ai-agent.html">AI Agent</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-contact">
-                    <h4 class="footer-heading">Contact Us</h4>
-                    <ul class="contact-list">
-                        <li class="contact-item">
-                            <i data-lucide="map-pin" class="icon-sm"></i>
-                            <span>123 Marketing Street, Digital City, 10001</span>
-                        </li>
-                        <li class="contact-item">
-                            <i data-lucide="phone" class="icon-sm"></i>
-                            <span>+91 98765 43210</span>
-                        </li>
-                        <li class="contact-item">
-                            <i data-lucide="mail" class="icon-sm"></i>
-                            <span>hello@flavordish.com</span>
-                        </li>
-                    </ul>
+                    <div class="footer-link-group">
+                        <h4>Recipes</h4>
+                        <a href="services/performance-marketing.html">Performance Marketing</a>
+                        <a href="services/seo.html">SEO Services</a>
+                        <a href="services/social-media.html">Social Media</a>
+                        <a href="services/ai-agent.html">AI Agents</a>
+                    </div>
+                    
+                    <div class="footer-link-group">
+                        <h4>Company</h4>
+                        <a href="about.html">About Us</a>
+                        <a href="case-studies.html">Case Studies</a>
+                        <a href="contact.html">Contact</a>
+                        <a href="privacy.html">Privacy Policy</a>
+                    </div>
+                    
+                    <div class="footer-link-group">
+                        <h4>Contact</h4>
+                        <p><i class="fas fa-envelope"></i> hello@flavordish.com</p>
+                        <p><i class="fas fa-phone"></i> +91 9876543210</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Virtual Office Worldwide</p>
+                    </div>
                 </div>
             </div>
             
-            <div class="footer-copyright">
-                <p>&copy; <span id="currentYear"></span> FlavorDish. All rights reserved.</p>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear">2025</span> FlavorDish Agency. All rights reserved.</p>
+                <p>Virtual Company: Our team works remotely across the globe.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Chatbot -->
+    <div class="chatbot">
+        <div class="chatbot-toggle">
+            <i class="fas fa-comment"></i>
+            <i class="fas fa-times"></i>
+        </div>
+        
+        <div class="chatbot-container">
+            <div class="chatbot-header">
+                <h3>FlavorDish Assistant</h3>
+                <p>We'll help you find the perfect recipe</p>
+            </div>
+            
+            <div class="chatbot-messages">
+                <div class="message bot-message">
+                    Aapko kis recipe mein interest hai?
+                </div>
+            </div>
+            
+            <div class="chatbot-options" id="chatbotOptions">
+                <button class="chatbot-option">Ads</button>
+                <button class="chatbot-option">SEO</button>
+                <button class="chatbot-option">Website</button>
+                <button class="chatbot-option">WhatsApp Marketing</button>
+            </div>
+            
+            <div class="chatbot-input">
+                <input type="text" placeholder="Type a message..." id="chatbotUserInput">
+                <button id="chatbotSend"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
     <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    <script src="scripts.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
