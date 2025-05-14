@@ -5,6 +5,7 @@ import RecipeCard from "@/components/RecipeCard";
 import TestimonialCard from "@/components/TestimonialCard";
 import CallToAction from "@/components/CallToAction";
 import StartupPackage from "@/components/StartupPackage";
+import AnimeVectors from "@/components/AnimeVectors";
 
 const Index = () => {
   const services = [
@@ -171,6 +172,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+      
+      {/* Anime Vectors Section */}
+      <AnimeVectors />
       
       {/* Startup Package Section */}
       <StartupPackage />
