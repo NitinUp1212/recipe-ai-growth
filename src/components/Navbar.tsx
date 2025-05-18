@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Logo from "./Logo";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -30,11 +31,7 @@ const Navbar = () => {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'}`}>
       <div className="container-custom flex justify-between items-center">
-        <NavLink to="/" className="flex items-center">
-          <span className="text-2xl font-display font-bold">
-            FlavorDish<span className="text-neon">.</span>
-          </span>
-        </NavLink>
+        <Logo />
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-8">
@@ -52,7 +49,7 @@ const Navbar = () => {
               isActive ? "font-medium text-primary" : "text-foreground hover:text-primary transition-colors"
             }
           >
-            Recipe Book
+            Marketing Agency
           </NavLink>
           <NavLink 
             to="/ai-agent" 
@@ -69,6 +66,14 @@ const Navbar = () => {
             }
           >
             Taste Test
+          </NavLink>
+          <NavLink 
+            to="/courses" 
+            className={({isActive}) => 
+              isActive ? "font-medium text-primary" : "text-foreground hover:text-primary transition-colors"
+            }
+          >
+            Institute
           </NavLink>
           <NavLink 
             to="/about" 
@@ -122,7 +127,7 @@ const Navbar = () => {
                 isActive ? "font-medium text-primary py-2" : "text-foreground py-2"
               }
             >
-              Recipe Book
+              Marketing Agency
             </NavLink>
             <NavLink 
               to="/ai-agent" 
@@ -141,6 +146,15 @@ const Navbar = () => {
               }
             >
               Taste Test
+            </NavLink>
+            <NavLink 
+              to="/courses" 
+              onClick={() => setMobileMenuOpen(false)}
+              className={({isActive}) => 
+                isActive ? "font-medium text-primary py-2" : "text-foreground py-2"
+              }
+            >
+              Institute
             </NavLink>
             <NavLink 
               to="/about" 

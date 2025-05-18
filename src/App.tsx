@@ -15,6 +15,7 @@ import CaseStudyDetail from "./pages/CaseStudyDetail";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Courses from "./pages/Courses";
+import CourseDetail from "./pages/CourseDetail";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Chatbot from "./components/Chatbot";
@@ -40,6 +41,7 @@ const App = () => {
               <Route path="/case-studies" element={<CaseStudies />} />
               <Route path="/case-studies/:caseStudyId" element={<CaseStudyDetail />} />
               <Route path="/courses" element={<Courses />} />
+              <Route path="/courses/:courseId" element={<CourseDetail />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
