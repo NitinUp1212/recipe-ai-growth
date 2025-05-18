@@ -1,3 +1,4 @@
+
 import { NavLink } from "react-router-dom";
 import { ArrowDown, BarChart3, Search, Globe, MessageSquare, Bot, LineChart } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -6,8 +7,13 @@ import TestimonialCard from "@/components/TestimonialCard";
 import CallToAction from "@/components/CallToAction";
 import StartupPackage from "@/components/StartupPackage";
 import InstituteSection from "@/components/InstituteSection";
+import UpcomingBatches from "@/components/UpcomingBatches";
 
-const Index = () => {
+interface IndexProps {
+  openBrochureForm: (courseName: string) => void;
+}
+
+const Index = ({ openBrochureForm }: IndexProps) => {
   const services = [
     {
       title: "Performance Marketing Pie",
@@ -55,7 +61,7 @@ const Index = () => {
 
   const testimonials = [
     {
-      text: "FlavorDish transformed our approach to digital marketing. Their AI-powered campaigns increased our lead quality by 40% while reducing costs.",
+      text: "UnKnownHat transformed our approach to digital marketing. Their AI-powered campaigns increased our lead quality by 40% while reducing costs.",
       author: "Priya Sharma",
       position: "CMO",
       company: "TechSolutions Inc.",
@@ -94,9 +100,13 @@ const Index = () => {
                 <NavLink to="/contact">
                   <Button className="btn-primary text-lg">Get Your Free Audit</Button>
                 </NavLink>
-                <NavLink to="/services">
-                  <Button variant="outline" className="text-lg">Explore Our Recipes</Button>
-                </NavLink>
+                <Button 
+                  variant="outline" 
+                  className="text-lg"
+                  onClick={() => openBrochureForm("All Courses")}
+                >
+                  Download Brochure
+                </Button>
               </div>
             </div>
             
@@ -140,8 +150,11 @@ const Index = () => {
         </div>
       </section>
       
+      {/* Upcoming Batches Section */}
+      <UpcomingBatches openBrochureForm={openBrochureForm} />
+      
       {/* Services Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-white">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Recipe Collection</h2>

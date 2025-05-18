@@ -32,43 +32,7 @@ const Footer = () => {
           </div>
           
           <div>
-            <h4 className="font-bold text-lg mb-6">Marketing Agency</h4>
-            <ul className="space-y-3">
-              <li>
-                <NavLink to="/services/performance-marketing" className="text-gray-300 hover:text-neon">
-                  Performance Marketing Pie
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/services/seo" className="text-gray-300 hover:text-neon">
-                  SEO Spice Mix
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/services/social-media" className="text-gray-300 hover:text-neon">
-                  Social Media Sizzler
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/services/messaging" className="text-gray-300 hover:text-neon">
-                  WhatsApp & Email Masala
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/services/ai-agent" className="text-gray-300 hover:text-neon">
-                  AI Agent Sauce
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/services/website-funnel" className="text-gray-300 hover:text-neon">
-                  Website Funnel Delight
-                </NavLink>
-              </li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="font-bold text-lg mb-6">Institute</h4>
+            <h4 className="font-bold text-lg mb-4 md:mb-6">Institute Courses</h4>
             <ul className="space-y-3">
               <li>
                 <NavLink to="/courses/digital-marketing" className="text-gray-300 hover:text-neon">
@@ -86,7 +50,21 @@ const Footer = () => {
                 </NavLink>
               </li>
               <li>
+                <NavLink to="/courses" className="text-gray-300 hover:text-neon">
+                  View All Courses
+                </NavLink>
+              </li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 className="font-bold text-lg mb-4 md:mb-6">Quick Links</h4>
+            <ul className="space-y-3">
+              <li>
                 <NavLink to="/" className="text-gray-300 hover:text-neon">Home</NavLink>
+              </li>
+              <li>
+                <NavLink to="/ai-agent" className="text-gray-300 hover:text-neon">AI Agent</NavLink>
               </li>
               <li>
                 <NavLink to="/about" className="text-gray-300 hover:text-neon">Meet the Chef</NavLink>
@@ -94,22 +72,25 @@ const Footer = () => {
               <li>
                 <NavLink to="/case-studies" className="text-gray-300 hover:text-neon">Taste Test</NavLink>
               </li>
+              <li>
+                <NavLink to="/contact" className="text-gray-300 hover:text-neon">Contact</NavLink>
+              </li>
             </ul>
           </div>
           
           <div>
-            <h4 className="font-bold text-lg mb-6">Contact Us</h4>
+            <h4 className="font-bold text-lg mb-4 md:mb-6">Contact Us</h4>
             <ul className="space-y-4">
               <li className="flex items-start">
-                <MapPin size={20} className="mr-3 mt-1 text-neon" />
+                <MapPin size={20} className="mr-3 mt-1 text-neon flex-shrink-0" />
                 <span className="text-gray-300">123 Marketing Street, Digital City, 10001</span>
               </li>
               <li className="flex items-center">
-                <Phone size={20} className="mr-3 text-neon" />
+                <Phone size={20} className="mr-3 text-neon flex-shrink-0" />
                 <span className="text-gray-300">+91 98765 43210</span>
               </li>
               <li className="flex items-center">
-                <Mail size={20} className="mr-3 text-neon" />
+                <Mail size={20} className="mr-3 text-neon flex-shrink-0" />
                 <span className="text-gray-300">hello@unknownhat.com</span>
               </li>
             </ul>

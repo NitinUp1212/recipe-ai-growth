@@ -34,7 +34,7 @@ const Navbar = () => {
         <Logo />
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-6">
           <NavLink 
             to="/" 
             className={({isActive}) => 
@@ -42,14 +42,6 @@ const Navbar = () => {
             }
           >
             Home
-          </NavLink>
-          <NavLink 
-            to="/services" 
-            className={({isActive}) => 
-              isActive ? "font-medium text-primary" : "text-foreground hover:text-primary transition-colors"
-            }
-          >
-            Marketing Agency
           </NavLink>
           <NavLink 
             to="/ai-agent" 
@@ -99,7 +91,7 @@ const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <button 
-          className="lg:hidden text-foreground"
+          className="lg:hidden text-foreground p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
           onClick={toggleMobileMenu}
           aria-label="Toggle menu"
         >
@@ -107,33 +99,24 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Mobile Navigation - Improved for better mobile UX */}
       {mobileMenuOpen && (
-        <div className="lg:hidden absolute top-full left-0 right-0 bg-white shadow-lg py-4 px-4 animate-fade-in">
-          <nav className="flex flex-col space-y-4">
+        <div className="lg:hidden fixed top-[60px] left-0 right-0 bg-white shadow-lg py-4 px-4 animate-fade-in max-h-[80vh] overflow-y-auto z-50">
+          <nav className="flex flex-col space-y-3">
             <NavLink 
               to="/" 
               onClick={() => setMobileMenuOpen(false)}
               className={({isActive}) => 
-                isActive ? "font-medium text-primary py-2" : "text-foreground py-2"
+                isActive ? "font-medium text-primary py-3 px-4 rounded-lg bg-primary/10" : "text-foreground py-3 px-4 rounded-lg hover:bg-gray-100"
               }
             >
               Home
             </NavLink>
             <NavLink 
-              to="/services" 
-              onClick={() => setMobileMenuOpen(false)}
-              className={({isActive}) => 
-                isActive ? "font-medium text-primary py-2" : "text-foreground py-2"
-              }
-            >
-              Marketing Agency
-            </NavLink>
-            <NavLink 
               to="/ai-agent" 
               onClick={() => setMobileMenuOpen(false)}
               className={({isActive}) => 
-                isActive ? "font-medium text-primary py-2" : "text-foreground py-2"
+                isActive ? "font-medium text-primary py-3 px-4 rounded-lg bg-primary/10" : "text-foreground py-3 px-4 rounded-lg hover:bg-gray-100"
               }
             >
               AI Agent
@@ -142,7 +125,7 @@ const Navbar = () => {
               to="/case-studies" 
               onClick={() => setMobileMenuOpen(false)}
               className={({isActive}) => 
-                isActive ? "font-medium text-primary py-2" : "text-foreground py-2"
+                isActive ? "font-medium text-primary py-3 px-4 rounded-lg bg-primary/10" : "text-foreground py-3 px-4 rounded-lg hover:bg-gray-100"
               }
             >
               Taste Test
@@ -151,7 +134,7 @@ const Navbar = () => {
               to="/courses" 
               onClick={() => setMobileMenuOpen(false)}
               className={({isActive}) => 
-                isActive ? "font-medium text-primary py-2" : "text-foreground py-2"
+                isActive ? "font-medium text-primary py-3 px-4 rounded-lg bg-primary/10" : "text-foreground py-3 px-4 rounded-lg hover:bg-gray-100"
               }
             >
               Institute
@@ -160,7 +143,7 @@ const Navbar = () => {
               to="/about" 
               onClick={() => setMobileMenuOpen(false)}
               className={({isActive}) => 
-                isActive ? "font-medium text-primary py-2" : "text-foreground py-2"
+                isActive ? "font-medium text-primary py-3 px-4 rounded-lg bg-primary/10" : "text-foreground py-3 px-4 rounded-lg hover:bg-gray-100"
               }
             >
               Meet the Chef
@@ -169,12 +152,14 @@ const Navbar = () => {
               to="/contact" 
               onClick={() => setMobileMenuOpen(false)}
               className={({isActive}) => 
-                isActive ? "font-medium text-primary py-2" : "text-foreground py-2"
+                isActive ? "font-medium text-primary py-3 px-4 rounded-lg bg-primary/10" : "text-foreground py-3 px-4 rounded-lg hover:bg-gray-100"
               }
             >
               Contact
             </NavLink>
-            <Button className="btn-primary w-full">Get Your Free Audit</Button>
+            <div className="pt-2">
+              <Button className="btn-primary w-full py-3">Get Your Free Audit</Button>
+            </div>
           </nav>
         </div>
       )}

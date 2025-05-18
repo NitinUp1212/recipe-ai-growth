@@ -19,10 +19,18 @@ import CourseDetail from "./pages/CourseDetail";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Chatbot from "./components/Chatbot";
+import BrochureForm from "./components/BrochureForm";
 
 const App = () => {
   // Create a new instance of QueryClient inside the component
   const [queryClient] = useState(() => new QueryClient());
+  const [isBrochureFormOpen, setIsBrochureFormOpen] = useState(false);
+  const [selectedCourse, setSelectedCourse] = useState("");
+
+  const openBrochureForm = (courseName: string) => {
+    setSelectedCourse(courseName);
+    setIsBrochureFormOpen(true);
+  };
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -33,21 +41,26 @@ const App = () => {
           <Navbar />
           <main>
             <Routes>
-              <Route path="/" element={<Index />} />
+              <Route path="/" element={<Index openBrochureForm={openBrochureForm} />} />
               <Route path="/services" element={<ServicesIndex />} />
               <Route path="/services/:serviceId" element={<ServiceDetail />} />
               <Route path="/ai-agent" element={<AIAgent />} />
               <Route path="/about" element={<About />} />
               <Route path="/case-studies" element={<CaseStudies />} />
               <Route path="/case-studies/:caseStudyId" element={<CaseStudyDetail />} />
-              <Route path="/courses" element={<Courses />} />
-              <Route path="/courses/:courseId" element={<CourseDetail />} />
+              <Route path="/courses" element={<Courses openBrochureForm={openBrochureForm} />} />
+              <Route path="/courses/:courseId" element={<CourseDetail openBrochureForm={openBrochureForm} />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
           <Footer />
           <Chatbot />
+          <BrochureForm 
+            isOpen={isBrochureFormOpen} 
+            onClose={() => setIsBrochureFormOpen(false)}
+            courseName={selectedCourse}
+          />
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>
