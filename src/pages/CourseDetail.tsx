@@ -5,7 +5,11 @@ import { ArrowRight, Book, Check, Clock, Star, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import CallToAction from "@/components/CallToAction";
 
-const CourseDetail = () => {
+interface CourseDetailProps {
+  openBrochureForm: (courseName: string) => void;
+}
+
+const CourseDetail = ({ openBrochureForm }: CourseDetailProps) => {
   const { courseId } = useParams();
   
   // Mock data for course details
@@ -262,7 +266,11 @@ const CourseDetail = () => {
                 <Button size="lg" className="bg-primary hover:bg-primary/90">
                   Enroll Now
                 </Button>
-                <Button size="lg" variant="outline">
+                <Button 
+                  size="lg" 
+                  variant="outline"
+                  onClick={() => openBrochureForm(course.title)}
+                >
                   Download Syllabus
                 </Button>
               </div>
@@ -413,7 +421,11 @@ const CourseDetail = () => {
             transition={{ duration: 0.7, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            <Button size="lg" className="bg-primary hover:bg-primary/90">
+            <Button 
+              size="lg" 
+              className="bg-primary hover:bg-primary/90"
+              onClick={() => openBrochureForm(course.title)}
+            >
               <span>Enroll in this Course</span>
               <ArrowRight size={16} className="ml-2" />
             </Button>

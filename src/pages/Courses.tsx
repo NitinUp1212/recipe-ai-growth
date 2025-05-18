@@ -1,254 +1,530 @@
 
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Search, Book, Brain, Rocket, Lightbulb, Zap, Code, GraduationCap, Users } from "lucide-react";
+import { Search, Filter, Award, Users, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Badge } from "@/components/ui/badge";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { NavLink } from "react-router-dom";
 import CallToAction from "@/components/CallToAction";
 
-interface Course {
-  id: string;
-  title: string;
-  description: string;
-  category: string;
-  level: "Beginner" | "Intermediate" | "Advanced";
-  duration: string;
-  image: string;
-  icon: JSX.Element;
+interface CoursesProps {
+  openBrochureForm: (courseName: string) => void;
 }
 
-const Courses = () => {
+const Courses = ({ openBrochureForm }: CoursesProps) => {
   const [searchQuery, setSearchQuery] = useState("");
-  const [categoryFilter, setCategoryFilter] = useState<string | null>(null);
+  const [activeFilter, setActiveFilter] = useState("all");
   
-  const courses: Course[] = [
+  // Mock data for courses
+  const allCourses = [
     {
-      id: "digital-marketing-mastery",
+      id: "digital-marketing",
       title: "Digital Marketing Mastery",
-      description: "Complete guide to digital marketing strategies across platforms for driving business growth.",
-      category: "Marketing",
-      level: "Intermediate",
-      duration: "8 weeks",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f",
-      icon: <Rocket size={24} />
-    },
-    {
-      id: "ai-agent-development",
-      title: "AI Agent Development",
-      description: "Learn to build and deploy intelligent conversational agents for business applications.",
-      category: "AI Development",
-      level: "Advanced",
+      category: "marketing",
+      level: "Beginner to Advanced",
       duration: "12 weeks",
-      image: "https://images.unsplash.com/photo-1555255707-c07966088b7b",
-      icon: <Brain size={24} />
+      students: "2,500+",
+      image: "https://images.unsplash.com/photo-1557838923-2985c318be48?ixlib=rb-4.0.1&auto=format&fit=crop&w=600&q=80",
+      description: "Comprehensive digital marketing course covering SEO, SEM, social media, content marketing, and analytics.",
+      featured: true,
+      price: "₹24,999"
     },
     {
-      id: "ai-marketing-automation",
-      title: "AI for Marketing Automation",
-      description: "Implement AI-driven marketing campaigns that optimize for conversions.",
-      category: "Marketing",
+      id: "ai-agent",
+      title: "AI Agent Development",
+      category: "development",
       level: "Intermediate",
-      duration: "6 weeks",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71",
-      icon: <Lightbulb size={24} />
+      duration: "14 weeks",
+      students: "1,200+",
+      image: "https://images.unsplash.com/photo-1535378917042-10a22c95931a?ixlib=rb-4.0.1&auto=format&fit=crop&w=600&q=80",
+      description: "Learn to build intelligent AI agents for customer service, sales, and business automation.",
+      featured: true,
+      price: "₹29,999"
     },
     {
-      id: "content-marketing-strategy",
-      title: "Content Marketing Strategy",
-      description: "Create and execute content strategies that attract and engage your target audience.",
-      category: "Marketing",
-      level: "Beginner",
-      duration: "4 weeks",
-      image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173",
-      icon: <Book size={24} />
-    },
-    {
-      id: "machine-learning-marketing",
-      title: "Machine Learning for Marketing",
-      description: "Apply machine learning techniques to optimize marketing campaigns and user experiences.",
-      category: "AI Development",
-      level: "Advanced",
+      id: "ai-marketing",
+      title: "AI for Marketing",
+      category: "marketing",
+      level: "Beginner to Intermediate",
       duration: "10 weeks",
-      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
-      icon: <Code size={24} />
+      students: "1,800+",
+      image: "https://images.unsplash.com/photo-1488229297570-58520851e868?ixlib=rb-4.0.1&auto=format&fit=crop&w=600&q=80",
+      description: "Harness the power of AI to create data-driven marketing strategies and campaigns.",
+      featured: true,
+      price: "₹19,999"
     },
     {
-      id: "social-media-marketing",
+      id: "web-development",
+      title: "Full-Stack Web Development",
+      category: "development",
+      level: "Beginner to Advanced",
+      duration: "16 weeks",
+      students: "3,200+",
+      image: "https://images.unsplash.com/photo-1593720213428-28a5b9e94613?ixlib=rb-4.0.1&auto=format&fit=crop&w=600&q=80",
+      description: "Comprehensive web development bootcamp covering front-end, back-end, and database technologies.",
+      featured: false,
+      price: "₹39,999"
+    },
+    {
+      id: "social-media",
       title: "Social Media Marketing",
-      description: "Master the art of social media engagement and conversion across platforms.",
-      category: "Marketing",
+      category: "marketing",
       level: "Beginner",
-      duration: "6 weeks",
-      image: "https://images.unsplash.com/photo-1611926653458-09294b3142bf",
-      icon: <Users size={24} />
+      duration: "8 weeks",
+      students: "4,100+",
+      image: "https://images.unsplash.com/photo-1562577309-4932fdd64cd1?ixlib=rb-4.0.1&auto=format&fit=crop&w=600&q=80",
+      description: "Master social media platforms and create engaging content strategies for business growth.",
+      featured: false,
+      price: "₹16,999"
+    },
+    {
+      id: "data-science",
+      title: "Data Science Fundamentals",
+      category: "analytics",
+      level: "Intermediate",
+      duration: "12 weeks",
+      students: "1,500+",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.1&auto=format&fit=crop&w=600&q=80",
+      description: "Learn data analysis, visualization, and machine learning for business insights.",
+      featured: false,
+      price: "₹27,999"
     }
   ];
   
-  const categories = [...new Set(courses.map(course => course.category))];
-  
-  const filteredCourses = courses.filter(course => {
+  // Filter courses based on active filter and search query
+  const filteredCourses = allCourses.filter(course => {
+    const matchesFilter = activeFilter === "all" || course.category === activeFilter;
     const matchesSearch = course.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
                          course.description.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesCategory = !categoryFilter || course.category === categoryFilter;
-    return matchesSearch && matchesCategory;
+    return matchesFilter && matchesSearch;
   });
   
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-  
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.4
-      }
-    }
+  // Function to filter courses
+  const handleFilterChange = (filter: string) => {
+    setActiveFilter(filter);
   };
 
   return (
     <>
       {/* Hero Section */}
-      <section className="pt-36 pb-16 bg-gradient-to-br from-blue-50 to-white relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
-          {/* Decorative elements */}
-          <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-neon/10 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 left-1/3 w-80 h-80 bg-blue-100/50 rounded-full blur-3xl"></div>
-        </div>
-        
-        <div className="container-custom relative z-10">
-          <div className="max-w-2xl mx-auto text-center">
-            <motion.h1 
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-4xl md:text-5xl font-bold mb-6"
-            >
-              Marketing & AI <span className="gradient-text">Courses</span>
-            </motion.h1>
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg text-muted-foreground mb-8"
-            >
-              Transform your career with our industry-leading courses in digital marketing and AI development.
-            </motion.p>
-            
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="relative max-w-md mx-auto"
-            >
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+      <section className="relative pt-36 pb-20 bg-gradient-to-br from-gray-50 to-white">
+        <div className="container-custom text-center">
+          <motion.h1 
+            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+          >
+            Upgrade Your Skills with <br/><span className="gradient-text">Expert-Led Courses</span>
+          </motion.h1>
+          <motion.p 
+            className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+          >
+            Industry-relevant training designed to help you master the latest tools and technologies in marketing and AI development
+          </motion.p>
+          
+          <motion.div
+            className="flex flex-col md:flex-row gap-4 justify-center mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+          >
+            <div className="relative w-full max-w-md">
               <Input 
                 type="text" 
                 placeholder="Search courses..." 
-                className="pl-10 pr-4 py-6 rounded-full"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
+                className="pl-10"
               />
-            </motion.div>
-          </div>
-        </div>
-      </section>
-      
-      {/* Categories Filter */}
-      <section className="py-8 border-b">
-        <div className="container-custom">
-          <div className="flex flex-wrap items-center justify-center gap-3">
-            <Button 
-              variant={categoryFilter === null ? "default" : "outline"}
-              onClick={() => setCategoryFilter(null)}
-              className="rounded-full"
-            >
-              All Courses
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground" size={18} />
+            </div>
+            <Button onClick={() => openBrochureForm("All Courses")}>
+              Download Course Catalog
             </Button>
-            
-            {categories.map((category) => (
-              <Button 
-                key={category}
-                variant={categoryFilter === category ? "default" : "outline"}
-                onClick={() => setCategoryFilter(category)}
-                className="rounded-full"
-              >
-                {category}
-              </Button>
-            ))}
-          </div>
+          </motion.div>
+          
+          <motion.div
+            className="bg-white p-1 rounded-lg shadow-sm inline-flex"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+          >
+            <Button 
+              variant={activeFilter === "all" ? "default" : "ghost"} 
+              onClick={() => handleFilterChange("all")}
+            >
+              All
+            </Button>
+            <Button 
+              variant={activeFilter === "marketing" ? "default" : "ghost"} 
+              onClick={() => handleFilterChange("marketing")}
+            >
+              Marketing
+            </Button>
+            <Button 
+              variant={activeFilter === "development" ? "default" : "ghost"} 
+              onClick={() => handleFilterChange("development")}
+            >
+              Development
+            </Button>
+            <Button 
+              variant={activeFilter === "analytics" ? "default" : "ghost"} 
+              onClick={() => handleFilterChange("analytics")}
+            >
+              Analytics
+            </Button>
+          </motion.div>
         </div>
       </section>
       
-      {/* Courses Grid */}
-      <section className="py-16">
+      {/* Featured Courses */}
+      <section className="py-16 bg-white">
         <div className="container-custom">
-          <motion.div 
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-          >
-            {filteredCourses.length > 0 ? (
-              filteredCourses.map((course) => (
-                <motion.div 
-                  key={course.id}
-                  variants={itemVariants}
-                  className="bg-white rounded-xl overflow-hidden border shadow-sm hover:shadow-md transition-all duration-300"
-                >
-                  <div className="relative h-48 overflow-hidden">
-                    <img 
-                      src={course.image} 
-                      alt={course.title} 
-                      className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
-                    />
-                    <div className="absolute top-4 left-4 bg-white p-2 rounded-md shadow-sm">
-                      {course.icon}
+          <div className="flex items-center justify-between mb-8">
+            <h2 className="text-3xl font-bold">Featured Courses</h2>
+            <Button variant="ghost" size="sm" className="flex items-center gap-2">
+              <Filter size={16} />
+              <span>Filter</span>
+            </Button>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredCourses.filter(course => course.featured).map((course) => (
+              <motion.div
+                key={course.id}
+                className="bg-white border border-gray-100 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+                whileHover={{ y: -5 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+              >
+                <div className="relative h-48 bg-gray-100">
+                  <img 
+                    src={course.image} 
+                    alt={course.title} 
+                    className="w-full h-full object-cover"
+                  />
+                  <Badge className="absolute top-3 right-3 bg-primary/90">{course.category}</Badge>
+                </div>
+                
+                <div className="p-5">
+                  <h3 className="text-xl font-bold mb-2">{course.title}</h3>
+                  <p className="text-muted-foreground mb-4 line-clamp-2">{course.description}</p>
+                  
+                  <div className="flex flex-wrap gap-y-3 mb-4">
+                    <div className="w-1/2 flex items-center">
+                      <Clock size={16} className="mr-2 text-primary" />
+                      <span className="text-sm">{course.duration}</span>
                     </div>
-                    <div className="absolute top-4 right-4 bg-primary/10 text-primary text-xs font-medium px-2 py-1 rounded-full">
-                      {course.level}
+                    <div className="w-1/2 flex items-center">
+                      <Award size={16} className="mr-2 text-primary" />
+                      <span className="text-sm">{course.level}</span>
+                    </div>
+                    <div className="w-1/2 flex items-center">
+                      <Users size={16} className="mr-2 text-primary" />
+                      <span className="text-sm">{course.students} Students</span>
                     </div>
                   </div>
                   
-                  <div className="p-6">
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="text-sm font-medium text-neon bg-neon/10 px-3 py-1 rounded-full">
-                        {course.category}
-                      </span>
-                      <span className="text-sm text-muted-foreground">
-                        {course.duration}
-                      </span>
+                  <div className="flex items-center justify-between">
+                    <div className="text-xl font-bold text-primary">{course.price}</div>
+                    <div className="flex gap-2">
+                      <Button 
+                        variant="outline" 
+                        size="sm"
+                        onClick={() => openBrochureForm(course.title)}
+                      >
+                        Brochure
+                      </Button>
+                      <Button size="sm" asChild>
+                        <NavLink to={`/courses/${course.id}`}>Details</NavLink>
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+          
+          {filteredCourses.filter(course => course.featured).length === 0 && (
+            <div className="text-center py-12">
+              <h3 className="text-xl font-medium text-muted-foreground">No courses found matching your criteria</h3>
+              <p className="mt-2">Try adjusting your search or filters</p>
+            </div>
+          )}
+        </div>
+      </section>
+      
+      {/* All Courses Tabs */}
+      <section className="py-16 bg-gray-50">
+        <div className="container-custom">
+          <h2 className="text-3xl font-bold mb-8">All Courses</h2>
+          
+          <Tabs defaultValue="all" className="w-full">
+            <TabsList className="w-full flex justify-start mb-6 bg-white p-1 rounded-lg overflow-x-auto">
+              <TabsTrigger value="all" className="flex-1">All Courses</TabsTrigger>
+              <TabsTrigger value="marketing" className="flex-1">Marketing</TabsTrigger>
+              <TabsTrigger value="development" className="flex-1">Development</TabsTrigger>
+              <TabsTrigger value="analytics" className="flex-1">Analytics</TabsTrigger>
+            </TabsList>
+            
+            <TabsContent value="all">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {filteredCourses.map((course) => (
+                  <motion.div
+                    key={course.id}
+                    className="bg-white border border-gray-100 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+                    whileHover={{ y: -5 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <div className="relative h-48 bg-gray-100">
+                      <img 
+                        src={course.image} 
+                        alt={course.title} 
+                        className="w-full h-full object-cover"
+                      />
+                      <Badge className="absolute top-3 right-3 bg-primary/90">{course.category}</Badge>
                     </div>
                     
-                    <h3 className="text-xl font-bold mb-2">{course.title}</h3>
-                    <p className="text-muted-foreground mb-6 line-clamp-2">{course.description}</p>
-                    
-                    <NavLink to={`/courses/${course.id}`}>
-                      <Button variant="outline" className="w-full">View Course Details</Button>
-                    </NavLink>
-                  </div>
-                </motion.div>
-              ))
-            ) : (
-              <div className="col-span-full text-center py-12">
-                <GraduationCap size={48} className="mx-auto text-muted-foreground mb-4" />
-                <h3 className="text-xl font-medium mb-2">No courses found</h3>
-                <p className="text-muted-foreground mb-4">Try adjusting your search or filter criteria</p>
-                <Button onClick={() => {setSearchQuery(""); setCategoryFilter(null);}}>
-                  Reset Filters
-                </Button>
+                    <div className="p-5">
+                      <h3 className="text-xl font-bold mb-2">{course.title}</h3>
+                      <p className="text-muted-foreground mb-4 line-clamp-2">{course.description}</p>
+                      
+                      <div className="flex flex-wrap gap-y-3 mb-4">
+                        <div className="w-1/2 flex items-center">
+                          <Clock size={16} className="mr-2 text-primary" />
+                          <span className="text-sm">{course.duration}</span>
+                        </div>
+                        <div className="w-1/2 flex items-center">
+                          <Award size={16} className="mr-2 text-primary" />
+                          <span className="text-sm">{course.level}</span>
+                        </div>
+                        <div className="w-1/2 flex items-center">
+                          <Users size={16} className="mr-2 text-primary" />
+                          <span className="text-sm">{course.students} Students</span>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-center justify-between">
+                        <div className="text-xl font-bold text-primary">{course.price}</div>
+                        <div className="flex gap-2">
+                          <Button 
+                            variant="outline" 
+                            size="sm"
+                            onClick={() => openBrochureForm(course.title)}
+                          >
+                            Brochure
+                          </Button>
+                          <Button size="sm" asChild>
+                            <NavLink to={`/courses/${course.id}`}>Details</NavLink>
+                          </Button>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
               </div>
-            )}
-          </motion.div>
+            </TabsContent>
+            
+            <TabsContent value="marketing">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {filteredCourses
+                  .filter(course => course.category === "marketing")
+                  .map((course) => (
+                    <motion.div
+                      key={course.id}
+                      className="bg-white border border-gray-100 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+                      whileHover={{ y: -5 }}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      <div className="relative h-48 bg-gray-100">
+                        <img 
+                          src={course.image} 
+                          alt={course.title} 
+                          className="w-full h-full object-cover"
+                        />
+                        <Badge className="absolute top-3 right-3 bg-primary/90">{course.category}</Badge>
+                      </div>
+                      
+                      <div className="p-5">
+                        <h3 className="text-xl font-bold mb-2">{course.title}</h3>
+                        <p className="text-muted-foreground mb-4 line-clamp-2">{course.description}</p>
+                        
+                        <div className="flex flex-wrap gap-y-3 mb-4">
+                          <div className="w-1/2 flex items-center">
+                            <Clock size={16} className="mr-2 text-primary" />
+                            <span className="text-sm">{course.duration}</span>
+                          </div>
+                          <div className="w-1/2 flex items-center">
+                            <Award size={16} className="mr-2 text-primary" />
+                            <span className="text-sm">{course.level}</span>
+                          </div>
+                          <div className="w-1/2 flex items-center">
+                            <Users size={16} className="mr-2 text-primary" />
+                            <span className="text-sm">{course.students} Students</span>
+                          </div>
+                        </div>
+                        
+                        <div className="flex items-center justify-between">
+                          <div className="text-xl font-bold text-primary">{course.price}</div>
+                          <div className="flex gap-2">
+                            <Button 
+                              variant="outline" 
+                              size="sm"
+                              onClick={() => openBrochureForm(course.title)}
+                            >
+                              Brochure
+                            </Button>
+                            <Button size="sm" asChild>
+                              <NavLink to={`/courses/${course.id}`}>Details</NavLink>
+                            </Button>
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                ))}
+              </div>
+            </TabsContent>
+            
+            <TabsContent value="development">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {filteredCourses
+                  .filter(course => course.category === "development")
+                  .map((course) => (
+                    <motion.div
+                      key={course.id}
+                      className="bg-white border border-gray-100 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+                      whileHover={{ y: -5 }}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      <div className="relative h-48 bg-gray-100">
+                        <img 
+                          src={course.image} 
+                          alt={course.title} 
+                          className="w-full h-full object-cover"
+                        />
+                        <Badge className="absolute top-3 right-3 bg-primary/90">{course.category}</Badge>
+                      </div>
+                      
+                      <div className="p-5">
+                        <h3 className="text-xl font-bold mb-2">{course.title}</h3>
+                        <p className="text-muted-foreground mb-4 line-clamp-2">{course.description}</p>
+                        
+                        <div className="flex flex-wrap gap-y-3 mb-4">
+                          <div className="w-1/2 flex items-center">
+                            <Clock size={16} className="mr-2 text-primary" />
+                            <span className="text-sm">{course.duration}</span>
+                          </div>
+                          <div className="w-1/2 flex items-center">
+                            <Award size={16} className="mr-2 text-primary" />
+                            <span className="text-sm">{course.level}</span>
+                          </div>
+                          <div className="w-1/2 flex items-center">
+                            <Users size={16} className="mr-2 text-primary" />
+                            <span className="text-sm">{course.students} Students</span>
+                          </div>
+                        </div>
+                        
+                        <div className="flex items-center justify-between">
+                          <div className="text-xl font-bold text-primary">{course.price}</div>
+                          <div className="flex gap-2">
+                            <Button 
+                              variant="outline" 
+                              size="sm"
+                              onClick={() => openBrochureForm(course.title)}
+                            >
+                              Brochure
+                            </Button>
+                            <Button size="sm" asChild>
+                              <NavLink to={`/courses/${course.id}`}>Details</NavLink>
+                            </Button>
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                ))}
+              </div>
+            </TabsContent>
+            
+            <TabsContent value="analytics">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {filteredCourses
+                  .filter(course => course.category === "analytics")
+                  .map((course) => (
+                    <motion.div
+                      key={course.id}
+                      className="bg-white border border-gray-100 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+                      whileHover={{ y: -5 }}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      <div className="relative h-48 bg-gray-100">
+                        <img 
+                          src={course.image} 
+                          alt={course.title} 
+                          className="w-full h-full object-cover"
+                        />
+                        <Badge className="absolute top-3 right-3 bg-primary/90">{course.category}</Badge>
+                      </div>
+                      
+                      <div className="p-5">
+                        <h3 className="text-xl font-bold mb-2">{course.title}</h3>
+                        <p className="text-muted-foreground mb-4 line-clamp-2">{course.description}</p>
+                        
+                        <div className="flex flex-wrap gap-y-3 mb-4">
+                          <div className="w-1/2 flex items-center">
+                            <Clock size={16} className="mr-2 text-primary" />
+                            <span className="text-sm">{course.duration}</span>
+                          </div>
+                          <div className="w-1/2 flex items-center">
+                            <Award size={16} className="mr-2 text-primary" />
+                            <span className="text-sm">{course.level}</span>
+                          </div>
+                          <div className="w-1/2 flex items-center">
+                            <Users size={16} className="mr-2 text-primary" />
+                            <span className="text-sm">{course.students} Students</span>
+                          </div>
+                        </div>
+                        
+                        <div className="flex items-center justify-between">
+                          <div className="text-xl font-bold text-primary">{course.price}</div>
+                          <div className="flex gap-2">
+                            <Button 
+                              variant="outline" 
+                              size="sm"
+                              onClick={() => openBrochureForm(course.title)}
+                            >
+                              Brochure
+                            </Button>
+                            <Button size="sm" asChild>
+                              <NavLink to={`/courses/${course.id}`}>Details</NavLink>
+                            </Button>
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                ))}
+              </div>
+            </TabsContent>
+          </Tabs>
         </div>
       </section>
       
