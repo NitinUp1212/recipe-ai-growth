@@ -1,5 +1,5 @@
 
-import { Calendar, Download } from 'lucide-react';
+import { Calendar, Download, Monitor, Award, Briefcase } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 
@@ -14,10 +14,12 @@ const UpcomingBatches = ({ openBrochureForm }: UpcomingBatchesProps) => {
       courseName: "Digital Marketing Mastery",
       startDate: "June 10, 2025",
       duration: "12 weeks",
-      mode: "Hybrid",
+      mode: "Online",
       seats: 15,
       seatsLeft: 3,
       timing: "Weekend (Sat-Sun 10AM-1PM)",
+      certificationIncluded: true,
+      jobPlacement: "85% placement rate",
     },
     {
       id: 2,
@@ -28,6 +30,8 @@ const UpcomingBatches = ({ openBrochureForm }: UpcomingBatchesProps) => {
       seats: 20,
       seatsLeft: 7,
       timing: "Weekday Evenings (Mon-Wed 6PM-8PM)",
+      certificationIncluded: true,
+      jobPlacement: "90% placement rate",
     },
     {
       id: 3,
@@ -38,7 +42,16 @@ const UpcomingBatches = ({ openBrochureForm }: UpcomingBatchesProps) => {
       seats: 12,
       seatsLeft: 5,
       timing: "Weekday (Tue-Thu 11AM-1PM)",
+      certificationIncluded: true,
+      jobPlacement: "95% placement rate",
     }
+  ];
+
+  // Previous batch images
+  const previousBatchImages = [
+    "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.1&auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?ixlib=rb-4.0.1&auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.1&auto=format&fit=crop&w=1200&q=80"
   ];
 
   return (
@@ -47,7 +60,7 @@ const UpcomingBatches = ({ openBrochureForm }: UpcomingBatchesProps) => {
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Upcoming Batches</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Join our next batch of courses and begin your journey towards expertise
+            Join our next batch of <span className="font-semibold text-primary">100% online</span> courses and begin your journey towards expertise
           </p>
         </div>
         
@@ -75,14 +88,29 @@ const UpcomingBatches = ({ openBrochureForm }: UpcomingBatchesProps) => {
                     <div className="text-muted-foreground">Duration</div>
                     <div className="font-medium">{batch.duration}</div>
                   </div>
-                  <div className="bg-gray-50 p-2 rounded-md">
-                    <div className="text-muted-foreground">Mode</div>
-                    <div className="font-medium">{batch.mode}</div>
+                  <div className="bg-gray-50 p-2 rounded-md flex items-center gap-1">
+                    <Monitor size={14} className="text-primary" />
+                    <div className="font-medium">{batch.mode} Only</div>
                   </div>
                   <div className="col-span-2 bg-gray-50 p-2 rounded-md">
                     <div className="text-muted-foreground">Timing</div>
                     <div className="font-medium">{batch.timing}</div>
                   </div>
+                </div>
+                
+                <div className="flex flex-wrap gap-2 mt-2">
+                  {batch.certificationIncluded && (
+                    <div className="flex items-center gap-1 bg-green-50 text-green-700 text-xs px-2 py-1 rounded-full">
+                      <Award size={12} />
+                      <span>Certification Included</span>
+                    </div>
+                  )}
+                  {batch.jobPlacement && (
+                    <div className="flex items-center gap-1 bg-blue-50 text-blue-700 text-xs px-2 py-1 rounded-full">
+                      <Briefcase size={12} />
+                      <span>{batch.jobPlacement}</span>
+                    </div>
+                  )}
                 </div>
                 
                 <Button 
@@ -103,6 +131,22 @@ const UpcomingBatches = ({ openBrochureForm }: UpcomingBatchesProps) => {
               </div>
             </div>
           ))}
+        </div>
+        
+        {/* Previous Batches Gallery */}
+        <div className="mt-16">
+          <h3 className="text-2xl font-bold text-center mb-6">Previous Successful Batches</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {previousBatchImages.map((image, index) => (
+              <div key={index} className="rounded-lg overflow-hidden shadow-md">
+                <img 
+                  src={image} 
+                  alt={`Previous batch ${index + 1}`} 
+                  className="w-full h-64 object-cover transition-transform hover:scale-105 duration-300"
+                />
+              </div>
+            ))}
+          </div>
         </div>
         
         <div className="mt-12 text-center">
