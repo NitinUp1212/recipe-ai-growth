@@ -5,6 +5,7 @@ import RecipeCard from "@/components/RecipeCard";
 import TestimonialCard from "@/components/TestimonialCard";
 import CallToAction from "@/components/CallToAction";
 import StartupPackage from "@/components/StartupPackage";
+import InstituteSection from "@/components/InstituteSection";
 
 const Index = () => {
   const services = [
@@ -171,6 +172,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+      
+      {/* Institute Section */}
+      <InstituteSection />
       
       {/* Startup Package Section */}
       <StartupPackage />
