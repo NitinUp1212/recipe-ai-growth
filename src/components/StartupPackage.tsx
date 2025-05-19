@@ -78,15 +78,18 @@ const StartupPackage = () => {
               </div>
               
               <div className="flex flex-wrap gap-4 pt-4">
-                <a 
+                <motion.a 
                   href="https://wa.me/918791363283" 
                   target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded font-medium transition-colors"
+                  rel="noopener noreferrer"
+                  className="relative inline-flex items-center gap-2 overflow-hidden bg-gradient-to-br from-green-500 to-teal-500 text-white px-6 py-3 rounded-lg font-medium shadow-md hover:shadow-green-500/30 hover:shadow-lg transition-all duration-300"
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.98 }}
                 >
-                  <MessageSquare size={18} />
-                  Chat Now
-                </a>
+                  <span className="absolute inset-0 h-[200%] w-[200%] rotate-45 translate-x-[-75%] translate-y-[-50%] bg-white opacity-10 transition-transform duration-700 ease-in-out group-hover:translate-x-[50%] group-hover:translate-y-[-10%]"></span>
+                  <MessageSquare size={18} className="relative z-10" />
+                  <span className="relative z-10">Start Cooking</span>
+                </motion.a>
                 <NavLink to="/services">
                   <Button variant="outline" className="flex items-center gap-1">
                     Learn More <ChevronRight size={16} />
@@ -142,15 +145,23 @@ const StartupPackage = () => {
                 </div>
               </CardContent>
               <CardFooter className="border-t border-gray-100 pt-6 pb-4 flex-col items-stretch gap-4">
-                <a
+                <motion.a
                   href="https://wa.me/918791363283" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="w-full text-lg flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white py-3 px-4 rounded font-medium transition-colors"
+                  className="relative w-full overflow-hidden rounded-lg bg-gradient-to-r from-green-500 via-green-600 to-green-500 bg-size-200 bg-pos-0 py-3 px-4 text-lg font-medium text-white shadow-md transition-all duration-300 hover:bg-pos-100 hover:shadow-lg"
+                  whileHover={{ 
+                    scale: 1.02,
+                    transition: { duration: 0.2 }
+                  }}
+                  whileTap={{ scale: 0.98 }}
                 >
-                  <MessageSquare size={20} />
-                  Chat Now to Get Started
-                </a>
+                  <div className="flex items-center justify-center gap-2">
+                    <MessageSquare size={20} />
+                    <span>Chat Now to Get Started</span>
+                  </div>
+                  <div className="absolute -inset-full top-0 block h-0.5 w-full bg-gradient-to-r from-transparent via-white to-transparent opacity-30"></div>
+                </motion.a>
                 <p className="text-center text-sm text-muted-foreground">
                   Only 5 spots available this month!
                 </p>

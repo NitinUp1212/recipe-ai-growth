@@ -62,16 +62,33 @@ const Chatbot = () => {
     <>
       {/* Chatbot Button */}
       <button 
-        className={`fixed bottom-6 right-6 bg-primary text-white rounded-full p-4 shadow-lg z-40 transition-all transform hover:scale-110 ${isOpen ? 'rotate-90' : ''}`}
+        className={`fixed bottom-6 right-6 z-40 transition-all transform ${isOpen ? 'rotate-90' : 'group animate-pulse hover:animate-none'}`}
         onClick={toggleChatbot}
       >
-        {isOpen ? <X size={24} /> : <MessageSquare size={24} />}
+        <div className="relative">
+          {!isOpen && (
+            <div className="absolute -top-10 right-0 bg-white text-primary px-3 py-1 rounded-full text-sm font-medium shadow-md transform transition-all opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-2">
+              Chat with us!
+            </div>
+          )}
+          <div className={`bg-gradient-to-r from-green-500 via-green-600 to-green-500 text-white rounded-full p-4 shadow-lg transition-all hover:shadow-xl ${isOpen ? '' : 'group-hover:scale-110'}`}>
+            {isOpen ? <X size={24} /> : (
+              <div className="relative">
+                <MessageSquare size={24} />
+                <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">1</span>
+              </div>
+            )}
+          </div>
+          {!isOpen && (
+            <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-12 h-3 bg-black opacity-20 rounded-full blur-sm"></span>
+          )}
+        </div>
       </button>
       
       {/* Chatbot Window */}
       {isOpen && (
         <div className="fixed bottom-24 right-6 w-80 sm:w-96 bg-white rounded-2xl shadow-xl z-40 overflow-hidden border border-gray-200 animate-fade-in">
-          <div className="bg-primary p-4 text-white">
+          <div className="bg-gradient-to-r from-primary to-blue-600 p-4 text-white">
             <h3 className="font-bold">FlavorDish Assistant</h3>
             <p className="text-sm opacity-80">We'll help you find the perfect recipe</p>
           </div>

@@ -109,16 +109,23 @@ const CallToAction = ({
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.7 }}
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ 
+                  scale: 1.05,
+                  rotate: [0, -2, 2, -2, 0],
+                  transition: {
+                    rotate: { repeat: Infinity, duration: 0.5, repeatDelay: 3 }
+                  }
+                }}
               >
                 <a 
                   href="https://wa.me/918791363283" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white rounded-md py-6 px-8 text-lg font-medium transition-colors"
+                  className="group relative inline-flex items-center gap-2 overflow-hidden rounded-md bg-gradient-to-r from-green-500 via-green-600 to-green-500 px-8 py-6 text-lg font-medium text-white shadow-lg transition-all duration-300 hover:bg-gradient-to-l hover:shadow-green-500/30 hover:shadow-xl"
                 >
-                  <MessageSquare size={20} />
-                  Chat Now
+                  <span className="absolute -left-4 h-32 w-32 rotate-45 translate-x-0 -translate-y-2 bg-white opacity-[3%] transition-transform duration-1000 ease-out group-hover:translate-x-[400%]"></span>
+                  <MessageSquare size={20} className="animate-pulse" />
+                  <span className="relative">Chat Now</span>
                 </a>
               </motion.div>
             )}

@@ -98,10 +98,11 @@ const Footer = () => {
                   href="https://wa.me/918791363283" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="flex items-center bg-green-600 hover:bg-green-700 text-white rounded-md py-2 px-4 mt-3 transition-colors"
+                  className="group relative inline-flex items-center w-full justify-center bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white rounded-md py-2 px-4 mt-3 transition-all duration-300 overflow-hidden shadow-lg hover:shadow-green-500/30"
                 >
-                  <MessageSquare size={18} className="mr-2" />
-                  Chat on WhatsApp
+                  <span className="absolute -left-4 h-32 w-32 rotate-45 translate-x-0 -translate-y-2 bg-white opacity-[3%] transition-transform duration-1000 ease-out group-hover:translate-x-[400%]"></span>
+                  <MessageSquare size={18} className="mr-2 animate-bounce" />
+                  <span>Chat on WhatsApp</span>
                 </a>
               </li>
             </ul>

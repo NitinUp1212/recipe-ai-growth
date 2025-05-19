@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Mail, Phone, MapPin, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -44,6 +43,25 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    
+    // Construct email body
+    const emailBody = `
+      New Contact Form Submission:
+      
+      Name: ${formData.name}
+      Email: ${formData.email}
+      Phone: ${formData.phone || 'Not provided'}
+      Company: ${formData.company || 'Not provided'}
+      Service: ${formData.service || 'Not specified'}
+      Budget: ${formData.budget || 'Not specified'}
+      
+      Message:
+      ${formData.message}
+    `;
+    
+    // Send email using mailto link (as a fallback)
+    const mailtoLink = `mailto:officialunknownhat@gmail.com?subject=New Contact Form Submission&body=${encodeURIComponent(emailBody)}`;
+    window.open(mailtoLink, '_blank');
     
     // Simulate form submission
     setTimeout(() => {
@@ -311,6 +329,10 @@ const Contact = () => {
                   >
                     {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
+                  
+                  <p className="text-sm text-center text-muted-foreground">
+                    Your information will be sent to officialunknownhat@gmail.com
+                  </p>
                 </form>
               </div>
             </div>

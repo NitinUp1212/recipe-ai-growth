@@ -38,6 +38,25 @@ const BrochureForm = ({ isOpen, onClose, courseName }: BrochureFormProps) => {
     e.preventDefault();
     setIsSubmitting(true);
     
+    // Construct email body
+    const emailBody = `
+      New Brochure Download Request:
+      
+      Course: ${courseName || 'Not specified'}
+      Name: ${formData.name}
+      Email: ${formData.email}
+      Phone: ${formData.phone}
+      Qualification: ${formData.qualification || 'Not specified'}
+      Experience: ${formData.experience || 'Not specified'}
+      
+      Message:
+      ${formData.message || 'No message provided'}
+    `;
+    
+    // Send email using mailto link (as a fallback)
+    const mailtoLink = `mailto:officialunknownhat@gmail.com?subject=New Brochure Request: ${courseName}&body=${encodeURIComponent(emailBody)}`;
+    window.open(mailtoLink, '_blank');
+    
     // Simulate API call
     setTimeout(() => {
       setIsSubmitting(false);
@@ -166,6 +185,10 @@ const BrochureForm = ({ isOpen, onClose, courseName }: BrochureFormProps) => {
               {isSubmitting ? "Submitting..." : "Download Brochure"}
             </Button>
           </div>
+          
+          <p className="text-xs text-center text-muted-foreground">
+            Your information will be sent to officialunknownhat@gmail.com
+          </p>
         </form>
       </DialogContent>
     </Dialog>
