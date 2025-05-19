@@ -1,7 +1,15 @@
+
 import { Calendar, Download, Monitor, Award, Briefcase, Users, GraduationCap, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from '@/components/ui/table';
+import { 
+  Carousel, 
+  CarouselContent, 
+  CarouselItem, 
+  CarouselNext, 
+  CarouselPrevious 
+} from '@/components/ui/carousel';
 
 interface UpcomingBatchesProps {
   openBrochureForm: (courseName: string) => void;
@@ -45,13 +53,6 @@ const UpcomingBatches = ({ openBrochureForm }: UpcomingBatchesProps) => {
       certificationIncluded: true,
       jobPlacement: "95% placement rate",
     }
-  ];
-
-  // Previous batch images
-  const previousBatchImages = [
-    "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.1&auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?ixlib=rb-4.0.1&auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.1&auto=format&fit=crop&w=1200&q=80"
   ];
 
   // Previous completed batches with detailed information
@@ -176,7 +177,7 @@ const UpcomingBatches = ({ openBrochureForm }: UpcomingBatchesProps) => {
           ))}
         </div>
         
-        {/* Previous Batches Success Stories */}
+        {/* Previous Batches Success Stories as Carousel */}
         <div className="mt-24">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Previous Batch Success Stories</h2>
@@ -185,85 +186,80 @@ const UpcomingBatches = ({ openBrochureForm }: UpcomingBatchesProps) => {
             </p>
           </div>
           
-          <div className="grid gap-10">
-            {completedBatches.map((batch) => (
-              <div key={batch.id} className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
-                <div className="bg-primary/10 p-5">
-                  <div className="flex flex-wrap gap-4 justify-between items-center">
-                    <h3 className="text-xl font-bold text-primary">{batch.courseName} <span className="text-muted-foreground text-sm font-normal ml-2">({batch.batchPeriod})</span></h3>
-                    <div className="flex items-center gap-6">
-                      <div className="flex items-center gap-2">
-                        <Users size={18} className="text-primary" />
-                        <span>{batch.studentsEnrolled} Students</span>
+          <div className="relative px-12">
+            <Carousel className="w-full">
+              <CarouselContent>
+                {completedBatches.map((batch) => (
+                  <CarouselItem key={batch.id} className="md:basis-4/5 lg:basis-3/4">
+                    <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 h-full">
+                      <div className="bg-primary/10 p-5">
+                        <div className="flex flex-wrap gap-4 justify-between items-center">
+                          <h3 className="text-xl font-bold text-primary">
+                            {batch.courseName} 
+                            <span className="text-muted-foreground text-sm font-normal ml-2">({batch.batchPeriod})</span>
+                          </h3>
+                          <div className="flex items-center gap-6">
+                            <div className="flex items-center gap-2">
+                              <Users size={18} className="text-primary" />
+                              <span>{batch.studentsEnrolled} Students</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <Briefcase size={18} className="text-green-600" />
+                              <span className="font-semibold text-green-700">{batch.placementRate} Placed</span>
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <Briefcase size={18} className="text-green-600" />
-                        <span className="font-semibold text-green-700">{batch.placementRate} Placed</span>
+                      
+                      <div className="p-5 space-y-6">
+                        <div>
+                          <h4 className="flex items-center gap-2 text-lg font-semibold mb-3">
+                            <GraduationCap className="text-primary" size={20} />
+                            Top Performers & Placements
+                          </h4>
+                          <Table>
+                            <TableHeader>
+                              <TableRow>
+                                <TableHead>Rank</TableHead>
+                                <TableHead>Student Name</TableHead>
+                                <TableHead>Placed At</TableHead>
+                                <TableHead>Package</TableHead>
+                              </TableRow>
+                            </TableHeader>
+                            <TableBody>
+                              {batch.topPerformers.map((performer, index) => (
+                                <TableRow key={index}>
+                                  <TableCell className="font-medium">#{performer.rank}</TableCell>
+                                  <TableCell>{performer.name}</TableCell>
+                                  <TableCell className="font-medium text-primary">{performer.placedAt}</TableCell>
+                                  <TableCell>{performer.package}</TableCell>
+                                </TableRow>
+                              ))}
+                            </TableBody>
+                          </Table>
+                        </div>
+                        
+                        <div>
+                          <h4 className="flex items-center gap-2 font-semibold mb-3">
+                            <CheckCircle className="text-primary" size={18} />
+                            Top Recruiting Companies
+                          </h4>
+                          <div className="flex flex-wrap gap-2">
+                            {batch.topCompanies.map((company, index) => (
+                              <Badge key={index} variant="outline" className="bg-primary/5 border-primary/20 text-primary">
+                                {company}
+                              </Badge>
+                            ))}
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-                
-                <div className="p-5 space-y-6">
-                  <div>
-                    <h4 className="flex items-center gap-2 text-lg font-semibold mb-3">
-                      <GraduationCap className="text-primary" size={20} />
-                      Top Performers & Placements
-                    </h4>
-                    <Table>
-                      <TableHeader>
-                        <TableRow>
-                          <TableHead>Rank</TableHead>
-                          <TableHead>Student Name</TableHead>
-                          <TableHead>Placed At</TableHead>
-                          <TableHead>Package</TableHead>
-                        </TableRow>
-                      </TableHeader>
-                      <TableBody>
-                        {batch.topPerformers.map((performer, index) => (
-                          <TableRow key={index}>
-                            <TableCell className="font-medium">#{performer.rank}</TableCell>
-                            <TableCell>{performer.name}</TableCell>
-                            <TableCell className="font-medium text-primary">{performer.placedAt}</TableCell>
-                            <TableCell>{performer.package}</TableCell>
-                          </TableRow>
-                        ))}
-                      </TableBody>
-                    </Table>
-                  </div>
-                  
-                  <div>
-                    <h4 className="flex items-center gap-2 font-semibold mb-3">
-                      <CheckCircle className="text-primary" size={18} />
-                      Top Recruiting Companies
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
-                      {batch.topCompanies.map((company, index) => (
-                        <Badge key={index} variant="outline" className="bg-primary/5 border-primary/20 text-primary">
-                          {company}
-                        </Badge>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-        
-        {/* Previous Batches Gallery */}
-        <div className="mt-16">
-          <h3 className="text-2xl font-bold text-center mb-6">Previous Batch Images</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {previousBatchImages.map((image, index) => (
-              <div key={index} className="rounded-lg overflow-hidden shadow-md">
-                <img 
-                  src={image} 
-                  alt={`Previous batch ${index + 1}`} 
-                  className="w-full h-64 object-cover transition-transform hover:scale-105 duration-300"
-                />
-              </div>
-            ))}
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="left-0" />
+              <CarouselNext className="right-0" />
+            </Carousel>
           </div>
         </div>
         
