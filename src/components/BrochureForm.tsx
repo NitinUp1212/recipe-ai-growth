@@ -6,7 +6,6 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { toast } from '@/hooks/use-toast';
-import { Textarea } from "@/components/ui/textarea";
 
 interface BrochureFormProps {
   isOpen: boolean;
@@ -20,12 +19,11 @@ const BrochureForm = ({ isOpen, onClose, courseName }: BrochureFormProps) => {
     email: '',
     phone: '',
     qualification: '',
-    experience: '',
-    message: ''
+    course: courseName || ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
@@ -42,19 +40,15 @@ const BrochureForm = ({ isOpen, onClose, courseName }: BrochureFormProps) => {
     const emailBody = `
       New Brochure Download Request:
       
-      Course: ${courseName || 'Not specified'}
+      Course: ${formData.course || courseName || 'Not specified'}
       Name: ${formData.name}
       Email: ${formData.email}
       Phone: ${formData.phone}
       Qualification: ${formData.qualification || 'Not specified'}
-      Experience: ${formData.experience || 'Not specified'}
-      
-      Message:
-      ${formData.message || 'No message provided'}
     `;
     
     // Send email using mailto link (as a fallback)
-    const mailtoLink = `mailto:officialunknownhat@gmail.com?subject=New Brochure Request: ${courseName}&body=${encodeURIComponent(emailBody)}`;
+    const mailtoLink = `mailto:officialunknownhat@gmail.com?subject=New Brochure Request: ${formData.course || courseName}&body=${encodeURIComponent(emailBody)}`;
     window.open(mailtoLink, '_blank');
     
     // Simulate API call
@@ -72,8 +66,7 @@ const BrochureForm = ({ isOpen, onClose, courseName }: BrochureFormProps) => {
         email: '',
         phone: '',
         qualification: '',
-        experience: '',
-        message: ''
+        course: ''
       });
     }, 1500);
   };
@@ -147,35 +140,24 @@ const BrochureForm = ({ isOpen, onClose, courseName }: BrochureFormProps) => {
             </div>
             
             <div className="grid gap-2">
-              <Label htmlFor="experience">Work Experience <span className="text-red">*</span></Label>
+              <Label htmlFor="course">Course Interested In <span className="text-red">*</span></Label>
               <Select 
-                onValueChange={(value) => handleSelectChange('experience', value)}
-                defaultValue={formData.experience}
+                onValueChange={(value) => handleSelectChange('course', value)}
+                defaultValue={formData.course || courseName}
               >
-                <SelectTrigger id="experience">
-                  <SelectValue placeholder="Select experience" />
+                <SelectTrigger id="course">
+                  <SelectValue placeholder="Select course" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="fresher">Fresher</SelectItem>
-                  <SelectItem value="0-2">0-2 Years</SelectItem>
-                  <SelectItem value="3-5">3-5 Years</SelectItem>
-                  <SelectItem value="5-10">5-10 Years</SelectItem>
-                  <SelectItem value="10+">10+ Years</SelectItem>
+                  <SelectItem value="Digital Marketing Mastery">Digital Marketing Mastery</SelectItem>
+                  <SelectItem value="AI for Marketing">AI for Marketing</SelectItem>
+                  <SelectItem value="AI Agent Development">AI Agent Development</SelectItem>
+                  <SelectItem value="SEO Master Course">SEO Master Course</SelectItem>
+                  <SelectItem value="Social Media Marketing">Social Media Marketing</SelectItem>
+                  <SelectItem value="Google Ads Pro">Google Ads Pro</SelectItem>
+                  <SelectItem value="Other">Other Course</SelectItem>
                 </SelectContent>
               </Select>
-            </div>
-            
-            <div className="grid gap-2">
-              <Label htmlFor="message">Message (Optional)</Label>
-              <Textarea 
-                id="message" 
-                name="message" 
-                value={formData.message} 
-                onChange={handleChange} 
-                placeholder="Any specific queries or requirements..."
-                className="resize-none"
-                rows={3}
-              />
             </div>
           </div>
           
