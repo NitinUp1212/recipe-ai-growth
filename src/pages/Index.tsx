@@ -97,9 +97,15 @@ const Index = ({ openBrochureForm }: IndexProps) => {
                 Digital marketing recipes that deliver measurable results through the perfect blend of AI innovation and proven strategies.
               </p>
               <div className="flex flex-wrap gap-4">
-                <NavLink to="/contact">
-                  <Button className="btn-primary text-lg">Get Your Free Audit</Button>
-                </NavLink>
+                <a 
+                  href="https://wa.me/918791363283" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded text-lg font-medium transition-colors"
+                >
+                  <MessageSquare size={20} />
+                  Chat Now
+                </a>
                 <Button 
                   variant="outline" 
                   className="text-lg"

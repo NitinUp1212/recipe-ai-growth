@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Logo from "./Logo";
 
@@ -86,7 +86,15 @@ const Navbar = () => {
         </nav>
 
         <div className="hidden lg:block">
-          <Button className="btn-primary">Get Your Free Audit</Button>
+          <a 
+            href="https://wa.me/918791363283" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded transition-colors"
+          >
+            <MessageSquare size={18} />
+            Chat Now
+          </a>
         </div>
 
         {/* Mobile Menu Button */}
@@ -99,7 +107,7 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Navigation - Improved for better mobile UX */}
+      {/* Mobile Navigation */}
       {mobileMenuOpen && (
         <div className="lg:hidden fixed top-[60px] left-0 right-0 bg-white shadow-lg py-4 px-4 animate-fade-in max-h-[80vh] overflow-y-auto z-50">
           <nav className="flex flex-col space-y-3">
@@ -158,7 +166,15 @@ const Navbar = () => {
               Contact
             </NavLink>
             <div className="pt-2">
-              <Button className="btn-primary w-full py-3">Get Your Free Audit</Button>
+              <a 
+                href="https://wa.me/918791363283" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white rounded py-3 px-4 w-full"
+              >
+                <MessageSquare size={18} />
+                Chat Now
+              </a>
             </div>
           </nav>
         </div>

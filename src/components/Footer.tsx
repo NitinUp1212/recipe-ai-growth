@@ -1,6 +1,6 @@
 
 import { NavLink } from "react-router-dom";
-import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin, Twitter, MessageSquare } from "lucide-react";
 import Logo from "./Logo";
 
 const Footer = () => {
@@ -87,11 +87,22 @@ const Footer = () => {
               </li>
               <li className="flex items-center">
                 <Phone size={20} className="mr-3 text-neon flex-shrink-0" />
-                <span className="text-gray-300">+91 98765 43210</span>
+                <span className="text-gray-300">+91 8791363283, 7055481738</span>
               </li>
               <li className="flex items-center">
                 <Mail size={20} className="mr-3 text-neon flex-shrink-0" />
-                <span className="text-gray-300">hello@unknownhat.com</span>
+                <span className="text-gray-300">Contact@unknownhat.in</span>
+              </li>
+              <li>
+                <a 
+                  href="https://wa.me/918791363283" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="flex items-center bg-green-600 hover:bg-green-700 text-white rounded-md py-2 px-4 mt-3 transition-colors"
+                >
+                  <MessageSquare size={18} className="mr-2" />
+                  Chat on WhatsApp
+                </a>
               </li>
             </ul>
           </div>

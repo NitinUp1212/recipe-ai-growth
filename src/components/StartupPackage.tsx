@@ -1,6 +1,6 @@
 
 import { NavLink } from "react-router-dom";
-import { ChevronRight, Rocket, TrendingUp, CheckCircle, Award } from "lucide-react";
+import { ChevronRight, Rocket, TrendingUp, CheckCircle, Award, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { motion } from "framer-motion";
@@ -78,9 +78,15 @@ const StartupPackage = () => {
               </div>
               
               <div className="flex flex-wrap gap-4 pt-4">
-                <NavLink to="/contact">
-                  <Button className="btn-primary">Get Started Today</Button>
-                </NavLink>
+                <a 
+                  href="https://wa.me/918791363283" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded font-medium transition-colors"
+                >
+                  <MessageSquare size={18} />
+                  Chat Now
+                </a>
                 <NavLink to="/services">
                   <Button variant="outline" className="flex items-center gap-1">
                     Learn More <ChevronRight size={16} />
@@ -136,9 +142,15 @@ const StartupPackage = () => {
                 </div>
               </CardContent>
               <CardFooter className="border-t border-gray-100 pt-6 pb-4 flex-col items-stretch gap-4">
-                <Button className="w-full text-lg" size="lg">
-                  Book a Free Strategy Call
-                </Button>
+                <a
+                  href="https://wa.me/918791363283" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="w-full text-lg flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white py-3 px-4 rounded font-medium transition-colors"
+                >
+                  <MessageSquare size={20} />
+                  Chat Now to Get Started
+                </a>
                 <p className="text-center text-sm text-muted-foreground">
                   Only 5 spots available this month!
                 </p>

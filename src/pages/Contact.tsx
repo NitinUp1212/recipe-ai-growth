@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -77,6 +77,17 @@ const Contact = () => {
             <p className="text-xl text-muted-foreground">
               Ready to cook up something amazing? Get in touch to discuss your marketing recipe.
             </p>
+            <div className="mt-8">
+              <a 
+                href="https://wa.me/918791363283" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-md text-lg font-medium transition-colors"
+              >
+                <MessageSquare size={20} />
+                Chat Now on WhatsApp
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -111,8 +122,8 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-bold mb-1">Email Address</h3>
-                    <a href="mailto:hello@flavordish.com" className="text-primary hover:underline">
-                      hello@flavordish.com
+                    <a href="mailto:Contact@unknownhat.in" className="text-primary hover:underline">
+                      Contact@unknownhat.in
                     </a>
                   </div>
                 </div>
@@ -125,10 +136,25 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-bold mb-1">Phone Number</h3>
-                    <a href="tel:+919876543210" className="text-primary hover:underline">
-                      +91 98765 43210
+                    <a href="tel:+918791363283" className="text-primary hover:underline block">
+                      +91 8791363283
+                    </a>
+                    <a href="tel:+917055481738" className="text-primary hover:underline">
+                      +91 7055481738
                     </a>
                   </div>
+                </div>
+                
+                <div>
+                  <a 
+                    href="https://wa.me/918791363283" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white rounded-md py-3 px-4 mt-4 w-full transition-colors"
+                  >
+                    <MessageSquare size={20} />
+                    Chat with Us on WhatsApp
+                  </a>
                 </div>
               </div>
               
@@ -326,9 +352,20 @@ const Contact = () => {
             <p className="text-muted-foreground mb-8">
               Schedule a video call with our team to discuss your marketing strategy
             </p>
-            <Button size="lg" className="btn-primary">
-              Book a Call
-            </Button>
+            <div className="space-x-4">
+              <Button size="lg" className="btn-primary">
+                Book a Call
+              </Button>
+              <a 
+                href="https://wa.me/918791363283" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded text-lg font-medium transition-colors"
+              >
+                <MessageSquare size={20} />
+                Chat on WhatsApp
+              </a>
+            </div>
           </div>
         </div>
       </section>

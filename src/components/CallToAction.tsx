@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
+import { MessageSquare } from "lucide-react";
 
 interface CTAProps {
   title?: string;
@@ -10,6 +11,7 @@ interface CTAProps {
   buttonUrl?: string;
   variant?: "primary" | "secondary" | "neon";
   className?: string;
+  showChatButton?: boolean;
 }
 
 const CallToAction = ({
@@ -18,7 +20,8 @@ const CallToAction = ({
   buttonText = "Get My Strategy Now",
   buttonUrl = "/contact",
   variant = "primary",
-  className = ""
+  className = "",
+  showChatButton = true
 }: CTAProps) => {
   const getBtnClass = () => {
     switch(variant) {
@@ -85,19 +88,41 @@ const CallToAction = ({
           >
             {subtitle}
           </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-            whileHover={{ scale: 1.05 }}
-          >
-            <NavLink to={buttonUrl}>
-              <Button className={`${getBtnClass()} text-lg px-8 py-6`}>
-                {buttonText}
-              </Button>
-            </NavLink>
-          </motion.div>
+          <div className="flex flex-wrap justify-center gap-4">
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              whileHover={{ scale: 1.05 }}
+            >
+              <NavLink to={buttonUrl}>
+                <Button className={`${getBtnClass()} text-lg px-8 py-6`}>
+                  {buttonText}
+                </Button>
+              </NavLink>
+            </motion.div>
+            
+            {showChatButton && (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.7 }}
+                whileHover={{ scale: 1.05 }}
+              >
+                <a 
+                  href="https://wa.me/918791363283" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white rounded-md py-6 px-8 text-lg font-medium transition-colors"
+                >
+                  <MessageSquare size={20} />
+                  Chat Now
+                </a>
+              </motion.div>
+            )}
+          </div>
         </motion.div>
       </div>
     </section>
