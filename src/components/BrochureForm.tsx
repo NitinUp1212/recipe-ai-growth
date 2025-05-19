@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { toast } from '@/hooks/use-toast';
+import { Sparkles } from 'lucide-react';
 
 interface BrochureFormProps {
   isOpen: boolean;
@@ -80,6 +81,19 @@ const BrochureForm = ({ isOpen, onClose, courseName }: BrochureFormProps) => {
             {courseName ? `Complete this form to receive the "${courseName}" brochure in your email.` : 'Complete this form to receive the course brochure in your email.'}
           </DialogDescription>
         </DialogHeader>
+        
+        {/* Virtual Batch Notice */}
+        <div className="bg-gradient-to-r from-purple-50 to-blue-50 p-3 rounded-md border border-purple-100 mb-3">
+          <div className="flex gap-2 items-start">
+            <div className="bg-purple-100 p-1 rounded-full">
+              <Sparkles className="h-4 w-4 text-purple-500" />
+            </div>
+            <p className="text-sm text-gray-700">
+              <span className="font-medium">All courses are available through virtual batches</span> with 
+              live sessions, interactive learning, and 24/7 support from our expert instructors.
+            </p>
+          </div>
+        </div>
         
         <form onSubmit={handleSubmit} className="space-y-4 py-4">
           <div className="grid gap-4">

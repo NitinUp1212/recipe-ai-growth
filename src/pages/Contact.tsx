@@ -1,5 +1,6 @@
+
 import { useState } from "react";
-import { Mail, Phone, MapPin, MessageSquare } from "lucide-react";
+import { Mail, Phone, MapPin, MessageSquare, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -110,6 +111,40 @@ const Contact = () => {
         </div>
       </section>
       
+      {/* Virtual Batch Notice */}
+      <section className="py-6 bg-gradient-to-r from-purple-100 via-purple-50 to-blue-100">
+        <div className="container-custom">
+          <div className="bg-white border border-purple-200 rounded-xl p-6 shadow-lg relative overflow-hidden animate-fade-in">
+            {/* Animated elements */}
+            <div className="absolute -top-10 -right-10 w-40 h-40 bg-gradient-to-br from-purple-200 to-blue-200 rounded-full opacity-40 animate-pulse"></div>
+            <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-purple-400 via-pink-300 to-blue-400"></div>
+            
+            <div className="flex items-start gap-4 relative z-10">
+              <div className="bg-purple-100 p-3 rounded-full">
+                <Sparkles className="h-6 w-6 text-purple-600" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-purple-800 mb-2 flex items-center">
+                  <span>Virtual Learning Experience</span>
+                  <span className="inline-block ml-2 px-2 py-1 text-xs font-semibold bg-purple-100 text-purple-700 rounded-full">NEW</span>
+                </h3>
+                <p className="text-gray-700">
+                  All our courses and services are available through <span className="font-medium">virtual batches</span>. 
+                  Learn from anywhere with live interactive sessions, personalized attention, and the same high-quality 
+                  content as in-person training.
+                </p>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  <span className="inline-block px-2 py-1 bg-blue-50 text-blue-600 text-xs rounded-md">Live Sessions</span>
+                  <span className="inline-block px-2 py-1 bg-green-50 text-green-600 text-xs rounded-md">24/7 Support</span>
+                  <span className="inline-block px-2 py-1 bg-amber-50 text-amber-600 text-xs rounded-md">Interactive Learning</span>
+                  <span className="inline-block px-2 py-1 bg-purple-50 text-purple-600 text-xs rounded-md">Recorded Sessions</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
       {/* Contact Form */}
       <section className="py-16">
         <div className="container-custom">
@@ -168,10 +203,11 @@ const Contact = () => {
                     href="https://wa.me/918791363283" 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white rounded-md py-3 px-4 mt-4 w-full transition-colors"
+                    className="flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white rounded-md py-3 px-4 mt-4 w-full transition-colors group relative overflow-hidden"
                   >
-                    <MessageSquare size={20} />
-                    Chat with Us on WhatsApp
+                    <span className="absolute -left-4 h-32 w-32 rotate-45 translate-x-0 -translate-y-2 bg-white opacity-[3%] transition-transform duration-1000 ease-out group-hover:translate-x-[400%]"></span>
+                    <MessageSquare size={20} className="animate-bounce" />
+                    <span className="relative z-10">Chat with Us on WhatsApp</span>
                   </a>
                 </div>
               </div>
@@ -382,10 +418,11 @@ const Contact = () => {
                 href="https://wa.me/918791363283" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded text-lg font-medium transition-colors"
+                className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded text-lg font-medium transition-colors group relative overflow-hidden"
               >
-                <MessageSquare size={20} />
-                Chat on WhatsApp
+                <span className="absolute -left-4 h-32 w-32 rotate-45 translate-x-0 -translate-y-2 bg-white opacity-[3%] transition-transform duration-1000 ease-out group-hover:translate-x-[400%]"></span>
+                <MessageSquare size={20} className="relative z-10" />
+                <span className="relative z-10">Chat on WhatsApp</span>
               </a>
             </div>
           </div>
