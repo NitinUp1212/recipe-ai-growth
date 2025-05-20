@@ -6,9 +6,9 @@ import { motion } from 'framer-motion';
 const Logo = ({ className = "", size = "normal" }: { className?: string, size?: "small" | "normal" | "large" }) => {
   // Size classes mapping for the image
   const imageSizes = {
-    small: "100",
-    normal: "140",
-    large: "180"
+    small: "120",
+    normal: "160",
+    large: "200"
   };
 
   return (
@@ -19,7 +19,7 @@ const Logo = ({ className = "", size = "normal" }: { className?: string, size?: 
         transition={{ type: "spring", stiffness: 400, damping: 10 }}
       >
         <motion.img 
-          src="/lovable-uploads/3276ac61-2709-4cde-a222-9c6b4a0fc635.png"
+          src="/lovable-uploads/fa67e0cd-6db5-44e6-a832-d3e30a8d70f1.png"
           alt="UnknownHat Logo"
           width={imageSizes[size]}
           height="auto"
