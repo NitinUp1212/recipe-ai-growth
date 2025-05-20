@@ -83,7 +83,7 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-start">
                 <MapPin size={20} className="mr-3 mt-1 text-neon flex-shrink-0" />
-                <span className="text-gray-300">123 Marketing Street, Digital City, 10001</span>
+                <span className="text-gray-300">Virtual Office (100% Remote Company)</span>
               </li>
               <li className="flex items-center">
                 <Phone size={20} className="mr-3 text-neon flex-shrink-0" />
@@ -91,18 +91,18 @@ const Footer = () => {
               </li>
               <li className="flex items-center">
                 <Mail size={20} className="mr-3 text-neon flex-shrink-0" />
-                <span className="text-gray-300">Contact@unknownhat.in</span>
+                <span className="text-gray-300">officialunknownhat@gmail.com</span>
               </li>
               <li>
                 <a 
                   href="https://wa.me/918791363283" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="group relative inline-flex items-center w-full justify-center bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white rounded-md py-2 px-4 mt-3 transition-all duration-300 overflow-hidden shadow-lg hover:shadow-green-500/30"
+                  className="group relative inline-flex items-center w-full justify-center bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white rounded-md py-3 px-4 mt-3 transition-all duration-300 overflow-hidden shadow-lg hover:shadow-green-500/30"
                 >
                   <span className="absolute -left-4 h-32 w-32 rotate-45 translate-x-0 -translate-y-2 bg-white opacity-[3%] transition-transform duration-1000 ease-out group-hover:translate-x-[400%]"></span>
-                  <MessageSquare size={18} className="mr-2 animate-bounce" />
-                  <span>Chat on WhatsApp</span>
+                  <MessageSquare size={20} className="mr-3 animate-bounce" />
+                  <span className="font-medium text-lg">Chat on WhatsApp</span>
                 </a>
               </li>
             </ul>

@@ -1,12 +1,106 @@
 
 import { useState } from "react";
-import { Bot, Check, MessageSquare, Mail, Phone } from "lucide-react";
+import { Bot, Check, MessageSquare, Mail, Phone, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { toast } from "@/components/ui/use-toast";
+import { useForm } from "react-hook-form";
 import CallToAction from "@/components/CallToAction";
+
+interface DemoFormData {
+  name: string;
+  email: string;
+  phone: string;
+  company: string;
+  requirements: string;
+}
 
 const AIAgent = () => {
   const [activeTab, setActiveTab] = useState("lead");
+  const [submitting, setSubmitting] = useState(false);
+  
+  const { register: registerDemo, handleSubmit: handleDemoSubmit, reset: resetDemo } = useForm<DemoFormData>();
+  const { register: registerLive, handleSubmit: handleLiveSubmit, reset: resetLive } = useForm<DemoFormData>();
+  
+  const onDemoSubmit = async (data: DemoFormData) => {
+    setSubmitting(true);
+    try {
+      // In a real app, you would send this data to your backend
+      console.log("Demo request data:", data);
+      
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      // Send email using mailto link
+      const subject = encodeURIComponent("AI Agent Demo Request");
+      const body = encodeURIComponent(`
+        Name: ${data.name}
+        Email: ${data.email}
+        Phone: ${data.phone}
+        Company: ${data.company}
+        Requirements: ${data.requirements}
+      `);
+      
+      window.location.href = `mailto:officialunknownhat@gmail.com?subject=${subject}&body=${body}`;
+      
+      toast({
+        title: "Demo Request Sent",
+        description: "We'll get back to you shortly to schedule your demo.",
+      });
+      
+      resetDemo();
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast({
+        title: "Error",
+        description: "There was a problem sending your request. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setSubmitting(false);
+    }
+  };
+  
+  const onLiveSubmit = async (data: DemoFormData) => {
+    setSubmitting(true);
+    try {
+      // In a real app, you would send this data to your backend
+      console.log("Live demo request data:", data);
+      
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      // Send email using mailto link
+      const subject = encodeURIComponent("AI Agent Live Demo Request");
+      const body = encodeURIComponent(`
+        Name: ${data.name}
+        Email: ${data.email}
+        Phone: ${data.phone}
+        Company: ${data.company}
+        Requirements: ${data.requirements}
+      `);
+      
+      window.location.href = `mailto:officialunknownhat@gmail.com?subject=${subject}&body=${body}`;
+      
+      toast({
+        title: "Live Demo Request Sent",
+        description: "We'll get back to you shortly to schedule your live demo.",
+      });
+      
+      resetLive();
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast({
+        title: "Error",
+        description: "There was a problem sending your request. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   return (
     <>
@@ -22,7 +116,7 @@ const AIAgent = () => {
               <p className="text-xl text-muted-foreground mb-8">
                 24/7 lead qualification, customer support, and personalized follow-ups powered by advanced conversational AI.
               </p>
-              <Button className="btn-primary">Schedule a Demo</Button>
+              <Button className="btn-primary" onClick={() => document.getElementById('schedule-demo')?.scrollIntoView({ behavior: 'smooth' })}>Schedule a Demo</Button>
             </div>
 
             <div className="relative">
@@ -32,7 +126,7 @@ const AIAgent = () => {
                     <Bot size={20} />
                   </div>
                   <div>
-                    <h3 className="font-bold">FlavorDish AI</h3>
+                    <h3 className="font-bold">UnKnownHat AI</h3>
                     <p className="text-xs text-muted-foreground">Online • Usually responds in seconds</p>
                   </div>
                 </div>
@@ -463,15 +557,175 @@ const AIAgent = () => {
         </div>
       </section>
       
-      {/* Demo Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+      {/* Demo Request Form Section */}
+      <section id="schedule-demo" className="py-16 bg-gradient-to-br from-gray-50 to-white">
         <div className="container-custom">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Experience the AI Difference</h2>
-            <p className="text-xl text-muted-foreground mb-8">
-              Schedule a personalized demo to see how our AI agents can transform your marketing operations.
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Schedule an AI Agent Demo</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Complete the form below to schedule a personalized demo of our AI agent technology.
             </p>
-            <Button className="btn-primary text-lg">Get a Live Demo</Button>
+            <div className="bg-neon/20 text-black rounded-lg p-3 max-w-lg mx-auto mt-6 animate-pulse border border-neon/30">
+              <p className="font-medium">📢 IMPORTANT NOTICE:</p>
+              <p className="text-sm mt-1">All sessions are conducted virtually through our online platform. The UnKnownHat team will contact you to arrange a suitable time for your virtual demo.</p>
+            </div>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8 items-start">
+            <form onSubmit={handleDemoSubmit(onDemoSubmit)} className="bg-white p-6 rounded-xl shadow-md border border-gray-100">
+              <h3 className="text-xl font-bold mb-6">Schedule a Demo</h3>
+              
+              <div className="space-y-4">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium mb-1">Full Name</label>
+                  <div className="relative">
+                    <User className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={16} />
+                    <Input
+                      id="name"
+                      {...registerDemo("name", { required: "Name is required" })}
+                      placeholder="John Doe"
+                      className="pl-10"
+                    />
+                  </div>
+                </div>
+                
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium mb-1">Email Address</label>
+                  <div className="relative">
+                    <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={16} />
+                    <Input
+                      id="email"
+                      type="email"
+                      {...registerDemo("email", { required: "Email is required" })}
+                      placeholder="john@company.com"
+                      className="pl-10"
+                    />
+                  </div>
+                </div>
+                
+                <div>
+                  <label htmlFor="phone" className="block text-sm font-medium mb-1">Phone Number</label>
+                  <div className="relative">
+                    <Phone className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={16} />
+                    <Input
+                      id="phone"
+                      {...registerDemo("phone", { required: "Phone number is required" })}
+                      placeholder="+91 98765 43210"
+                      className="pl-10"
+                    />
+                  </div>
+                </div>
+                
+                <div>
+                  <label htmlFor="company" className="block text-sm font-medium mb-1">Company Name</label>
+                  <Input
+                    id="company"
+                    {...registerDemo("company", { required: "Company name is required" })}
+                    placeholder="Your Company Ltd."
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="requirements" className="block text-sm font-medium mb-1">Project Requirements</label>
+                  <Textarea
+                    id="requirements"
+                    {...registerDemo("requirements")}
+                    placeholder="Tell us about your AI agent needs and how we can help..."
+                    rows={4}
+                  />
+                </div>
+                
+                <Button type="submit" className="w-full btn-primary" disabled={submitting}>
+                  {submitting ? "Sending..." : "Schedule Your Demo"}
+                </Button>
+                
+                <p className="text-xs text-center text-muted-foreground mt-4">
+                  By submitting this form, you agree to our privacy policy and terms of service.
+                </p>
+              </div>
+            </form>
+            
+            <div>
+              <div className="bg-white p-6 rounded-xl shadow-md border border-gray-100 mb-6">
+                <h3 className="text-xl font-bold mb-4">What to Expect</h3>
+                <ul className="space-y-4">
+                  <li className="flex items-start">
+                    <div className="mr-3 mt-1 bg-primary/10 p-1 rounded-full">
+                      <Check size={14} className="text-primary" />
+                    </div>
+                    <span>A 30-minute personalized demo of our AI agent technology</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="mr-3 mt-1 bg-primary/10 p-1 rounded-full">
+                      <Check size={14} className="text-primary" />
+                    </div>
+                    <span>Q&A session with our AI specialists</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="mr-3 mt-1 bg-primary/10 p-1 rounded-full">
+                      <Check size={14} className="text-primary" />
+                    </div>
+                    <span>Custom implementation recommendations for your business</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="mr-3 mt-1 bg-primary/10 p-1 rounded-full">
+                      <Check size={14} className="text-primary" />
+                    </div>
+                    <span>Pricing and package information</span>
+                  </li>
+                </ul>
+              </div>
+              
+              <div>
+                <h3 className="text-xl font-bold mb-4">Get a Live Demo</h3>
+                <form onSubmit={handleLiveSubmit(onLiveSubmit)} className="bg-gradient-to-br from-primary/10 to-neon/10 p-6 rounded-xl border border-primary/20">
+                  <p className="mb-4">Prefer to see our AI in action right away? Request a live demonstration with one of our specialists.</p>
+                  
+                  <div className="space-y-4">
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <Input
+                          {...registerLive("name", { required: true })}
+                          placeholder="Name"
+                        />
+                      </div>
+                      <div>
+                        <Input
+                          type="email"
+                          {...registerLive("email", { required: true })}
+                          placeholder="Email"
+                        />
+                      </div>
+                    </div>
+                    
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <Input
+                          {...registerLive("phone", { required: true })}
+                          placeholder="Phone"
+                        />
+                      </div>
+                      <div>
+                        <Input
+                          {...registerLive("company")}
+                          placeholder="Company"
+                        />
+                      </div>
+                    </div>
+                    
+                    <Textarea
+                      {...registerLive("requirements")}
+                      placeholder="What specific features are you interested in seeing?"
+                      rows={3}
+                    />
+                    
+                    <Button type="submit" className="w-full bg-neon hover:bg-neon/90 text-black" disabled={submitting}>
+                      {submitting ? "Sending..." : "Request Live Demo"}
+                    </Button>
+                  </div>
+                </form>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -488,3 +742,4 @@ const AIAgent = () => {
 };
 
 export default AIAgent;
+
