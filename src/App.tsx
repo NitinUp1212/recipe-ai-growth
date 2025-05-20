@@ -20,6 +20,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Chatbot from "./components/Chatbot";
 import BrochureForm from "./components/BrochureForm";
+import ScrollToTop from "./components/ScrollToTop";
 
 const App = () => {
   // Create a new instance of QueryClient inside the component
@@ -38,6 +39,7 @@ const App = () => {
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <ScrollToTop />
           <Navbar />
           <main>
             <Routes>
