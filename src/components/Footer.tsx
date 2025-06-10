@@ -11,7 +11,7 @@ const Footer = () => {
   };
   
   return (
-    <footer className="bg-gradient-to-b from-gray-900 to-black text-white pt-16 pb-8 relative overflow-hidden">
+    <footer className="bg-gradient-to-b from-gray-900 to-black text-white pt-12 pb-6 relative overflow-hidden">
       {/* Animated background dots */}
       <div className="absolute inset-0 z-0 opacity-10">
         <div className="absolute top-10 left-10 w-32 h-32 rounded-full bg-neon blur-3xl"></div>
@@ -19,7 +19,7 @@ const Footer = () => {
       </div>
       
       <div className="container-custom relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -106,116 +106,6 @@ const Footer = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <h4 className="font-bold text-lg mb-4 md:mb-6">Our Digital Marketing Services</h4>
-            <ul className="space-y-3">
-              <li>
-                <NavLink 
-                  onClick={scrollToTop}
-                  to="/all-services" 
-                  className="text-gray-300 hover:text-neon relative group overflow-hidden"
-                >
-                  <span className="relative z-10">All Digital Marketing Services</span>
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-neon group-hover:w-full transition-all duration-300"></span>
-                </NavLink>
-              </li>
-              <li>
-                <NavLink 
-                  onClick={scrollToTop}
-                  to="/services/property-dealing" 
-                  className="text-gray-300 hover:text-neon relative group overflow-hidden"
-                >
-                  <span className="relative z-10">Property Dealing Services</span>
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-neon group-hover:w-full transition-all duration-300"></span>
-                </NavLink>
-              </li>
-              <li>
-                <NavLink 
-                  onClick={scrollToTop}
-                  to="/services/system-accessories" 
-                  className="text-gray-300 hover:text-neon relative group overflow-hidden"
-                >
-                  <span className="relative z-10">System Accessories & Components</span>
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-neon group-hover:w-full transition-all duration-300"></span>
-                </NavLink>
-              </li>
-              <li>
-                <NavLink 
-                  onClick={scrollToTop}
-                  to="/portfolio" 
-                  className="text-gray-300 hover:text-neon relative group overflow-hidden"
-                >
-                  <span className="relative z-10">Our Digital Marketing Portfolio</span>
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-neon group-hover:w-full transition-all duration-300"></span>
-                </NavLink>
-              </li>
-            </ul>
-          </motion.div>
-          
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-          >
-            <h4 className="font-bold text-lg mb-4 md:mb-6">Quick Links</h4>
-            <ul className="space-y-3">
-              <li>
-                <NavLink 
-                  onClick={scrollToTop}
-                  to="/" 
-                  className="text-gray-300 hover:text-neon relative group overflow-hidden"
-                >
-                  <span className="relative z-10">Home - Digital Marketing Agency</span>
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-neon group-hover:w-full transition-all duration-300"></span>
-                </NavLink>
-              </li>
-              <li>
-                <NavLink 
-                  onClick={scrollToTop}
-                  to="/ai-agent" 
-                  className="text-gray-300 hover:text-neon relative group overflow-hidden"
-                >
-                  <span className="relative z-10">AI Agent for Marketing</span>
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-neon group-hover:w-full transition-all duration-300"></span>
-                </NavLink>
-              </li>
-              <li>
-                <NavLink 
-                  onClick={scrollToTop}
-                  to="/about" 
-                  className="text-gray-300 hover:text-neon relative group overflow-hidden"
-                >
-                  <span className="relative z-10">Meet the Digital Marketing Chef</span>
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-neon group-hover:w-full transition-all duration-300"></span>
-                </NavLink>
-              </li>
-              <li>
-                <NavLink 
-                  onClick={scrollToTop}
-                  to="/case-studies" 
-                  className="text-gray-300 hover:text-neon relative group overflow-hidden"
-                >
-                  <span className="relative z-10">Digital Marketing Taste Test</span>
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-neon group-hover:w-full transition-all duration-300"></span>
-                </NavLink>
-              </li>
-              <li>
-                <NavLink 
-                  onClick={scrollToTop}
-                  to="/contact" 
-                  className="text-gray-300 hover:text-neon relative group overflow-hidden"
-                >
-                  <span className="relative z-10">Contact Digital Marketing Team</span>
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-neon group-hover:w-full transition-all duration-300"></span>
-                </NavLink>
-              </li>
-            </ul>
-          </motion.div>
-          
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-          >
             <h4 className="font-bold text-lg mb-4 md:mb-6">Contact Our Digital Marketing Agency</h4>
             <ul className="space-y-4">
               <li className="flex items-start group">
@@ -248,7 +138,7 @@ const Footer = () => {
         </div>
         
         <motion.div 
-          className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400"
+          className="border-t border-gray-800 mt-8 pt-6 text-center text-gray-400"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.4 }}
