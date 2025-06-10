@@ -1,4 +1,3 @@
-
 import { NavLink } from "react-router-dom";
 import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin, Twitter, MessageSquare } from "lucide-react";
 import Logo from "./Logo";
@@ -121,20 +120,20 @@ const Footer = () => {
               <li>
                 <NavLink 
                   onClick={scrollToTop}
-                  to="/services/laptop-services" 
+                  to="/services/property-dealing" 
                   className="text-gray-300 hover:text-neon relative group overflow-hidden"
                 >
-                  <span className="relative z-10">Laptop Services</span>
+                  <span className="relative z-10">Property Dealing</span>
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-neon group-hover:w-full transition-all duration-300"></span>
                 </NavLink>
               </li>
               <li>
                 <NavLink 
                   onClick={scrollToTop}
-                  to="/services/property-dealing" 
+                  to="/services/system-accessories" 
                   className="text-gray-300 hover:text-neon relative group overflow-hidden"
                 >
-                  <span className="relative z-10">Property Dealing</span>
+                  <span className="relative z-10">System Accessories</span>
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-neon group-hover:w-full transition-all duration-300"></span>
                 </NavLink>
               </li>
