@@ -106,6 +106,56 @@ const Footer = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
+            <h4 className="font-bold text-lg mb-4 md:mb-6">Our Services</h4>
+            <ul className="space-y-3">
+              <li>
+                <NavLink 
+                  onClick={scrollToTop}
+                  to="/all-services" 
+                  className="text-gray-300 hover:text-neon relative group overflow-hidden"
+                >
+                  <span className="relative z-10">All Services</span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-neon group-hover:w-full transition-all duration-300"></span>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink 
+                  onClick={scrollToTop}
+                  to="/services/laptop-services" 
+                  className="text-gray-300 hover:text-neon relative group overflow-hidden"
+                >
+                  <span className="relative z-10">Laptop Services</span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-neon group-hover:w-full transition-all duration-300"></span>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink 
+                  onClick={scrollToTop}
+                  to="/services/property-dealing" 
+                  className="text-gray-300 hover:text-neon relative group overflow-hidden"
+                >
+                  <span className="relative z-10">Property Dealing</span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-neon group-hover:w-full transition-all duration-300"></span>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink 
+                  onClick={scrollToTop}
+                  to="/portfolio" 
+                  className="text-gray-300 hover:text-neon relative group overflow-hidden"
+                >
+                  <span className="relative z-10">Our Portfolio</span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-neon group-hover:w-full transition-all duration-300"></span>
+                </NavLink>
+              </li>
+            </ul>
+          </motion.div>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
             <h4 className="font-bold text-lg mb-4 md:mb-6">Quick Links</h4>
             <ul className="space-y-3">
               <li>

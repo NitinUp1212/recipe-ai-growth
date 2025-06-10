@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -21,6 +20,11 @@ import Footer from "./components/Footer";
 import Chatbot from "./components/Chatbot";
 import BrochureForm from "./components/BrochureForm";
 import ScrollToTop from "./components/ScrollToTop";
+import AllServices from "./pages/AllServices";
+import LaptopServices from "./pages/LaptopServices";
+import PropertyDealing from "./pages/PropertyDealing";
+import SystemAccessories from "./pages/SystemAccessories";
+import Portfolio from "./pages/Portfolio";
 
 const App = () => {
   // Create a new instance of QueryClient inside the component
@@ -45,7 +49,11 @@ const App = () => {
             <Routes>
               <Route path="/" element={<Index openBrochureForm={openBrochureForm} />} />
               <Route path="/services" element={<ServicesIndex />} />
+              <Route path="/all-services" element={<AllServices />} />
               <Route path="/services/:serviceId" element={<ServiceDetail />} />
+              <Route path="/services/laptop-services" element={<LaptopServices />} />
+              <Route path="/services/property-dealing" element={<PropertyDealing />} />
+              <Route path="/services/system-accessories" element={<SystemAccessories />} />
               <Route path="/ai-agent" element={<AIAgent />} />
               <Route path="/about" element={<About />} />
               <Route path="/case-studies" element={<CaseStudies />} />
@@ -53,6 +61,7 @@ const App = () => {
               <Route path="/courses" element={<Courses openBrochureForm={openBrochureForm} />} />
               <Route path="/courses/:courseId" element={<CourseDetail openBrochureForm={openBrochureForm} />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/portfolio" element={<Portfolio />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
