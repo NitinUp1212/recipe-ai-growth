@@ -1,4 +1,3 @@
-
 import { NavLink } from "react-router-dom";
 import { ArrowDown, BarChart3, Search, Globe, MessageSquare, Bot, LineChart, Star, Award, Users, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
