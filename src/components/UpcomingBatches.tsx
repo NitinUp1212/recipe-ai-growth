@@ -1,4 +1,3 @@
-
 import { Calendar, Download, Monitor, Award, Briefcase, Users, GraduationCap, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -20,38 +19,44 @@ const UpcomingBatches = ({ openBrochureForm }: UpcomingBatchesProps) => {
     {
       id: 1,
       courseName: "Digital Marketing Mastery",
-      startDate: "June 10, 2025",
-      duration: "12 weeks",
+      startDate: "July 7, 2025",
+      duration: "6 months",
       mode: "Online",
-      seats: 15,
-      seatsLeft: 3,
-      timing: "Weekend (Sat-Sun 10AM-1PM)",
+      seats: 20,
+      seatsLeft: 8,
+      timing: "Monday to Friday (10AM-12PM)",
       certificationIncluded: true,
-      jobPlacement: "85% placement rate",
+      jobPlacement: "Top 50 India companies placement opportunity",
+      fees: "₹25,000",
+      companyVisits: "Company visits to leading organizations included"
     },
     {
       id: 2,
       courseName: "AI for Marketing",
-      startDate: "June 15, 2025",
-      duration: "8 weeks",
+      startDate: "July 7, 2025",
+      duration: "6 months",
       mode: "Online",
-      seats: 20,
-      seatsLeft: 7,
-      timing: "Weekday Evenings (Mon-Wed 6PM-8PM)",
+      seats: 15,
+      seatsLeft: 5,
+      timing: "Monday to Friday (2PM-4PM)",
       certificationIncluded: true,
-      jobPlacement: "90% placement rate",
+      jobPlacement: "Top 50 India companies placement opportunity",
+      fees: "₹25,000",
+      companyVisits: "Industry exposure through company visits"
     },
     {
       id: 3,
       courseName: "AI Agent Development",
-      startDate: "July 5, 2025",
-      duration: "10 weeks",
+      startDate: "July 7, 2025",
+      duration: "6 months",
       mode: "Online",
       seats: 12,
-      seatsLeft: 5,
-      timing: "Weekday (Tue-Thu 11AM-1PM)",
+      seatsLeft: 3,
+      timing: "Monday to Friday (4PM-6PM)",
       certificationIncluded: true,
-      jobPlacement: "95% placement rate",
+      jobPlacement: "Top 50 India companies placement opportunity",
+      fees: "₹25,000",
+      companyVisits: "Direct interaction with top tech companies"
     }
   ];
 
@@ -104,7 +109,7 @@ const UpcomingBatches = ({ openBrochureForm }: UpcomingBatchesProps) => {
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Upcoming Batches</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Join our next batch of <span className="font-semibold text-primary">100% online</span> courses and begin your journey towards expertise
+            Join our next batch of <span className="font-semibold text-primary">100% online</span> courses and begin your journey towards expertise with guaranteed placement opportunities in top 50 India companies
           </p>
         </div>
         
@@ -134,25 +139,35 @@ const UpcomingBatches = ({ openBrochureForm }: UpcomingBatchesProps) => {
                   </div>
                   <div className="bg-gray-50 p-2 rounded-md flex items-center gap-1">
                     <Monitor size={14} className="text-primary" />
-                    <div className="font-medium">{batch.mode} Only</div>
+                    <div className="font-medium">{batch.mode}</div>
                   </div>
                   <div className="col-span-2 bg-gray-50 p-2 rounded-md">
-                    <div className="text-muted-foreground">Timing</div>
+                    <div className="text-muted-foreground">Schedule</div>
                     <div className="font-medium">{batch.timing}</div>
+                  </div>
+                  <div className="col-span-2 bg-green-50 p-2 rounded-md">
+                    <div className="text-muted-foreground">Course Fee</div>
+                    <div className="font-bold text-green-700">{batch.fees}</div>
                   </div>
                 </div>
                 
-                <div className="flex flex-wrap gap-2 mt-2">
+                <div className="space-y-2">
                   {batch.certificationIncluded && (
                     <div className="flex items-center gap-1 bg-green-50 text-green-700 text-xs px-2 py-1 rounded-full">
                       <Award size={12} />
-                      <span>Certification Included</span>
+                      <span>Industry Certification Included</span>
                     </div>
                   )}
                   {batch.jobPlacement && (
                     <div className="flex items-center gap-1 bg-blue-50 text-blue-700 text-xs px-2 py-1 rounded-full">
                       <Briefcase size={12} />
                       <span>{batch.jobPlacement}</span>
+                    </div>
+                  )}
+                  {batch.companyVisits && (
+                    <div className="flex items-center gap-1 bg-purple-50 text-purple-700 text-xs px-2 py-1 rounded-full">
+                      <Users size={12} />
+                      <span>{batch.companyVisits}</span>
                     </div>
                   )}
                 </div>
@@ -169,7 +184,7 @@ const UpcomingBatches = ({ openBrochureForm }: UpcomingBatchesProps) => {
               
               <div className="bg-gradient-to-r from-primary/10 to-primary/5 px-5 py-3 text-sm">
                 <div className="flex justify-between items-center">
-                  <span className="font-medium">Batch fills fast</span>
+                  <span className="font-medium">Limited seats available</span>
                   <span className="text-primary font-medium">Enroll now!</span>
                 </div>
               </div>

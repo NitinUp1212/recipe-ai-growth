@@ -19,8 +19,8 @@ const Logo = ({ className = "", size = "normal" }: { className?: string, size?: 
         transition={{ type: "spring", stiffness: 400, damping: 10 }}
       >
         <motion.img 
-          src="/lovable-uploads/fa67e0cd-6db5-44e6-a832-d3e30a8d70f1.png"
-          alt="UnknownHat Logo"
+          src="/lovable-uploads/dd967de0-0aa2-4522-a2c8-9cf7ed637c91.png"
+          alt="UnknownHat Digital Marketing Agency Logo"
           width={imageSizes[size]}
           height="auto"
           className="hover:shadow-lg transition-all duration-300"
