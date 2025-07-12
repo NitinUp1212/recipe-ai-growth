@@ -1,6 +1,6 @@
 
 import { NavLink } from "react-router-dom";
-import { ArrowDown, BarChart3, Search, Globe, MessageSquare, Bot, LineChart } from "lucide-react";
+import { ArrowDown, BarChart3, Search, Globe, MessageSquare, Bot, LineChart, Users, Building2, GraduationCap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import RecipeCard from "@/components/RecipeCard";
 import TestimonialCard from "@/components/TestimonialCard";
@@ -14,71 +14,86 @@ interface IndexProps {
 }
 
 const Index = ({ openBrochureForm }: IndexProps) => {
-  const services = [
+  // B2C Performance Marketing Package
+  const performanceMarketingB2C = {
+    title: "B2C Performance Marketing Package",
+    description: "Complete performance marketing solution designed specifically for B2C businesses and consumer brands.",
+    features: ["Facebook & Instagram Ads", "Google Ads for B2C", "Consumer Psychology Targeting", "E-commerce Optimization", "Social Media Marketing", "Influencer Campaigns"],
+    price: "Starting from ₹25,000/month"
+  };
+
+  // All Digital Marketing Services (B2B + B2C)
+  const digitalMarketingServices = [
     {
-      title: "Performance Marketing Recipe",
-      description: "A delicious mix of paid ads across Google, Meta, and LinkedIn to drive high-quality leads and maximize ROI for your business.",
-      icon: <BarChart3 size={40} />,
-      link: "/services/performance-marketing",
-      ingredients: ["Meta Ads", "Google Ads", "AI Bidding"]
-    },
-    {
-      title: "SEO Optimization Spice Mix",
-      description: "Organic ranking booster with a perfect blend of on-page SEO, technical SEO, and off-page link building techniques.",
+      title: "SEO Services",
+      description: "Boost your website ranking and organic traffic with our proven SEO strategies.",
       icon: <Search size={40} />,
       link: "/services/seo",
-      ingredients: ["Content SEO", "Technical SEO", "AI Content"]
+      forBusiness: "B2B & B2C",
+      ingredients: ["Technical SEO", "Content SEO", "Local SEO"]
     },
     {
-      title: "Social Media Marketing Sizzler",
-      description: "Engaging content strategy and community management that keeps your audience craving for more brand interaction.",
+      title: "Performance Marketing",
+      description: "Data-driven paid advertising campaigns that deliver measurable results and ROI.",
+      icon: <BarChart3 size={40} />,
+      link: "/services/performance-marketing", 
+      forBusiness: "B2B & B2C",
+      ingredients: ["Google Ads", "Facebook Ads", "LinkedIn Ads"]
+    },
+    {
+      title: "Social Media Marketing",
+      description: "Build brand awareness and engage your audience across all social platforms.",
       icon: <Globe size={40} />,
       link: "/services/social-media",
-      ingredients: ["Content Strategy", "Community", "Analytics"]
+      forBusiness: "B2B & B2C", 
+      ingredients: ["Content Strategy", "Community Management", "Social Ads"]
     },
     {
-      title: "WhatsApp & Email Marketing Masala",
-      description: "Perfectly timed automated messaging sequences that nurture leads and build lasting customer relationships.",
+      title: "WhatsApp & Email Marketing",
+      description: "Automated messaging sequences that nurture leads and convert prospects.",
       icon: <MessageSquare size={40} />,
       link: "/services/messaging",
-      ingredients: ["WhatsApp API", "Email", "Automations"]
+      forBusiness: "B2B & B2C",
+      ingredients: ["WhatsApp API", "Email Automation", "Lead Nurturing"]
     },
     {
-      title: "AI Agent Development Sauce",
-      description: "Intelligent conversation flows that qualify leads, provide 24/7 customer support, and integrate with your CRM seamlessly.",
+      title: "AI Agent Development", 
+      description: "Intelligent chatbots for 24/7 customer support and lead qualification.",
       icon: <Bot size={40} />,
       link: "/services/ai-agent",
-      ingredients: ["Lead Qualification", "CRM Integration", "Voice AI"]
+      forBusiness: "B2B & B2C",
+      ingredients: ["Lead Qualification", "Customer Support", "CRM Integration"]
     },
     {
-      title: "Website & Funnel Optimization Delight",
-      description: "Conversion-optimized web experiences with advanced analytics that turn visitors into paying customers effectively.",
+      title: "Website & Funnel Development",
+      description: "High-converting websites and sales funnels optimized for your business goals.",
       icon: <LineChart size={40} />,
       link: "/services/website-funnel",
-      ingredients: ["Conversion Design", "Analytics", "A/B Testing"]
+      forBusiness: "B2B & B2C",
+      ingredients: ["Landing Pages", "Sales Funnels", "Conversion Optimization"]
     }
   ];
 
   const testimonials = [
     {
-      text: "This digital marketing agency transformed our approach to online marketing. Their AI-powered SEO campaigns increased our organic traffic by 40% while reducing our cost per acquisition significantly.",
+      text: "UnknownHat's B2C performance marketing package increased our online sales by 150% in just 3 months. Their consumer targeting is exceptional.",
       author: "Priya Sharma",
-      position: "Chief Marketing Officer",
-      company: "TechSolutions Inc.",
+      position: "E-commerce Manager",
+      company: "StyleHub Online",
       rating: 5
     },
     {
-      text: "The recipe approach makes complex digital marketing strategies easy to understand and implement. We've seen our ROI double since implementing their WhatsApp Marketing and SEO recipe combination.",
-      author: "Rahul Mehta",
-      position: "Founder & CEO",
-      company: "StyleHub E-commerce",
+      text: "The digital marketing services work perfectly for both our B2B and B2C divisions. Great ROI and professional service.",
+      author: "Rahul Mehta", 
+      position: "Marketing Director",
+      company: "TechSolutions Ltd",
       rating: 5
     },
     {
-      text: "Their AI agents and performance marketing campaigns have completely transformed our lead qualification process. We now close deals 30% faster with better qualified leads from their SEO services.",
+      text: "Their institute courses gave our team the skills needed to handle digital marketing in-house. Highly recommended!",
       author: "Neha Kapoor",
-      position: "Sales Director",
-      company: "Global Finance Ltd",
+      position: "Business Owner", 
+      company: "Local Services Co",
       rating: 5
     }
   ];
@@ -86,201 +101,265 @@ const Index = ({ openBrochureForm }: IndexProps) => {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden">
+      <section className="pt-32 pb-16 bg-gradient-to-br from-gray-50 to-white">
         <div className="container-custom">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="order-2 md:order-1">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-                Cook your digital growth strategy with <span className="gradient-text">AI + Performance Marketing</span>
-              </h1>
-              <p className="text-lg text-muted-foreground mb-8 max-w-lg">
-                Expert digital marketing recipes that deliver measurable results through the perfect blend of SEO services, performance marketing campaigns, and AI innovation for maximum business growth.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <a 
-                  href="https://wa.me/918791363283" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full text-lg font-medium transition-colors duration-300"
-                  aria-label="Chat with Digital Marketing Experts on WhatsApp"
-                >
-                  <MessageSquare size={20} />
-                  Start Free Consultation
-                </a>
-                <Button 
-                  variant="outline" 
-                  className="text-lg px-6 py-3 rounded-full"
-                  onClick={() => openBrochureForm("All Digital Marketing Courses")}
-                >
-                  Download Brochure
-                </Button>
-              </div>
-            </div>
+          <div className="text-center max-w-4xl mx-auto">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              Complete Digital Marketing Solutions
+            </h1>
+            <p className="text-xl text-muted-foreground mb-8">
+              B2C Performance Marketing Packages, Complete Digital Marketing Services (B2B & B2C), 
+              and Professional Training Courses - All Virtual Based
+            </p>
             
-            <div className="order-1 md:order-2 relative">
-              <div className="relative bg-gradient-to-br from-primary/5 to-neon/10 rounded-2xl p-6 md:p-8 shadow-xl">
-                <img 
-                  src="https://images.unsplash.com/photo-1499750310107-5fef28a66643" 
-                  alt="Digital Marketing Recipe Book - SEO Services and Performance Marketing Guide" 
-                  className="w-full rounded-lg shadow-md"
-                />
-                <div className="absolute -right-4 -bottom-4 bg-neon text-black rounded-lg px-4 py-2 shadow-lg font-medium">
-                  AI-Powered Marketing
+            <div className="flex flex-wrap gap-4 justify-center">
+              <a 
+                href="https://wa.me/918791363283" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+              >
+                <MessageSquare size={20} />
+                WhatsApp Consultation
+              </a>
+              <a 
+                href="tel:+918791363283"
+                className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+              >
+                📞 Call Now
+              </a>
+              <Button 
+                variant="outline" 
+                onClick={() => openBrochureForm("All Services")}
+                className="px-6 py-3"
+              >
+                Get Free Consultation
+              </Button>
+            </div>
+
+            <div className="mt-8 p-4 bg-blue-50 rounded-lg border border-blue-200">
+              <p className="text-blue-800 font-medium">
+                🌐 All Services Available Virtually | Google Meet Sessions | Complete Online Support
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* B2C Performance Marketing Package */}
+      <section className="py-16 bg-white">
+        <div className="container-custom">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 bg-neon/10 px-4 py-2 rounded-full mb-4">
+              <Users size={20} className="text-neon" />
+              <span className="font-medium">B2C Specialist Package</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">B2C Performance Marketing Package</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Specially designed for consumer businesses, e-commerce, and B2C brands
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-gradient-to-r from-neon/5 to-primary/5 rounded-2xl p-8 border border-neon/20">
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                  <h3 className="text-2xl font-bold mb-4">{performanceMarketingB2C.title}</h3>
+                  <p className="text-muted-foreground mb-6">{performanceMarketingB2C.description}</p>
+                  <div className="text-2xl font-bold text-primary mb-4">{performanceMarketingB2C.price}</div>
+                  
+                  <div className="flex gap-4">
+                    <a 
+                      href="https://wa.me/918791363283" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+                    >
+                      Get B2C Package
+                    </a>
+                    <Button variant="outline">Learn More</Button>
+                  </div>
                 </div>
-              </div>
-              
-              {/* Floating stats */}
-              <div className="absolute -top-6 -left-6 bg-white p-3 rounded-lg shadow-lg animate-float">
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                  <span className="font-bold">+127%</span>
-                  <span className="text-sm">ROI</span>
-                </div>
-              </div>
-              
-              <div className="absolute -bottom-4 right-8 bg-white p-3 rounded-lg shadow-lg animate-float" style={{animationDelay: "1s"}}>
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-blue-500"></div>
-                  <span className="font-bold">-42%</span>
-                  <span className="text-sm">Cost</span>
+                
+                <div>
+                  <h4 className="font-bold mb-4">Package Includes:</h4>
+                  <ul className="space-y-2">
+                    {performanceMarketingB2C.features.map((feature, index) => (
+                      <li key={index} className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-neon rounded-full"></div>
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* All Digital Marketing Services */}
+      <section className="py-16 bg-gray-50">
+        <div className="container-custom">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full mb-4">
+              <Building2 size={20} className="text-primary" />
+              <span className="font-medium">B2B & B2C Services</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Complete Digital Marketing Services</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Full range of digital marketing solutions for both B2B and B2C businesses
+            </p>
+          </div>
           
-          <div className="flex justify-center mt-12">
-            <Button variant="ghost" className="flex items-center gap-2 text-muted-foreground animate-bounce">
-              <span>See our marketing recipes</span>
-              <ArrowDown size={16} />
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {digitalMarketingServices.map((service, index) => (
+              <div key={index} className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all">
+                <div className="text-primary mb-4">{service.icon}</div>
+                <div className="mb-2">
+                  <span className="text-xs bg-blue-100 text-blue-600 rounded-full px-3 py-1">
+                    {service.forBusiness}
+                  </span>
+                </div>
+                <h3 className="text-xl font-bold mb-3">{service.title}</h3>
+                <p className="text-muted-foreground mb-4">{service.description}</p>
+                <div className="flex flex-wrap gap-1 mb-4">
+                  {service.ingredients.map((ingredient, i) => (
+                    <span key={i} className="text-xs bg-gray-100 rounded-full px-2 py-1">
+                      {ingredient}
+                    </span>
+                  ))}
+                </div>
+                <NavLink 
+                  to={service.link}
+                  className="text-primary font-medium hover:underline"
+                >
+                  Learn More →
+                </NavLink>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <a 
+              href="https://wa.me/918791363283" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-lg font-medium transition-colors mr-4"
+            >
+              <MessageSquare size={20} />
+              Get Custom Quote
+            </a>
+            <Button variant="outline" size="lg">
+              View All Services
             </Button>
           </div>
         </div>
       </section>
-      
-      {/* Upcoming Batches Section */}
-      <UpcomingBatches openBrochureForm={openBrochureForm} />
-      
-      {/* Services Section */}
+
+      {/* Institute Batches */}
       <section className="py-16 bg-white">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Digital Marketing Recipe Collection</h2>
+            <div className="inline-flex items-center gap-2 bg-green-100 px-4 py-2 rounded-full mb-4">
+              <GraduationCap size={20} className="text-green-600" />
+              <span className="font-medium text-green-600">Digital Marketing Institute</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Professional Training Courses</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Carefully crafted SEO services and performance marketing strategies for each stage of your business growth journey
+              Learn digital marketing skills with our comprehensive virtual training programs
             </p>
           </div>
           
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {services.map((service, index) => (
-              <RecipeCard 
-                key={index}
-                title={service.title}
-                description={service.description}
-                icon={service.icon}
-                link={service.link}
-                ingredients={service.ingredients}
-              />
-            ))}
-          </div>
-          
-          <div className="text-center mt-12">
-            <NavLink to="/services">
-              <Button variant="outline" size="lg">
-                View All Recipes
-              </Button>
-            </NavLink>
-          </div>
+          <UpcomingBatches openBrochureForm={openBrochureForm} />
         </div>
       </section>
-      
+
       {/* Institute Section */}
       <InstituteSection />
-      
-      {/* Startup Package Section */}
-      <StartupPackage />
-      
-      {/* How It Works Section */}
-      <section className="py-20 md:py-28">
+
+      {/* Client Registry & Consultation */}
+      <section className="py-16 bg-primary/5">
         <div className="container-custom">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">How We Cook Digital Marketing Success</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Our proven step-by-step process to create the perfect SEO and performance marketing recipe for your business growth
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl font-bold mb-4">Start Your Digital Marketing Journey</h2>
+            <p className="text-muted-foreground mb-8">
+              Register as our client and get personalized digital marketing solutions
             </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="bg-primary/10 w-16 h-16 flex items-center justify-center rounded-full mx-auto mb-4">
-                <span className="text-primary text-xl font-bold">1</span>
-              </div>
-              <h3 className="text-xl font-bold mb-2">SEO Audit & Analysis</h3>
-              <p className="text-muted-foreground">We analyze your current digital marketing ingredients and identify what's missing for optimal performance.</p>
-            </div>
             
-            <div className="text-center">
-              <div className="bg-primary/10 w-16 h-16 flex items-center justify-center rounded-full mx-auto mb-4">
-                <span className="text-primary text-xl font-bold">2</span>
+            <div className="grid md:grid-cols-3 gap-6 mb-8">
+              <div className="bg-white p-6 rounded-xl shadow-lg">
+                <div className="text-green-600 mb-4">
+                  <MessageSquare size={48} className="mx-auto" />
+                </div>
+                <h3 className="font-bold mb-2">WhatsApp Consultation</h3>
+                <p className="text-sm text-muted-foreground mb-4">Quick consultation via WhatsApp</p>
+                <a 
+                  href="https://wa.me/918791363283" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded font-medium transition-colors"
+                >
+                  Chat Now
+                </a>
               </div>
-              <h3 className="text-xl font-bold mb-2">Recipe Creation</h3>
-              <p className="text-muted-foreground">We craft a custom SEO and performance marketing strategy with the right ingredients for success.</p>
+              
+              <div className="bg-white p-6 rounded-xl shadow-lg">
+                <div className="text-blue-600 mb-4">
+                  <span className="text-4xl">📞</span>
+                </div>
+                <h3 className="font-bold mb-2">Phone Consultation</h3>
+                <p className="text-sm text-muted-foreground mb-4">Direct call for detailed discussion</p>
+                <a 
+                  href="tel:+918791363283"
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded font-medium transition-colors"
+                >
+                  Call Now
+                </a>
+              </div>
+              
+              <div className="bg-white p-6 rounded-xl shadow-lg">
+                <div className="text-purple-600 mb-4">
+                  <span className="text-4xl">💻</span>
+                </div>
+                <h3 className="font-bold mb-2">Google Meet Session</h3>
+                <p className="text-sm text-muted-foreground mb-4">Virtual meeting for detailed planning</p>
+                <Button 
+                  className="bg-purple-600 hover:bg-purple-700"
+                  onClick={() => openBrochureForm("Google Meet Consultation")}
+                >
+                  Schedule Meet
+                </Button>
+              </div>
             </div>
-            
-            <div className="text-center">
-              <div className="bg-primary/10 w-16 h-16 flex items-center justify-center rounded-full mx-auto mb-4">
-                <span className="text-primary text-xl font-bold">3</span>
-              </div>
-              <h3 className="text-xl font-bold mb-2">AI Enhancement</h3>
-              <p className="text-muted-foreground">We add our secret AI sauce to amplify SEO results, automate performance marketing, and scale efficiently.</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="bg-primary/10 w-16 h-16 flex items-center justify-center rounded-full mx-auto mb-4">
-                <span className="text-primary text-xl font-bold">4</span>
-              </div>
-              <h3 className="text-xl font-bold mb-2">Measure & Refine</h3>
-              <p className="text-muted-foreground">We continuously taste-test your digital marketing campaigns for optimal SEO and performance marketing results.</p>
+
+            <div className="bg-white p-6 rounded-xl shadow-lg">
+              <h3 className="text-xl font-bold mb-4">Client Registration Form</h3>
+              <p className="text-muted-foreground mb-4">
+                Register with us and get personalized service recommendations
+              </p>
+              <Button 
+                size="lg" 
+                onClick={() => openBrochureForm("Client Registration")}
+                className="bg-primary hover:bg-primary/90"
+              >
+                Register as Client
+              </Button>
+              <p className="text-sm text-muted-foreground mt-2">
+                Details will be sent to both your email and our team
+              </p>
             </div>
           </div>
         </div>
       </section>
-      
-      {/* Results Section */}
-      <section className="py-16 bg-gray-900 text-white">
+
+      {/* Testimonials */}
+      <section className="py-16 bg-white">
         <div className="container-custom">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Digital Marketing Results That Matter</h2>
-            <p className="text-gray-300 max-w-2xl mx-auto">
-              Our SEO services and performance marketing recipes deliver real business impact that you can measure and scale
-            </p>
-          </div>
-          
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-16">
-            <div className="text-center">
-              <div className="text-5xl md:text-6xl font-bold text-neon mb-2">42%</div>
-              <p className="text-xl">Increase in lead quality through SEO</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="text-5xl md:text-6xl font-bold text-neon mb-2">3.8x</div>
-              <p className="text-xl">Average return on ad spend (ROAS)</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="text-5xl md:text-6xl font-bold text-neon mb-2">65%</div>
-              <p className="text-xl">Reduction in customer acquisition cost</p>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-      {/* Testimonials Section */}
-      <section className="py-20">
-        <div className="container-custom">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">What Our Customers Say</h2>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Client Success Stories</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Don't just take our word for it - hear from businesses who've tasted SEO and performance marketing success
+              See how our services have helped businesses grow
             </p>
           </div>
           
@@ -298,7 +377,7 @@ const Index = ({ openBrochureForm }: IndexProps) => {
           </div>
         </div>
       </section>
-      
+
       {/* Call to Action */}
       <CallToAction />
     </>
