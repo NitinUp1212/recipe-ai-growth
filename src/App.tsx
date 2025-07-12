@@ -25,6 +25,7 @@ import LaptopServices from "./pages/LaptopServices";
 import PropertyDealing from "./pages/PropertyDealing";
 import SystemAccessories from "./pages/SystemAccessories";
 import Portfolio from "./pages/Portfolio";
+import DisclaimerPopup from "./components/DisclaimerPopup";
 
 const App = () => {
   // Create a new instance of QueryClient inside the component
@@ -67,6 +68,7 @@ const App = () => {
           </main>
           <Footer />
           <Chatbot />
+          <DisclaimerPopup />
           <BrochureForm 
             isOpen={isBrochureFormOpen} 
             onClose={() => setIsBrochureFormOpen(false)}
