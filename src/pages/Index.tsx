@@ -86,9 +86,9 @@ const Index = ({ openBrochureForm }: IndexProps) => {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative pt-36 pb-20 md:pt-44 md:pb-28 overflow-hidden">
+      <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden">
         <div className="container-custom">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="order-2 md:order-1">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
                 Cook your digital growth strategy with <span className="gradient-text">AI + Performance Marketing</span>
@@ -101,18 +101,18 @@ const Index = ({ openBrochureForm }: IndexProps) => {
                   href="https://wa.me/918791363283" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded text-lg font-medium transition-colors"
+                  className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full text-lg font-medium transition-colors duration-300"
                   aria-label="Chat with Digital Marketing Experts on WhatsApp"
                 >
                   <MessageSquare size={20} />
-                  Chat Now for Free Consultation
+                  Start Free Consultation
                 </a>
                 <Button 
                   variant="outline" 
-                  className="text-lg"
+                  className="text-lg px-6 py-3 rounded-full"
                   onClick={() => openBrochureForm("All Digital Marketing Courses")}
                 >
-                  Download Free Brochure
+                  Download Brochure
                 </Button>
               </div>
             </div>
@@ -125,42 +125,42 @@ const Index = ({ openBrochureForm }: IndexProps) => {
                   className="w-full rounded-lg shadow-md"
                 />
                 <div className="absolute -right-4 -bottom-4 bg-neon text-black rounded-lg px-4 py-2 shadow-lg font-medium">
-                  AI-Powered Digital Marketing
+                  AI-Powered Marketing
                 </div>
               </div>
               
-              {/* Floating elements */}
-              <div className="absolute -top-8 -left-8 bg-white p-3 rounded-lg shadow-lg animate-float">
+              {/* Floating stats */}
+              <div className="absolute -top-6 -left-6 bg-white p-3 rounded-lg shadow-lg animate-float">
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 rounded-full bg-green-500"></div>
                   <span className="font-bold">+127%</span>
-                  <span className="text-sm">ROI Increase</span>
+                  <span className="text-sm">ROI</span>
                 </div>
               </div>
               
-              <div className="absolute -bottom-6 right-12 bg-white p-3 rounded-lg shadow-lg animate-float" style={{animationDelay: "1s"}}>
+              <div className="absolute -bottom-4 right-8 bg-white p-3 rounded-lg shadow-lg animate-float" style={{animationDelay: "1s"}}>
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 rounded-full bg-blue-500"></div>
                   <span className="font-bold">-42%</span>
-                  <span className="text-sm">Cost per Lead</span>
+                  <span className="text-sm">Cost</span>
                 </div>
               </div>
             </div>
           </div>
           
-          <div className="flex justify-center mt-16">
+          <div className="flex justify-center mt-12">
             <Button variant="ghost" className="flex items-center gap-2 text-muted-foreground animate-bounce">
-              <span>Scroll to see our digital marketing recipes</span>
+              <span>See our marketing recipes</span>
               <ArrowDown size={16} />
             </Button>
           </div>
         </div>
       </section>
       
-      {/* Upcoming Digital Marketing Batches Section */}
+      {/* Upcoming Batches Section */}
       <UpcomingBatches openBrochureForm={openBrochureForm} />
       
-      {/* Digital Marketing Services Section */}
+      {/* Services Section */}
       <section className="py-16 bg-white">
         <div className="container-custom">
           <div className="text-center mb-12">
@@ -186,20 +186,20 @@ const Index = ({ openBrochureForm }: IndexProps) => {
           <div className="text-center mt-12">
             <NavLink to="/services">
               <Button variant="outline" size="lg">
-                View All Digital Marketing Recipes
+                View All Recipes
               </Button>
             </NavLink>
           </div>
         </div>
       </section>
       
-      {/* Digital Marketing Institute Section */}
+      {/* Institute Section */}
       <InstituteSection />
       
-      {/* Startup Digital Marketing Package Section */}
+      {/* Startup Package Section */}
       <StartupPackage />
       
-      {/* How Digital Marketing Works Section */}
+      {/* How It Works Section */}
       <section className="py-20 md:py-28">
         <div className="container-custom">
           <div className="text-center mb-16">
@@ -222,7 +222,7 @@ const Index = ({ openBrochureForm }: IndexProps) => {
               <div className="bg-primary/10 w-16 h-16 flex items-center justify-center rounded-full mx-auto mb-4">
                 <span className="text-primary text-xl font-bold">2</span>
               </div>
-              <h3 className="text-xl font-bold mb-2">Digital Marketing Recipe Creation</h3>
+              <h3 className="text-xl font-bold mb-2">Recipe Creation</h3>
               <p className="text-muted-foreground">We craft a custom SEO and performance marketing strategy with the right ingredients for success.</p>
             </div>
             
@@ -230,7 +230,7 @@ const Index = ({ openBrochureForm }: IndexProps) => {
               <div className="bg-primary/10 w-16 h-16 flex items-center justify-center rounded-full mx-auto mb-4">
                 <span className="text-primary text-xl font-bold">3</span>
               </div>
-              <h3 className="text-xl font-bold mb-2">AI Enhancement Integration</h3>
+              <h3 className="text-xl font-bold mb-2">AI Enhancement</h3>
               <p className="text-muted-foreground">We add our secret AI sauce to amplify SEO results, automate performance marketing, and scale efficiently.</p>
             </div>
             
@@ -238,14 +238,14 @@ const Index = ({ openBrochureForm }: IndexProps) => {
               <div className="bg-primary/10 w-16 h-16 flex items-center justify-center rounded-full mx-auto mb-4">
                 <span className="text-primary text-xl font-bold">4</span>
               </div>
-              <h3 className="text-xl font-bold mb-2">Measure & Refine Performance</h3>
-              <p className="text-muted-foreground">We continuously taste-test and refine your digital marketing campaigns for optimal SEO and performance marketing results.</p>
+              <h3 className="text-xl font-bold mb-2">Measure & Refine</h3>
+              <p className="text-muted-foreground">We continuously taste-test your digital marketing campaigns for optimal SEO and performance marketing results.</p>
             </div>
           </div>
         </div>
       </section>
       
-      {/* Digital Marketing Results Section */}
+      {/* Results Section */}
       <section className="py-16 bg-gray-900 text-white">
         <div className="container-custom">
           <div className="text-center mb-16">
@@ -258,7 +258,7 @@ const Index = ({ openBrochureForm }: IndexProps) => {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-16">
             <div className="text-center">
               <div className="text-5xl md:text-6xl font-bold text-neon mb-2">42%</div>
-              <p className="text-xl">Average increase in lead quality through SEO</p>
+              <p className="text-xl">Increase in lead quality through SEO</p>
             </div>
             
             <div className="text-center">
@@ -274,11 +274,11 @@ const Index = ({ openBrochureForm }: IndexProps) => {
         </div>
       </section>
       
-      {/* Digital Marketing Testimonials Section */}
+      {/* Testimonials Section */}
       <section className="py-20">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">What Our Digital Marketing Customers Say</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">What Our Customers Say</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Don't just take our word for it - hear from businesses who've tasted SEO and performance marketing success
             </p>
@@ -299,7 +299,7 @@ const Index = ({ openBrochureForm }: IndexProps) => {
         </div>
       </section>
       
-      {/* Digital Marketing Call to Action */}
+      {/* Call to Action */}
       <CallToAction />
     </>
   );
