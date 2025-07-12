@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -7,7 +8,6 @@ import { useState } from "react";
 import Index from "./pages/Index";
 import ServicesIndex from "./pages/ServicesIndex";
 import ServiceDetail from "./pages/ServiceDetail";
-import AIAgent from "./pages/AIAgent";
 import About from "./pages/About";
 import CaseStudies from "./pages/CaseStudies";
 import CaseStudyDetail from "./pages/CaseStudyDetail";
@@ -25,6 +25,7 @@ import LaptopServices from "./pages/LaptopServices";
 import PropertyDealing from "./pages/PropertyDealing";
 import SystemAccessories from "./pages/SystemAccessories";
 import Portfolio from "./pages/Portfolio";
+import DisclaimerPopup from "./components/DisclaimerPopup";
 
 const App = () => {
   // Create a new instance of QueryClient inside the component
@@ -44,6 +45,7 @@ const App = () => {
         <Sonner />
         <BrowserRouter>
           <ScrollToTop />
+          <DisclaimerPopup />
           <Navbar />
           <main>
             <Routes>
@@ -54,7 +56,6 @@ const App = () => {
               <Route path="/services/laptop-services" element={<LaptopServices />} />
               <Route path="/services/property-dealing" element={<PropertyDealing />} />
               <Route path="/services/system-accessories" element={<SystemAccessories />} />
-              <Route path="/ai-agent" element={<AIAgent />} />
               <Route path="/about" element={<About />} />
               <Route path="/case-studies" element={<CaseStudies />} />
               <Route path="/case-studies/:caseStudyId" element={<CaseStudyDetail />} />

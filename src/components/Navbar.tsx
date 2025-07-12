@@ -49,15 +49,7 @@ const Navbar = () => {
               isActive ? "font-medium text-primary" : "text-foreground hover:text-primary transition-colors"
             }
           >
-            All Services
-          </NavLink>
-          <NavLink 
-            to="/ai-agent" 
-            className={({isActive}) => 
-              isActive ? "font-medium text-primary" : "text-foreground hover:text-primary transition-colors"
-            }
-          >
-            AI Agent
+            Services
           </NavLink>
           <NavLink 
             to="/case-studies" 
@@ -65,7 +57,7 @@ const Navbar = () => {
               isActive ? "font-medium text-primary" : "text-foreground hover:text-primary transition-colors"
             }
           >
-            Taste Test
+            Case Studies
           </NavLink>
           <NavLink 
             to="/courses" 
@@ -73,7 +65,7 @@ const Navbar = () => {
               isActive ? "font-medium text-primary" : "text-foreground hover:text-primary transition-colors"
             }
           >
-            Institute
+            Courses
           </NavLink>
           <NavLink 
             to="/about" 
@@ -81,7 +73,7 @@ const Navbar = () => {
               isActive ? "font-medium text-primary" : "text-foreground hover:text-primary transition-colors"
             }
           >
-            Meet the Chef
+            About Us
           </NavLink>
           <NavLink 
             to="/contact" 
@@ -135,16 +127,7 @@ const Navbar = () => {
                 isActive ? "font-medium text-primary py-3 px-4 rounded-lg bg-primary/10" : "text-foreground py-3 px-4 rounded-lg hover:bg-gray-100"
               }
             >
-              All Services
-            </NavLink>
-            <NavLink 
-              to="/ai-agent" 
-              onClick={() => setMobileMenuOpen(false)}
-              className={({isActive}) => 
-                isActive ? "font-medium text-primary py-3 px-4 rounded-lg bg-primary/10" : "text-foreground py-3 px-4 rounded-lg hover:bg-gray-100"
-              }
-            >
-              AI Agent
+              Services
             </NavLink>
             <NavLink 
               to="/case-studies" 
@@ -153,7 +136,7 @@ const Navbar = () => {
                 isActive ? "font-medium text-primary py-3 px-4 rounded-lg bg-primary/10" : "text-foreground py-3 px-4 rounded-lg hover:bg-gray-100"
               }
             >
-              Taste Test
+              Case Studies
             </NavLink>
             <NavLink 
               to="/courses" 
@@ -162,7 +145,7 @@ const Navbar = () => {
                 isActive ? "font-medium text-primary py-3 px-4 rounded-lg bg-primary/10" : "text-foreground py-3 px-4 rounded-lg hover:bg-gray-100"
               }
             >
-              Institute
+              Courses
             </NavLink>
             <NavLink 
               to="/about" 
@@ -171,7 +154,7 @@ const Navbar = () => {
                 isActive ? "font-medium text-primary py-3 px-4 rounded-lg bg-primary/10" : "text-foreground py-3 px-4 rounded-lg hover:bg-gray-100"
               }
             >
-              Meet the Chef
+              About Us
             </NavLink>
             <NavLink 
               to="/contact" 
