@@ -30,14 +30,14 @@ const UpcomingBatches = ({ openBrochureForm }: UpcomingBatchesProps) => {
     <section className="py-16 bg-gray-50">
       <div className="container-custom">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Upcoming Batch</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Upcoming Batches</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Join our next batch of <span className="font-semibold text-primary">100% online</span> course and begin your journey towards expertise
           </p>
         </div>
         
-        {/* Current Batch */}
-        <div className="max-w-2xl mx-auto mb-16">
+        <div className="grid lg:grid-cols-2 gap-8">
+          {/* Current Batch - Left Side */}
           <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow overflow-hidden border border-gray-100">
             <div className="bg-primary/10 p-4 flex items-center justify-between">
               <h3 className="font-bold text-lg text-primary">{upcomingBatch.courseName}</h3>
@@ -90,35 +90,28 @@ const UpcomingBatches = ({ openBrochureForm }: UpcomingBatchesProps) => {
                 Enroll Now - Download Brochure
               </Button>
             </div>
+          </div>
+
+          {/* Coming Soon Batches - Right Side */}
+          <div className="bg-white rounded-xl shadow-lg p-6">
+            <h3 className="text-2xl font-bold mb-6 text-center">Coming Soon</h3>
+            <div className="space-y-4">
+              {comingSoonBatches.map((course, index) => (
+                <div key={index} className="bg-gray-50 rounded-lg shadow-sm p-4 border border-gray-100">
+                  <h4 className="font-semibold text-gray-800 mb-2">{course}</h4>
+                  <Badge variant="outline" className="text-xs">
+                    Coming Soon
+                  </Badge>
+                </div>
+              ))}
+            </div>
             
-            <div className="bg-gradient-to-r from-primary/10 to-primary/5 px-6 py-3 text-sm">
-              <div className="flex justify-between items-center">
-                <span className="font-medium">Limited Seats Available</span>
-                <span className="text-primary font-medium">Register Today!</span>
-              </div>
+            <div className="mt-8 text-center">
+              <Button size="lg" onClick={() => openBrochureForm("All Courses")}>
+                Get Information About All Courses
+              </Button>
             </div>
           </div>
-        </div>
-
-        {/* Coming Soon Batches */}
-        <div className="text-center">
-          <h3 className="text-2xl font-bold mb-6">Coming Soon</h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
-            {comingSoonBatches.map((course, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-md p-4 border border-gray-100">
-                <h4 className="font-semibold text-gray-800 mb-2">{course}</h4>
-                <Badge variant="outline" className="text-xs">
-                  Coming Soon
-                </Badge>
-              </div>
-            ))}
-          </div>
-        </div>
-        
-        <div className="mt-12 text-center">
-          <Button size="lg" onClick={() => openBrochureForm("All Courses")}>
-            Get Information About All Courses
-          </Button>
         </div>
       </div>
     </section>

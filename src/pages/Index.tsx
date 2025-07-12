@@ -1,13 +1,13 @@
 
 import { NavLink } from "react-router-dom";
-import { ArrowDown, BarChart3, Search, Globe, MessageSquare, LineChart } from "lucide-react";
+import { ArrowDown, BarChart3, Search, Globe, MessageSquare, LineChart, Code, Laptop } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import RecipeCard from "@/components/RecipeCard";
 import TestimonialCard from "@/components/TestimonialCard";
 import CallToAction from "@/components/CallToAction";
 import StartupPackage from "@/components/StartupPackage";
 import InstituteSection from "@/components/InstituteSection";
 import UpcomingBatches from "@/components/UpcomingBatches";
+import FloatingButtons from "@/components/FloatingButtons";
 
 interface IndexProps {
   openBrochureForm: (courseName: string) => void;
@@ -45,10 +45,17 @@ const Index = ({ openBrochureForm }: IndexProps) => {
     },
     {
       title: "Website Development",
-      description: "Conversion-optimized websites and landing pages designed to turn visitors into customers.",
-      icon: <LineChart size={40} />,
+      description: "Professional websites and web applications built with modern technologies for optimal performance.",
+      icon: <Code size={40} />,
       link: "/services/website-development",
-      features: ["Landing Pages", "E-commerce", "CRO"]
+      features: ["Custom Development", "E-commerce", "CMS Solutions"]
+    },
+    {
+      title: "Web Applications",
+      description: "Scalable web applications designed to streamline your business operations and enhance user experience.",
+      icon: <Laptop size={40} />,
+      link: "/services/web-applications",
+      features: ["Custom Apps", "API Integration", "Cloud Solutions"]
     }
   ];
 
@@ -87,21 +94,22 @@ const Index = ({ openBrochureForm }: IndexProps) => {
                 Grow your business with <span className="gradient-text">Digital Marketing</span>
               </h1>
               <p className="text-lg text-muted-foreground mb-8 max-w-lg">
-                Complete digital marketing solutions that deliver measurable results through proven strategies and data-driven approaches.
+                Complete digital marketing and web development solutions that deliver measurable results through proven strategies and modern technologies.
               </p>
               <div className="flex flex-wrap gap-4">
                 <a 
                   href="https://wa.me/918791363283" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded text-lg font-medium transition-colors"
+                  className="inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg text-lg font-medium transition-colors"
                 >
                   <MessageSquare size={20} />
                   Chat Now
                 </a>
                 <Button 
                   variant="outline" 
-                  className="text-lg"
+                  size="lg"
+                  className="px-6 py-3 text-lg"
                   onClick={() => openBrochureForm("All Courses")}
                 >
                   Download Brochure
@@ -158,7 +166,7 @@ const Index = ({ openBrochureForm }: IndexProps) => {
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Services</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Comprehensive digital marketing solutions for every stage of your business growth
+              Comprehensive digital marketing and web development solutions for every stage of your business growth
             </p>
           </div>
           
@@ -201,7 +209,7 @@ const Index = ({ openBrochureForm }: IndexProps) => {
           
           <div className="text-center mt-12">
             <NavLink to="/all-services">
-              <Button variant="outline" size="lg">
+              <Button variant="outline" size="lg" className="px-8 py-3">
                 View All Services
               </Button>
             </NavLink>
@@ -239,7 +247,7 @@ const Index = ({ openBrochureForm }: IndexProps) => {
                 <span className="text-primary text-xl font-bold">2</span>
               </div>
               <h3 className="text-xl font-bold mb-2">Strategy</h3>
-              <p className="text-muted-foreground">We create a custom marketing strategy tailored to your goals.</p>
+              <p className="text-muted-foreground">We create a custom strategy tailored to your goals.</p>
             </div>
             
             <div className="text-center">
@@ -317,6 +325,9 @@ const Index = ({ openBrochureForm }: IndexProps) => {
       
       {/* Call to Action */}
       <CallToAction />
+      
+      {/* Floating Buttons */}
+      <FloatingButtons />
     </>
   );
 };

@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -26,6 +25,9 @@ import PropertyDealing from "./pages/PropertyDealing";
 import SystemAccessories from "./pages/SystemAccessories";
 import Portfolio from "./pages/Portfolio";
 import DisclaimerPopup from "./components/DisclaimerPopup";
+import PerformanceMarketing from "./pages/PerformanceMarketing";
+import SEOServices from "./pages/SEOServices";
+import WebsiteDevelopment from "./pages/WebsiteDevelopment";
 
 const App = () => {
   // Create a new instance of QueryClient inside the component
@@ -53,6 +55,9 @@ const App = () => {
               <Route path="/services" element={<ServicesIndex />} />
               <Route path="/all-services" element={<AllServices />} />
               <Route path="/services/:serviceId" element={<ServiceDetail />} />
+              <Route path="/services/performance-marketing" element={<PerformanceMarketing />} />
+              <Route path="/services/seo" element={<SEOServices />} />
+              <Route path="/services/website-development" element={<WebsiteDevelopment />} />
               <Route path="/services/laptop-services" element={<LaptopServices />} />
               <Route path="/services/property-dealing" element={<PropertyDealing />} />
               <Route path="/services/system-accessories" element={<SystemAccessories />} />
